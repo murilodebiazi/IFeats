@@ -6,7 +6,8 @@ CREATE TABLE Cliente
  telefoneCliente VARCHAR(11) NOT NULL,  
  generoCliente VARCHAR(10) NOT NULL,  
  CPFCliente CHAR(14) NOT NULL UNIQUE,  
- emailCliente VARCHAR(75) NOT NULL UNIQUE
+ emailCliente VARCHAR(75) NOT NULL UNIQUE,
+ senhaCliente VARCHAR(15) NOT NULL
 ); 
 
 CREATE TABLE Produto 
@@ -30,7 +31,8 @@ CREATE TABLE Entregador
  generoEntregador VARCHAR(10) NOT NULL,  
  score INT NOT NULL,  
  idade INT NOT NULL,  
- disponivel BOOLEAN NOT NULL
+ disponivel BOOLEAN NOT NULL,
+ senhaEntregador NOT NULL
 ); 
 
 CREATE TABLE FastFood 
@@ -39,7 +41,8 @@ CREATE TABLE FastFood
  nomeFastFood VARCHAR(200) NOT NULL,  
  avaliacao DOUBLE NOT NULL,  
  enderecoFastFood VARCHAR(255) NOT NULL,  
- telefoneFastFood VARCHAR(11)  
+ telefoneFastFood VARCHAR(11),
+ senhaFastFood VARCHAR(15)
 ); 
 
 CREATE TABLE Pedido 
