@@ -1,3 +1,7 @@
+DROP DATABASE fastfood;
+CREATE DATABASE fastfood;
+USE fastfood;
+
 CREATE TABLE Cliente 
 ( 
  idCliente INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
@@ -8,17 +12,6 @@ CREATE TABLE Cliente
  CPFCliente CHAR(14) NOT NULL UNIQUE,  
  emailCliente VARCHAR(75) NOT NULL UNIQUE,
  senhaCliente VARCHAR(15) NOT NULL
-); 
-
-CREATE TABLE Produto 
-( 
- idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, 
- estoque INT NOT NULL,   
- nomeProduto VARCHAR(100) NOT NULL,  
- descricao TEXT NOT NULL,  
- categoria VARCHAR(25) NOT NULL,  
- idFastFood INT,  
- FOREIGN KEY(idFastFood) REFERENCES FastFood (idFastFood)
 ); 
 
 CREATE TABLE Entregador 
@@ -32,17 +25,30 @@ CREATE TABLE Entregador
  score INT NOT NULL,  
  idade INT NOT NULL,  
  disponivel BOOLEAN NOT NULL,
- senhaEntregador NOT NULL
+ senhaEntregador VARCHAR(15) NOT NULL
 ); 
 
 CREATE TABLE FastFood 
 ( 
- idRestaurante INT PRIMARY KEY,  
+ idFastFood INT PRIMARY KEY,  
+ CNPJ CHAR(14) NOT NULL UNIQUE,
  nomeFastFood VARCHAR(200) NOT NULL,  
  avaliacao DOUBLE NOT NULL,  
  enderecoFastFood VARCHAR(255) NOT NULL,  
  telefoneFastFood VARCHAR(11),
  senhaFastFood VARCHAR(15)
+); 
+
+CREATE TABLE Produto 
+( 
+ idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, 
+ estoque INT NOT NULL,   
+ preco INT NOT NULL,
+ nomeProduto VARCHAR(100) NOT NULL,  
+ descricao TEXT NOT NULL,  
+ categoria VARCHAR(25) NOT NULL,  
+ idFastFood INT,  
+ FOREIGN KEY(idFastFood) REFERENCES FastFood (idFastFood)
 ); 
 
 CREATE TABLE Pedido 
@@ -70,3 +76,23 @@ CREATE TABLE itemPedido
  FOREIGN KEY(idPedidos) REFERENCES Pedido (idPedidos),
  FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
 ); 
+
+CREATE VIEW produtoPorRestaurante AS
+SELECT * FROM Produto
+JOIN FastFood
+ON idFastFood = idFastFood;
+
+SELECT SUM(preco)
+FROM Produto
+WHERE idPedido = x;
+
+SELECT MIN(preco)
+FROM Produto
+WHERE idFastFood = x;
+
+SELECT P.nomeProduto, MAX(preco)
+FROM Produto P
+JOIN FastFood F
+ON P.idFastFood = F.idFastFood
+GROUP BY F.nomeFastFood, P.nomeProduto;
+
