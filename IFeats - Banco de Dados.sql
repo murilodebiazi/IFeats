@@ -1,6 +1,6 @@
-DROP DATABASE fastfood;
-CREATE DATABASE fastfood;
-USE fastfood;
+DROP DATABASE IFeats;
+CREATE DATABASE IFeats;
+USE IFeats;
 
 CREATE TABLE Cliente 
 ( 
@@ -28,15 +28,15 @@ CREATE TABLE Entregador
  senhaEntregador VARCHAR(15) NOT NULL
 ); 
 
-CREATE TABLE FastFood 
+CREATE TABLE Restaurante
 ( 
- idFastFood INT PRIMARY KEY,  
- CNPJ CHAR(14) NOT NULL UNIQUE,
- nomeFastFood VARCHAR(200) NOT NULL,  
+ idRestaurante INT PRIMARY KEY,  
+ cnpj CHAR(14) NOT NULL UNIQUE,
+ nomeRestaurante VARCHAR(200) NOT NULL,  
  avaliacao DOUBLE NOT NULL,  
- enderecoFastFood VARCHAR(255) NOT NULL,  
- telefoneFastFood VARCHAR(11),
- senhaFastFood VARCHAR(15)
+ enderecoRestaurante VARCHAR(255) NOT NULL,  
+ telefoneRestaurante VARCHAR(11),
+ senhaRestaurante VARCHAR(15)
 ); 
 
 CREATE TABLE Produto 
@@ -47,8 +47,8 @@ CREATE TABLE Produto
  nomeProduto VARCHAR(100) NOT NULL,  
  descricao TEXT NOT NULL,  
  categoria VARCHAR(25) NOT NULL,  
- idFastFood INT,  
- FOREIGN KEY(idFastFood) REFERENCES FastFood (idFastFood)
+ idRestaurante INT,  
+ FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante)
 ); 
 
 CREATE TABLE Pedido 
@@ -59,10 +59,10 @@ CREATE TABLE Pedido
  horarioPedido DATETIME,  
  tempoEstimado TIME,  
  horarioEntregue DATETIME,  
- idFastFood INT,  
+ idRestaurante INT,  
  idCliente INT,  
  idEntregador INT,  
- FOREIGN KEY(idFastFood) REFERENCES FastFood (idFastFood),
+ FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante),
  FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente),
  FOREIGN KEY(idEntregador) REFERENCES Entregador (idEntregador)
 ); 
@@ -79,8 +79,8 @@ CREATE TABLE itemPedido
 
 CREATE VIEW produtoPorRestaurante AS
 SELECT * FROM Produto
-JOIN FastFood
-ON idFastFood = idFastFood;
+JOIN Restaurante
+ON idRestaurante = idRestaurante;
 
 SELECT SUM(preco)
 FROM Produto
@@ -88,11 +88,11 @@ WHERE idPedido = x;
 
 SELECT MIN(preco)
 FROM Produto
-WHERE idFastFood = x;
+WHERE idRestaurante = x;
 
 SELECT P.nomeProduto, MAX(preco)
 FROM Produto P
-JOIN FastFood F
-ON P.idFastFood = F.idFastFood
-GROUP BY F.nomeFastFood, P.nomeProduto;
+JOIN Restaurante R
+ON P.idRestaurante = R.idRestaurante
+GROUP BY R.idRestaurante, P.nomeProduto;
 
