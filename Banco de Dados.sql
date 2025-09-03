@@ -16,8 +16,8 @@ CREATE TABLE Cliente
 
 CREATE TABLE Entregador 
 ( 
- nomeEntregador VARCHAR(200) NOT NULL,  
  idEntregador INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
+ nomeEntregador VARCHAR(200) NOT NULL,  
  transporte VARCHAR(20) NOT NULL,  
  CPFEntregador CHAR(14) NOT NULL UNIQUE,  
  emailEntregador VARCHAR(200) NOT NULL UNIQUE,  
@@ -30,7 +30,7 @@ CREATE TABLE Entregador
 
 CREATE TABLE Restaurante
 ( 
- idRestaurante INT PRIMARY KEY,  
+ idRestaurante INT PRIMARY KEY AUTO_INCREMENT,  
  cnpj CHAR(14) NOT NULL UNIQUE,
  nomeRestaurante VARCHAR(200) NOT NULL,  
  avaliacao DOUBLE NOT NULL,  
@@ -47,17 +47,17 @@ CREATE TABLE Produto
  nomeProduto VARCHAR(100) NOT NULL,  
  descricao TEXT NOT NULL,  
  categoria VARCHAR(25) NOT NULL,  
- idRestaurante INT,  
- FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante)
+ id_Restaurante INT,  
+ FOREIGN KEY(id_Restaurante) REFERENCES Restaurante (idRestaurante)
 ); 
 
 CREATE TABLE Pedido 
 ( 
- idPedidos INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
+ idPedido INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
  distancia INT NOT NULL,  
  entregue INT NOT NULL,  
  horarioPedido DATETIME,  
- tempoEstimado TIME,  
+ tempoEstimado INT,  
  horarioEntregue DATETIME,  
  idRestaurante INT,  
  idCliente INT,  
@@ -69,30 +69,55 @@ CREATE TABLE Pedido
 
 CREATE TABLE itemPedido 
 ( 
- idPedidos INT,  
+ idPedido INT,  
  idProduto INT,  
  pedidosProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
  quantidade INT NOT NULL,  
- FOREIGN KEY(idPedidos) REFERENCES Pedido (idPedidos),
+ FOREIGN KEY(idPedido) REFERENCES Pedido (idPedido),
  FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
 ); 
 
-CREATE VIEW produtoPorRestaurante AS
-SELECT * FROM Produto
-JOIN Restaurante
-ON idRestaurante = idRestaurante;
+INSERT INTO Cliente VALUES (null,"Maico","Cidade","666","machosigma","99999999999","deusdonovomundo@gmail.com","maico");
+INSERT INTO Cliente VALUES (null,"Murilo","Jangadas","123","nãogay","maisque2","comedordeplastico@gmail.com","maico1");
+INSERT INTO Cliente VALUES (null,"Kesler","Havan","69","naobinario","058058058058","keslerreidelas69@gmail.com","maico2");
 
-SELECT SUM(preco)
-FROM Produto
-WHERE idPedido = x;
+INSERT INTO Entregador VALUES (null,"ocaiM","APÉ","6666","deusdoantigomundo@gmail.com","fudido",2,35,false,"maico3");
+INSERT INTO Entregador VALUES (null,"Osterkamp","Bugatti","777","alemãohitler@gmail.com","alemão",3,14,true,"maico4");
+INSERT INTO Entregador VALUES (null,"Lesker","bike","1","meextorquiram@gmail.com","explorado",2.99,19.5,true,"maico5");
 
-SELECT MIN(preco)
-FROM Produto
-WHERE idRestaurante = x;
+INSERT INTO Restaurante VALUES (null,"9","Morte Lenta",4.69,"Hoje","303377777","maico6");
+INSERT INTO Restaurante VALUES (null,"22","Kabum",2.5,"Amanhã","80808080","maico7");
+INSERT INTO Restaurante VALUES (null,"99999","Xis do Mirassol",5,"Amazonia","51","maico8");
 
-SELECT P.nomeProduto, MAX(preco)
+INSERT INTO Produto VALUES (null,65535,80,"desgraçamaldita","Não é bom","desgraça",1);
+INSERT INTO Produto VALUES (null,65534,81,"desgraçamaldita2","Não é bom também","desgraça2",1);
+INSERT INTO Produto VALUES (null,0,1,"canudo de plastico","comida do if","plasticos",3);
+INSERT INTO Produto VALUES (null,15,200,"gabinete","da pa comer se tu tentar","gamer",2);
+
+INSERT INTO Pedido VALUES (null,10,false,"1999-10-02 3:33:33",2,null,1,2,3);
+INSERT INTO Pedido VALUES (null,2,true,"2025-09-02 21:17:02",1,"2035-09-02 21:16:03",2,1,1);
+
+CREATE VIEW Cardapio AS 
+SELECT R.nomeRestaurante, P.nomeProduto, P.preco
 FROM Produto P
 JOIN Restaurante R
-ON P.idRestaurante = R.idRestaurante
-GROUP BY R.idRestaurante, P.nomeProduto;
+ON P.id_Restaurante = R.idRestaurante;
 
+SELECT SUM(Pr.preco) AS PreçoDoPedido
+FROM itemPedido i
+JOIN Pedido Pe
+ON i.idPedido = Pe.idPedido
+JOIN Produto Pr
+ON i.idProduto = Pr.idProduto
+WHERE i.idPedido = x;
+
+SELECT GROUP_CONCAT(P.nomeProduto SEPARATOR ', ')
+FROM Produto P
+WHERE P.categoria = "";
+
+SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutos
+FROM Produto P
+JOIN Restaurante R
+ON P.id_Restaurante = R.idRestaurante
+GROUP BY R.nomeRestaurante
+HAVING COUNT(P.idProduto) >= 5;
