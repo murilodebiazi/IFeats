@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmar = $_POST['confirmar'];
 
-if($confirmar == $senha){
+if ($confirmar == $senha) {
     $sql = "INSERT INTO Restaurante (nomeRestaurante, cnpj, emailRestaurante, senhaRestaurante) VALUES ('$nome','$cnpj','$email','$senha')";
     mysqli_query($conexao, $sql);
     $ultimocod = mysqli_insert_id($conexao);
@@ -19,7 +19,6 @@ if($confirmar == $senha){
 
     header("Location: CadastroRestaurante.php?status=ok");
     exit;
-}
-else
+} else
     header("Location: CadastroRestaurante.php?status=erro")
-?>
+        ?>

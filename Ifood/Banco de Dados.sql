@@ -6,9 +6,8 @@ CREATE TABLE Cliente
 ( 
  idCliente INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
  nomeCliente VARCHAR(200) NOT NULL,  
- enderecoCliente VARCHAR(255) NOT NULL,  
- telefoneCliente VARCHAR(11) NOT NULL,  
- generoCliente VARCHAR(10) NOT NULL,  
+ enderecoCliente VARCHAR(255),  
+ telefoneCliente VARCHAR(11),  
  CPFCliente CHAR(14) NOT NULL UNIQUE,  
  emailCliente VARCHAR(75) NOT NULL UNIQUE,
  senhaCliente VARCHAR(15) NOT NULL
@@ -18,23 +17,23 @@ CREATE TABLE Entregador
 ( 
  idEntregador INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
  nomeEntregador VARCHAR(200) NOT NULL,  
- transporte VARCHAR(20) NOT NULL,  
+ transporte VARCHAR(20),  
  CPFEntregador CHAR(14) NOT NULL UNIQUE,  
  emailEntregador VARCHAR(200) NOT NULL UNIQUE,  
- generoEntregador VARCHAR(10) NOT NULL,  
- score INT NOT NULL,  
- idade INT NOT NULL,  
- disponivel BOOLEAN NOT NULL,
- senhaEntregador VARCHAR(15) NOT NULL
+ senhaEntregador VARCHAR(15) NOT NULL ,
+ score INT,  
+ idade INT,  
+ disponivel BOOLEAN
 ); 
 
 CREATE TABLE Restaurante
 ( 
  idRestaurante INT PRIMARY KEY AUTO_INCREMENT,  
  cnpj CHAR(14) NOT NULL UNIQUE,
- nomeRestaurante VARCHAR(200) NOT NULL,  
- avaliacao DOUBLE NOT NULL,  
- enderecoRestaurante VARCHAR(255) NOT NULL,  
+ nomeRestaurante VARCHAR(200) NOT NULL, 
+ emailRestaurante VARCHAR(200) NOT NULL UNIQUE,  
+ avaliacao DOUBLE,  
+ enderecoRestaurante VARCHAR(255),  
  telefoneRestaurante VARCHAR(11),
  senhaRestaurante VARCHAR(15)
 ); 
