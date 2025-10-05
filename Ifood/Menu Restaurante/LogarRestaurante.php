@@ -11,17 +11,9 @@
     <div id="logo">
         <img src="../Logo.png" alt="Logo">
     </div>
-    <form action="Cadastrar.php" method="POST">
 
+    <form action="Login.php" method="POST">
         <div id="a-1">
-            <label>Nome:</label>
-            <input type="text" name="restaurante" required><br><br>
-        </div>
-        <div id="a-2">
-            <label>CNPJ:</label>
-            <input type="text" name="cnpj" required><br><br>
-        </div>
-        <div id="a-2">
             <label>Email:</label>
             <input type="text" name="email" required><br><br>
         </div>
@@ -34,30 +26,24 @@
             <input type="password" name="confirmar" required><br><br>
         </div>
         <div id="a-2">
-            <input type="submit" value="Cadastrar">
+            <input type="submit">
         </div>
     </form>
     <div id="a-2">
         <button onclick="history.go(-1)">Voltar</button>
     </div>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-    <script type="text/javascript">
-        alert("Restaurante cadastrado com sucesso!");
-        window.location.href="MenuRestaurante.html";
-    </script>
-    <?php endif; ?>
-
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
     <script type="text/javascript">
         alert("Senha diferente");
     </script>
     <?php endif; ?>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'nao'): ?>
     <script type="text/javascript">
-        alert("Email já existe");
+        alert("Cadastro não encontrado");
     </script>
     <?php endif; ?>
-
+    
 </body>
+</html>

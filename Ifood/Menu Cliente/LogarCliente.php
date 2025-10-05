@@ -12,8 +12,7 @@
         <img src="../Logo.png" alt="Logo">
     </div>
 
-    <form action="Logar.php" method="POST">
-
+    <form action="Login.php" method="POST">
         <div id="a-1">
             <label>Email:</label>
             <input type="text" name="email" required><br><br>
@@ -27,19 +26,23 @@
             <input type="password" name="confirmar" required><br><br>
         </div>
         <div id="a-2">
-            <input type="submit" value="Logar">
+            <input type="submit">
         </div>
     </form>
-
     <div id="a-2">
         <button onclick="history.go(-1)">Voltar</button>
     </div>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
     <script type="text/javascript">
-        alert("Email Não Encontrado");
+        alert("Senha diferente");
     </script>
     <?php endif; ?>
 
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'nao'): ?>
+    <script type="text/javascript">
+        alert("Cliente não encontrado");
+    </script>
+    <?php endif; ?>
+    
 </body>
-</html>

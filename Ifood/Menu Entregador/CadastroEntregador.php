@@ -51,15 +51,22 @@
     </div>
 
     <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-        <script type="text/javascript">
-            alert("Entregador cadastrado com sucesso!");
-        </script>
+    <script type="text/javascript">
+        alert("Entregador cadastrado com sucesso!");
+        window.location.href="MenuEntregador.html";
+    </script>
     <?php endif; ?>
 
     <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
-        <script type="text/javascript">
-            alert("Senha diferente!");
-        </script>
+    <script type="text/javascript">
+        alert("Senha diferente");
+    </script>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
+    <script type="text/javascript">
+        alert("Email já existe");
+    </script>
     <?php endif; ?>
 
 </body>
