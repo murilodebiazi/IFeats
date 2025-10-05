@@ -45,17 +45,24 @@
         <button onclick="history.back()">Voltar</button>
     </div>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-        <script type="text/javascript">
-            alert("Cliente cadastrado com sucesso!");
-        </script>
-    <?php endif; ?>
+<?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
+    <script type="text/javascript">
+        alert("Cliente cadastrado com sucesso!");
+        window.location.href="MenuCliente.html";
+    </script>
+<?php endif; ?>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
-        <script type="text/javascript">
-            alert("Senha diferente!");
-        </script>
-    <?php endif; ?>
+<?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+    <script type="text/javascript">
+        alert("Senha diferente!");
+    </script>
+<?php endif; ?>
+
+<?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
+    <script type="text/javascript">
+        alert("Email já existe");
+    </script>
+<?php endif; ?>
 
 </body>
 

@@ -5,21 +5,31 @@ require_once "../Conexao.php";
 //pegar o nome do produto
 $nome = $_POST['cliente'];
 $cpf = $_POST['cpf'];
+$telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$telefone = $_POST['telefone'];
 $confirmar = $_POST['confirmar'];
 
-if ($confirmar == $senha) {
-    $sql = "INSERT INTO Cliente (nomeCliente, CPFCliente, emailCliente, senhaCliente, telefoneCliente) VALUES ('$nome','$cpf','$email','$senha','$telefone')";
-    mysqli_query($conexao, $sql);
-    $ultimocod = mysqli_insert_id($conexao);
-    mysqli_close($conexao); //fechar a conexão com BD
+$checarEmail = "SELECT * FROM Cliente WHERE emailCliente='$email'";
+$resultado = $conexao->query($checarEmail);
 
-    //voltar para o formulario de cadastro e passar parametro ok por GET
+if($resultado -> num_rows> 0){
+    header("Location: CadastroCliente.php?status=email");
+}
+else{
+    if($confirmar == $senha){
+        $sql = "INSERT INTO Cliente (nomeCliente, CPFCliente,telefoneCliente, emailCliente, senhaCliente) VALUES ('$nome','$cpf','$telefone','$email','$senha')";
+        mysqli_query($conexao, $sql);
+        $ultimocod = mysqli_insert_id($conexao);
+        mysqli_close($conexao); //fechar a conexão com BD
 
-    header("Location: CadastroCliente.php?status=ok");
-    exit;
-} else
-    header("Location: CadastroCliente.php?status=erro")
-        ?>
+        //voltar para o formulario de cadastro e passar parametro ok por GET
+
+        header("Location: CadastroCliente.php?status=ok");
+        exit;
+    }
+    else{
+        header("Location: CadastroCliente.php?status=erro");
+    }
+}
+?>
