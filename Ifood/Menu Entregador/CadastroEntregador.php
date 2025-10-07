@@ -45,8 +45,8 @@
         <div id="a-2">
             <input type="submit" value="Cadastrar">
         </div>
-        <div id="a-2">
-            <button onclick="history.go(-1)">Voltar</button>
+        <div class="botao">
+            <a href="../Menu Entregador/MenuEntregador.html">Voltar</a>
         </div>
     </form>
 

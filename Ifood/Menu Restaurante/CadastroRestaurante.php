@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ifood</title>
-    <link rel="stylesheet" href="layoutstylesheet0.css">
+    <link rel="stylesheet" href="style3.css">
 </head>
 
 <body>
@@ -36,8 +36,8 @@
         <div id="a-2">
             <input type="submit" value="Cadastrar">
         </div>
-        <div id="a-2">
-            <button onclick="history.go(-1)">Voltar</button>
+        <div class="botao">
+            <a href="../Menu Restaurante/MenuRestaurante.html">Voltar</a>
         </div>
     </form>
 

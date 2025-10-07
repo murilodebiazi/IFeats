@@ -32,8 +32,8 @@
         <div id="a-2">
             <input type="submit" value="Excluir">
         </div>
-        <div id="a-2">
-            <button onclick="history.go(-1)">Voltar</button>
+        <div class="botao">
+            <a href="../Menu Entregador/MenuEntregador.html">Voltar</a>
         </div>
     </form>
     <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>

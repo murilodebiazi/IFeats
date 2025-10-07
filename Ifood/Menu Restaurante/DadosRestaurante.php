@@ -17,7 +17,9 @@ include("Login.php");
             $email = $_SESSION['email'];
             $query = mysqli_query($conexao, "SELECT * FROM Restaurante WHERE emailRestaurante = '$email'");
             while($linha = mysqli_fetch_array($query)){
-                echo "Id :" . $linha['idRestaurante'];
+                echo "Id: " . $linha['idRestaurante'];
+                echo "<br>";
+                echo "Nome: " . $linha['nomeRestaurante'];
                 echo "<br>";
                 echo "CNPJ: ". $linha['cnpj'];
                 echo "<br>";

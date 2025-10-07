@@ -27,8 +27,6 @@ include("Login.php");
                 echo "<br>";
                 echo "Email: ". $linha['emailEntregador'];
                 echo "<br>";
-                echo "Genero: ". $linha['generoEntregador'];
-                echo "<br>";
                 echo "Score: ". $linha['score'];
                 echo "<br>";
                 echo "Idade: ". $linha['idade'];
