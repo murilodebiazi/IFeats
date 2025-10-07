@@ -9,7 +9,7 @@
 
 <body>
     <div class="logo">
-        <img src="../Logo.png" alt="Logo">
+        <a href="../Menu Principal/MenuPrincipal.html"><img src="../Logo.png" alt="Logo"></a>
     </div>
 
     <form class="form" action="Login.php" method="POST">
