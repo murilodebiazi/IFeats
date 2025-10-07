@@ -8,10 +8,10 @@
 </head>
 
 <body>
-    <div id="logo">
+    <div class="logo">
         <img src="../Logo.png" alt="Logo">
     </div>
-    <form action="Excluir.php" method="POST">
+    <form class="form" action="Excluir.php" method="POST">
 
         <div id="a-1">
             <label>CNPJ:</label>
@@ -32,13 +32,14 @@
         <div id="a-2">
             <input type="submit" value="Excluir">
         </div>
+        <div id="a-2">
+            <button onclick="history.go(-1)">Voltar</button>
+        </div>
     </form>
-    <div id="a-2">
-        <button onclick="history.go(-1)">Voltar</button>
-    </div>
     <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
         <script type="text/javascript">
             alert("Restaurante excluído com sucesso!");
+            window.location.href="MenuRestaurante.html";
         </script>
     <?php endif; ?>
 </body>

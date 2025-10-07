@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <div id="logo">
+    <div class="logo">
         <img src="../Logo.png" alt="Logo">
     </div>
 
-    <form action="Login.php" method="POST">
+    <form class="form" action="Login.php" method="POST">
         <div id="a-1">
             <label>Email:</label>
             <input type="text" name="email" required><br><br>
@@ -28,10 +28,10 @@
         <div id="a-2">
             <input type="submit">
         </div>
+        <div id="a-2">
+            <button onclick="history.go(-1)">Voltar</button>
+        </div>
     </form>
-    <div id="a-2">
-        <button onclick="history.go(-1)">Voltar</button>
-    </div>
 
     <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
     <script type="text/javascript">

@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Ifood</title>
-    <link rel="stylesheet" href="layoutstylesheet0.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
-    <div id="logo">
+    <div class="logo">
         <img src="../Logo.png" alt="Logo">
     </div>
-    <form action="Cadastrar.php" method="POST">
+    <form class="form" action="Cadastrar.php" method="POST">
 
         <div id="a-1">
             <label>Nome:</label>
@@ -40,10 +40,10 @@
         <div id="a-2">
             <input type="submit" value="Cadastrar">
         </div>
+        <div id="a-2">
+            <button onclick="history.back()">Voltar</button>
+        </div>
     </form>
-    <div id="a-2">
-        <button onclick="history.back()">Voltar</button>
-    </div>
 
 <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
     <script type="text/javascript">
