@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ifood</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style0.css">
 </head>
 
 <body>

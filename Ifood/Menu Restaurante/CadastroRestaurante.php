@@ -4,60 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Ifood</title>
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="logo">
-        <a href="../Menu Principal/MenuPrincipal.html"><img src="../Logo.png" alt="Logo"></a>
+
+    <div class="cabecalho">
+        <a id="voltar" href="../Menu Restaurante/MenuRestaurante.html">Voltar</a>
+        <a id="logo" href="../Menu Principal/MenuPrincipal.html"><img src="../Logo.png" alt="Logo"></a>
     </div>
-    <form class="form" action="Cadastrar.php" method="POST">
 
-        <div id="a-1">
+    <div class="corpo">
+        <form class="form" action="Cadastrar.php" method="POST">
             <label>Nome:</label>
-            <input type="text" name="restaurante" required><br><br>
-        </div>
-        <div id="a-2">
+            <input type="text" name="restaurante" required>
+
             <label>CNPJ:</label>
-            <input type="text" name="cnpj" required><br><br>
-        </div>
-        <div id="a-2">
+            <input type="text" name="cnpj" required>
+
             <label>Email:</label>
-            <input type="text" name="email" required><br><br>
-        </div>
-        <div id="a-2">
+            <input type="text" name="email" required>
+
             <label>Senha:</label>
-            <input type="password" name="senha" required><br><br>
-        </div>
-        <div id="a-2">
+            <input type="password" name="senha" required>
+
             <label>Confirmar Senha:</label>
-            <input type="password" name="confirmar" required><br><br>
-        </div>
-        <div id="a-2">
-            <input type="submit" value="Cadastrar">
-        </div>
-        <div class="botao">
-            <a href="../Menu Restaurante/MenuRestaurante.html">Voltar</a>
-        </div>
-    </form>
+            <input type="password" name="confirmar" required>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-    <script type="text/javascript">
-        alert("Restaurante cadastrado com sucesso!");
-        window.location.href="MenuRestaurante.html";
-    </script>
-    <?php endif; ?>
+            <p id="erro"> </p>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
-    <script type="text/javascript">
-        alert("Senha diferente");
-    </script>
-    <?php endif; ?>
+            <input class="botao" type="submit" value="Cadastrar">
 
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
-    <script type="text/javascript">
-        alert("Email já existe");
-    </script>
-    <?php endif; ?>
+            <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
+            <script type="text/javascript">
+                alert("Restaurante cadastrado com sucesso!");
+                window.location.href = "MenuRestaurante.html";
+            </script>
+            <?php endif; ?>
 
+            <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+            <script type="text/javascript">
+                document.getElementById("erro").textContent = "Senha diferente";
+            </script>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
+            <script type="text/javascript">
+                document.getElementById("erro").textContent = "Email já existe";
+            </script>
+            <?php endif; ?>
+        </form>
+    </div>
+
+    <div class="rodape">
+        <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
+    </div>
 </body>
+
+</html>

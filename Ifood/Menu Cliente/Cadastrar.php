@@ -29,7 +29,7 @@ else{
         exit;
     }
     else{
-        header("Location: CadastroCliente.php?status=erro");
+        header("Location: CadastroCliente.php?status=senha");
     }
 }
 ?>
