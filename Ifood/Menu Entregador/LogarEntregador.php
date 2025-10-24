@@ -26,6 +26,8 @@
       <label>Confirmar Senha:</label>
       <input type="password" name="confirmar" required>
 
+      <a id="link-cadastro" href="../Menu Entregador/CadastroEntregador.php">Não Possui uma Conta?</a>
+
       <p id="erro"></p>
 
       <input class="botao" type="submit" value="Login">

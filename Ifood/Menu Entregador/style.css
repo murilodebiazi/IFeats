@@ -35,8 +35,25 @@ body{
 
 .form .botao{
     width: 200pt;
-    height: 25pt;
-    margin-top: 8pt;
+    height: 28pt;
+    margin-top: 10pt;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+#link-cadastro{
+    font-size: 10pt;
+    text-decoration: none;
+    color: gray;
+}
+
+#link-cadastro:hover{
+    color: rgb(45, 180, 174);
+}
+
+#link-cadastro:active{
+    color: rgb(16, 84, 80)
 }
 
 #erro{
