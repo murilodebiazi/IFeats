@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Ifood</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 
 <body>
