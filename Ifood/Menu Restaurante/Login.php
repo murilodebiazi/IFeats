@@ -12,8 +12,8 @@
         if($resultado -> num_rows > 0){
             session_start();
             $linha = $resultado->fetch_assoc();
-            $_SESSION['email'] = $linha["emailRestaurante"];
-            header("Location: DadosRestaurante.php");
+            $_SESSION['emailRestaurante'] = $linha["emailRestaurante"];
+            header("Location: TelaRestaurante.php");
             exit();
         }   
         //else{

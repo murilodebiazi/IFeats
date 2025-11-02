@@ -24,13 +24,15 @@ body{
     padding: 20pt 35pt;
 }
 
-.form label, input{
+.form label{
     font-size: 12pt;
     height: 20pt;
 }
 
 .form input{
     margin-bottom: 8pt;
+    font-size: 12pt;
+    height: 20pt;
 }
 
 .form .botao{
@@ -66,7 +68,7 @@ body{
 /* Cabeçalho e Rodapé*/
 
 .cabecalho{
-    background-color: lightgreen;
+    background-color: gold;
     border-bottom: 2px solid black;
     top: 0;
     display: flex;
@@ -82,9 +84,9 @@ body{
     text-decoration: none;
     margin-left: 40pt;
     display: block;
-    background-color: rgba(202, 231, 202, 0.503);
+    background-color: rgba(255, 238, 139, 0.501);
     padding: 5pt;
-    border: 2px rgb(167, 236, 167) solid;
+    border: 2px rgb(253, 223, 53) solid;
     border-radius: 5px;
     color: black;
     font-size: 15pt;
@@ -103,10 +105,39 @@ body{
     margin-right: 75pt;
 }
 
+#logout{
+    text-decoration: none;
+    margin-right: 40pt;
+    display: block;
+    background-color: rgba(255, 238, 139, 0.501);
+    padding: 5pt;
+    border: 2px rgb(253, 223, 53) solid;
+    border-radius: 5px;
+    color: black;
+    font-size: 15pt;
+}
+
+#logout:hover{
+    opacity: 0.5;
+}
+
 .rodape{
-    background-color: lightgreen;
+    background-color: gold;
     border-top: 2px solid black;
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    width: 100%;
+}
+
+.rodape-movel{
+    background-color: gold;
+    border-top: 2px solid black;
     bottom: 0;
     display: flex;
     align-items: center;
@@ -140,5 +171,130 @@ body{
     text-decoration: none;
     color: #FFFFFF;
     background: #333333;
-    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px rgb(59, 255, 163), 0 -10px 20px rgb(21, 163, 97), 0 -18px 40px rgb(29, 112, 73);
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00; 
+}
+
+/* Tela de Perfil */
+
+.perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    border-radius: 6px;
+    align-items: center;
+    height: 90vh;
+    width: 75vh;
+}
+
+.perfil label{
+    font-size: 12pt;
+    height: 20pt;
+    width: 200px;
+}
+
+.perfil input{
+    margin-bottom: 8pt;
+    font-size: 12pt;
+    height: 20pt;
+    width: 200px;
+}
+
+.perfil .botao{
+    height: 28pt;
+    margin-top: 10pt;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.botao-excluir{
+    width: 200px;
+    border-top: darkgray solid 2px;
+    border-left: darkgray solid 2px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    cursor: default;
+}
+
+/* Ver Restaurantes */
+
+.restaurantes{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#m{
+    width: 70vh;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    flex-direction: column;
+}
+
+.titulo{
+    color: goldenrod;
+    text-shadow: 
+    0.4px 0.4px 0 #000,
+    -0.4px -0.4px 0 #000,
+    0.4px -0.4px 0 #000,
+    -0.4px 0.4px 0 #000;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.titulo:active{
+    color: white;
+}
+
+.restaurante{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow-wrap: break-word;
+    height: 100%;
+    border: gray 1px dotted;
+    border-radius: 20px;
+    background-color: rgba(211, 211, 211, 0.2);
+}
+
+.demo{
+    border: 1px double black;
+    float: left;
+    height: 200px;
+    width: 25%;
+    margin: 2em 2em;
+    border-radius: 10%;
+}
+
+#m p{
+    font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 95%;
+}
+
+#m img{
+    height: 43px;
+    width: 45px;
+    margin: 1em 1em;
+}
+
+#m a{
+    text-decoration: none;
+}
+
+#m h1{
+    font-size: 30px;
+    background-image: linear-gradient(to right,orange, rgb(34, 22, 0) );
+    color: transparent;
+    background-clip: text;
 }

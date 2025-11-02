@@ -2,33 +2,24 @@
 
 require_once "../Conexao.php";
 
-//pegar o nome do produto
-$emailA = $_POST['emailA'];
-$emailN = $_POST['emailN'];
-$senhaA = $_POST['senhaA'];
-$senhaN = $_POST['senhaN'];
+session_start();
 
+$emailAntigo = $_SESSION['emailEntregador'];
 
-$checarEmaileSenha = "SELECT * FROM Entregador WHERE emailEntregador='$emailA' AND senhaEntregador='$senhaA'";
-$resultado = $conexao->query($checarEmaileSenha);
+$nome = $_POST['entregador'];
+$cpf = $_POST['cpf'];
+$transporte = $_POST['veiculo'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-if($resultado -> num_rows == 0){
-    header("Location: EditarEntregador.php?status=emailsenha");
-}
-else{
-    if($emailA != $emailN || $senhaA != $senhaN) {
-        $sql = "UPDATE Entregador SET emailEntregador='$emailN', senhaEntregador='$senhaN' WHERE emailEntregador='$emailA' AND senhaEntregador='$senhaA'";
-        mysqli_query($conexao, $sql);
-        $ultimocod = mysqli_insert_id($conexao);
-        mysqli_close($conexao); //fechar a conexão com BD
+$sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email', senhaEntregador='$senha' WHERE emailEntregador='$emailAntigo'";
+mysqli_query($conexao, $sql);
+$ultimocod = mysqli_insert_id($conexao);
+mysqli_close($conexao);
 
-        //voltar para o formulario de Editar e passar parametro ok por GET
+$_SESSION['emailEntregador'] = $email;
 
-        header("Location: EditarEntregador.php?status=ok");
-        exit;
-    }
-    else{
-        header("Location: EditarEntregador.php?status=erro");
-    }
-}
+header("Location: TelaEntregador.php");
+exit;
+
 ?>

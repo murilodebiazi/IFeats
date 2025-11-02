@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Ifood</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 
 <body>
@@ -35,9 +34,7 @@
       <label>Confirmar Senha:</label>
       <input type="password" name="confirmar" required> 
 
-      <a id="link-cadastro" href="../Menu Cliente/LogarCliente.php">Já Possui uma Conta?</a>
-
-      <p id="erro"></p>
+      <p id="erro"> </p>
 
       <input class="botao" type="submit" value="Cadastrar">
       

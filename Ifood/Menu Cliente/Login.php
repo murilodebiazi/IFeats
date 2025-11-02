@@ -12,8 +12,8 @@
         if($resultado -> num_rows > 0){
             session_start();
             $linha = $resultado->fetch_assoc();
-            $_SESSION['email'] = $linha["emailCliente"];
-            header("Location: DadosCliente.php");
+            $_SESSION['emailCliente'] = $linha["emailCliente"];
+            header("Location: TelaCliente.php");
             exit();
         }   
         //else{

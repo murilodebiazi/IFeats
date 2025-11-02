@@ -1,23 +1,16 @@
 <?php
+    require_once "../Conexao.php";
 
-require_once "../Conexao.php";
+    session_start();
 
-//pegar o nome do produto
-$cnpj = $_POST['cnpj'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$confirmar = $_POST['confirmar'];
-
-if ($confirmar == $senha) {
-    $sql = "DELETE FROM Restaurante WHERE cnpj = '$cnpj' AND emailRestaurante = '$email' AND senhaRestaurante = '$senha';";
+    $email = $_SESSION['emailRestaurante'];
+    
+    $sql = "DELETE FROM Restaurante WHERE emailRestaurante = '$email'";
     mysqli_query($conexao, $sql);
     $ultimocod = mysqli_insert_id($conexao);
-    mysqli_close($conexao); //fechar a conexão com BD
+    mysqli_close($conexao);
+    
+    session_destroy();
 
-    //voltar para o formulario de cadastro e passar parametro ok por GET
-
-    header("Location: ExcluirREstaurante.php?status=ok");
-    exit;
-} else
-    header("Location: ExcluirRestaurante.php?status=erro")
-        ?>
+    header("Location: ../Menu Principal/MenuPrincipal.html")
+?>

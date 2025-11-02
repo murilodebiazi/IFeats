@@ -1,3 +1,11 @@
+<?php
+    error_reporting(0);
+    session_start();
+    if ($_SESSION['emailEntregador'] != null) {
+	    header("location: TelaEntregador.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +13,6 @@
   <meta charset="UTF-8">
   <title>Ifood</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 
 <body>

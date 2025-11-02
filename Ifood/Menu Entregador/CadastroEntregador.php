@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Ifood</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 
 <body>
@@ -44,8 +43,6 @@
         <input type="radio" name="veiculo" value="carro" required>
         <label>Carro</label>
       </div>
-
-      <a id="link-cadastro" href="../Menu Entregador/LogarEntregador.php">Já Possui uma Conta?</a>
 
       <p id="erro"> </p>
 

@@ -9,7 +9,6 @@ include("Login.php");
     <meta charset="UTF-8">
     <title>Ifood</title>
     <link rel="stylesheet" href="layoutstylesheet0.css">
-    <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 <body>
     <div>

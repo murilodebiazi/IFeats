@@ -1,3 +1,11 @@
+<?php
+    error_reporting(0);
+    session_start();
+    if ($_SESSION['emailCliente'] != null) {
+	    header("location: TelaCliente.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,11 +13,9 @@
   <meta charset="UTF-8">
   <title>Ifood</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="../Icon.png" type="image/png">
 </head>
 
 <body>
-  
   <div class="cabecalho">
     <a id="voltar" href="../Menu Cliente/MenuCliente.html">Voltar</a>
     <a id="logo" href="../Menu Principal/MenuPrincipal.html"><img src="../Logo.png" alt="Logo"></a>
@@ -30,7 +36,7 @@
 
       <p id="erro"></p>
 
-      <input class="botao" type="submit" value="Login">
+      <input class="botao" type="submit" name="LogIn" value="Login">
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
       <script type="text/javascript">
@@ -40,7 +46,7 @@
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'nao'): ?>
       <script type="text/javascript">
-        document.getElementById("erro").textContent = "Cliente não encontrado";
+        document.getElementById("erro").textContent = "Verifique Email e/ou Senha";
       </script>
       <?php endif; ?>
     </form>

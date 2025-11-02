@@ -1,23 +1,18 @@
 <?php
+    require_once "../Conexao.php";
 
-require_once "../Conexao.php";
+    session_start();
 
-//pegar o nome do produto
-$cpf = $_POST['cpf'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$confirmar = $_POST['confirmar'];
-
-if ($confirmar == $senha) {
-    $sql = "DELETE FROM Entregador WHERE CPFEntregador = '$cpf' AND emailEntregador = '$email' AND senhaEntregador = '$senha';";
+    $email = $_SESSION['emailEntregador'];
+    
+    $sql = "DELETE FROM Entregador WHERE emailEntregador = '$email'";
     mysqli_query($conexao, $sql);
     $ultimocod = mysqli_insert_id($conexao);
-    mysqli_close($conexao); //fechar a conexão com BD
+    mysqli_close($conexao);
 
-    //voltar para o formulario de cadastro e passar parametro ok por GET
+    $_SESSION['emailEntregador'] = null;
 
-    header("Location: ExcluirEntregador.php?status=ok");
-    exit;
-} else
-    header("Location: ExcluirEntregador.php?status=erro")
-        ?>
+    session_destroy();
+
+    header("Location: ../Menu Principal/MenuPrincipal.html")
+?>

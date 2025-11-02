@@ -12,12 +12,11 @@
         if($resultado -> num_rows > 0){
             session_start();
             $linha = $resultado->fetch_assoc();
-            $_SESSION['email'] = $linha["emailEntregador"];
-            header("Location: DadosEntregador.php");
+            $_SESSION['emailEntregador'] = $linha["emailEntregador"];
+            header("Location: TelaEntregador.php");
             exit();
-        }   
-        //else{
-            //header("Location: LogarEntregador.php?status=nao");
+        }//else{
+            //("Location: LogarEntregador.php?status=nao");
         //}
     }
     else{

@@ -2,33 +2,25 @@
 
 require_once "../Conexao.php";
 
+session_start();
+
+$emailAntigo = $_SESSION['emailCliente'];
+
 //pegar o nome do produto
-$emailA = $_POST['emailA'];
-$emailN = $_POST['emailN'];
-$senhaA = $_POST['senhaA'];
-$senhaN = $_POST['senhaN'];
+$nome = $_POST['cliente'];
+$cpf = $_POST['cpf'];
+$telefone = $_POST['telefone'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
+$sql = "UPDATE Cliente SET nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', senhaCliente='$senha' WHERE emailCliente='$emailAntigo'";
+mysqli_query($conexao, $sql);
+$ultimocod = mysqli_insert_id($conexao);
+mysqli_close($conexao);
 
-$checarEmaileSenha = "SELECT * FROM Cliente WHERE emailCliente='$emailA' AND senhaCliente='$senhaA'";
-$resultado = $conexao->query($checarEmaileSenha);
+$_SESSION['emailCliente'] = $email;
 
-if($resultado -> num_rows == 0){
-    header("Location: EditarCliente.php?status=emailsenha");
-}
-else{
-    if($emailA != $emailN || $senhaA != $senhaN) {
-        $sql = "UPDATE Cliente SET emailCliente='$emailN', senhaCliente='$senhaN' WHERE emailCliente='$emailA' AND senhaCliente='$senhaA'";
-        mysqli_query($conexao, $sql);
-        $ultimocod = mysqli_insert_id($conexao);
-        mysqli_close($conexao); //fechar a conexão com BD
+header("Location: TelaCliente.php");
+exit;
 
-        //voltar para o formulario de Editar e passar parametro ok por GET
-
-        header("Location: EditarCliente.php?status=ok");
-        exit;
-    }
-    else{
-        header("Location: EditarCliente.php?status=erro");
-    }
-}
 ?>

@@ -2,33 +2,25 @@
 
 require_once "../Conexao.php";
 
-//pegar o nome do produto
-$emailA = $_POST['emailA'];
-$emailN = $_POST['emailN'];
-$senhaA = $_POST['senhaA'];
-$senhaN = $_POST['senhaN'];
+session_start();
 
+$emailAntigo = $_SESSION['emailRestaurante'];
 
-$checarEmaileSenha = "SELECT * FROM Restaurante WHERE emailRestaurante='$emailA' AND senhaRestaurante='$senhaA'";
-$resultado = $conexao->query($checarEmaileSenha);
+$nome = $_POST['Restaurante'];
+$cnpj = $_POST['cnpj'];
+$email = $_POST['email'];
+$endereco = $_POST['endereço'];
+$telefone = $_POST['telefone'];
+$senha = $_POST['senha'];
 
-if($resultado -> num_rows == 0){
-    header("Location: EditarRestaurante.php?status=emailsenha");
-}
-else{
-    if($emailA != $emailN || $senhaA != $senhaN) {
-        $sql = "UPDATE Restaurante SET emailRestaurante='$emailN', senhaRestaurante='$senhaN' WHERE emailRestaurante='$emailA' AND senhaRestaurante='$senhaA'";
-        mysqli_query($conexao, $sql);
-        $ultimocod = mysqli_insert_id($conexao);
-        mysqli_close($conexao); //fechar a conexão com BD
+$sql = "UPDATE Restaurante SET nomeRestaurante='$nome', cnpj = '$cnpj' , emailRestaurante='$email', enderecoRestaurante= '$endereco' , telefoneRestaurante='$telefone', senhaRestaurante='$senha' WHERE emailRestaurante='$emailAntigo'";
+mysqli_query($conexao, $sql);
+$ultimocod = mysqli_insert_id($conexao);
+mysqli_close($conexao);
 
-        //voltar para o formulario de Editar e passar parametro ok por GET
+$_SESSION['emailRestaurante'] = $email;
 
-        header("Location: EditarRestaurante.php?status=ok");
-        exit;
-    }
-    else{
-        header("Location: EditarRestaurante.php?status=erro");
-    }
-}
+header("Location: TelaRestaurante.php");
+exit;
+
 ?>
