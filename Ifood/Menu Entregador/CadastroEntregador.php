@@ -46,6 +46,8 @@
 
       <p id="erro"> </p>
 
+      <a id="link-cadastro" href="../Menu Entregador/LogarEntregador.php">Já Possui uma Conta?</a>
+
       <input class="botao" type="submit" value="Cadastrar">
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>

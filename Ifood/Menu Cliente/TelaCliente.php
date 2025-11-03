@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="rodape-movel">
+  <div class="rodape">
     <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
   </div>
 </body>
