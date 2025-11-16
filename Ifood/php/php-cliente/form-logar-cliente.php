@@ -33,7 +33,7 @@ if ($_SESSION['emailCliente'] != null) {
       <label>Confirmar Senha:</label>
       <input type="password" name="confirmar" required>
 
-      <a id="link-cadastro" href="../Menu Cliente/CadastroCliente.php">Não Possui uma Conta?</a>
+      <a id="link-cadastro" href="form-cadastrar-cliente.php">Não Possui uma Conta?</a>
 
       <p id="erro"></p>
 

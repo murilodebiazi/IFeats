@@ -31,6 +31,11 @@ require_once('verificar-sessao-restaurante.php');
     <a id="logout" href="deslogar-restaurante.php">Logout</a>
   </div>
 
+  <div class="corpo">
+    <a class="botao-restaurante" href="../php-produto/form-cadastrar-produto.php">Cadastrar um Produto</a>
+    <a class="botao-restaurante" href="../php-produto/listar-produtos.php">Ver os Produtos</a>
+  </div>
+
   <div class="rodape">
     <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
   </div>

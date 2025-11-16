@@ -10,7 +10,7 @@ CREATE TABLE Cliente
  telefoneCliente VARCHAR(11),  
  CPFCliente CHAR(14) NOT NULL UNIQUE,  
  emailCliente VARCHAR(75) NOT NULL UNIQUE,
- senhaCliente VARCHAR(15) NOT NULL
+ senhaCliente VARCHAR(200) NOT NULL
 ); 
 
 CREATE TABLE Entregador 
@@ -20,9 +20,8 @@ CREATE TABLE Entregador
  transporte VARCHAR(20),  
  CPFEntregador CHAR(14) NOT NULL UNIQUE,  
  emailEntregador VARCHAR(200) NOT NULL UNIQUE,  
- senhaEntregador VARCHAR(15) NOT NULL ,
- score INT,  
- idade INT,  
+ senhaEntregador VARCHAR(200) NOT NULL ,
+ avaliacao DOUBLE,
  disponivel BOOLEAN
 ); 
 
@@ -33,16 +32,18 @@ CREATE TABLE Restaurante
  nomeRestaurante VARCHAR(200) NOT NULL, 
  emailRestaurante VARCHAR(200) NOT NULL UNIQUE,  
  avaliacao DOUBLE,  
+ categoria VARCHAR(100),
+ descricao TEXT,
  enderecoRestaurante VARCHAR(255),  
  telefoneRestaurante VARCHAR(11),
- senhaRestaurante VARCHAR(15)
+ senhaRestaurante VARCHAR(200)
 ); 
 
 CREATE TABLE Produto 
 ( 
  idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, 
- estoque INT NOT NULL,   
- preco INT NOT NULL,
+ emEstoque BOOLEAN NOT NULL,   
+ preco DOUBLE NOT NULL,
  nomeProduto VARCHAR(100) NOT NULL,  
  descricao TEXT NOT NULL,  
  categoria VARCHAR(25) NOT NULL,  
@@ -53,11 +54,9 @@ CREATE TABLE Produto
 CREATE TABLE Pedido 
 ( 
  idPedido INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
- distancia INT NOT NULL,  
- entregue INT NOT NULL,  
- horarioPedido DATETIME,  
- tempoEstimado INT,  
- horarioEntregue DATETIME,  
+ status VARCHAR(20) NOT NULL,  
+ horarioPedido TIME,  
+ horarioEntregue TIME,  
  idRestaurante INT,  
  idCliente INT,  
  idEntregador INT,  
@@ -76,13 +75,13 @@ CREATE TABLE itemPedido
  FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
 ); 
 
-CREATE VIEW Cardapio AS 
-SELECT R.nomeRestaurante, P.nomeProduto, P.preco
-FROM Produto P
-JOIN Restaurante R
-ON P.id_Restaurante = R.idRestaurante;
+CREATE TABLE administrador 
+(
+ nome VARCHAR(200),
+ senha VARCHAR(200)
+ );
 
-SELECT SUM(Pr.preco) AS PreçoDoPedido
+SELECT SUM(Pr.preco) AS PrecoDoPedido
 FROM itemPedido i
 JOIN Pedido Pe
 ON i.idPedido = Pe.idPedido
@@ -90,13 +89,25 @@ JOIN Produto Pr
 ON i.idProduto = Pr.idProduto
 WHERE i.idPedido = x;
 
-SELECT GROUP_CONCAT(P.nomeProduto SEPARATOR ', ')
-FROM Produto P
-WHERE P.categoria = "";
-
-SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutos
-FROM Produto P
-JOIN Restaurante R
+SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
+FROM Restaurante R
+JOIN Produto P
 ON P.id_Restaurante = R.idRestaurante
-GROUP BY R.nomeRestaurante
-HAVING COUNT(P.idProduto) >= 5;
+GROUP BY R.nomeRestaurante;
+
+SELECT *
+FROM Restaurante r
+WHERE r.avaliacao >= x;
+
+SELECT *
+FROM Produto p
+WHERE p.preco > x;
+
+CREATE VIEW EntregadoresDisponiveis AS
+SELECT *
+FROM Entregador
+WHERE disponivel = true;
+
+SELECT *
+FROM Produto
+ORDER BY preco;

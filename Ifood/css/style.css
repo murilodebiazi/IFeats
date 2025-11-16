@@ -1,9 +1,18 @@
-<<<<<<< HEAD:Ifood/css/style.css
-body {
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 /* Corpo (Centralizar o formulário)*/
 
 .corpo {
@@ -11,7 +20,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    flex-grow: 1;
+    margin: 20px;
 }
 
 /* Formulário */
@@ -75,15 +85,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
-    padding: 0;
+    padding: 25px;
     height: 8vh;
     width: 100%;
 }
 
 #voltar {
     text-decoration: none;
-    margin-left: 40pt;
+    margin-left: 15pt;
     display: block;
     background-color: rgba(202, 231, 202, 0.503);
     padding: 5pt;
@@ -106,9 +115,15 @@ body {
     margin-right: 75pt;
 }
 
+#logo img:hover {
+    width: 150px;
+    margin-right: 75pt;
+    opacity: 60%;
+}
+
 #logout {
     text-decoration: none;
-    margin-right: 40pt;
+    margin-right: 15pt;
     display: block;
     background-color: rgba(202, 231, 202, 0.503);
     padding: 5pt;
@@ -125,15 +140,14 @@ body {
 .rodape {
     background-color: lightgreen;
     border-top: 2px solid black;
-    position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
     height: 5vh;
     width: 100%;
+    padding: 20px;
+    font-size: 20px;
 }
 
 .rodape-movel {
@@ -143,10 +157,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
     height: 5vh;
     width: 100%;
+    padding: 20px;
+    font-size: 20px;
 }
 
 /* Menu */
@@ -299,218 +313,12 @@ body {
     color: transparent;
     background-clip: text;
 }
-=======
-body{
-    margin: 0;
-    padding: 0;
-}
 
-/* Corpo (Centralizar o formulário)*/ 
+/* sessao restaurante */
 
-.corpo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-}
-
-/* Formulário */
-
-.form{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    border-radius: 6px;
-    justify-content: space-between;
-    padding: 20pt 35pt;
-}
-
-.form label{
-    font-size: 12pt;
-    height: 20pt;
-}
-
-.form input{
-    margin-bottom: 8pt;
-    font-size: 12pt;
-    height: 20pt;
-}
-
-.form .botao{
-    width: 200pt;
-    height: 28pt;
-    margin-top: 10pt;
-    color: white;
-    background-color: black;
-    border-radius: 10px;
-}
-
-#link-cadastro{
-    font-size: 10pt;
-    text-decoration: none;
-    color: gray;
-}
-
-#link-cadastro:hover{
-    color: rgb(45, 180, 174);
-}
-
-#link-cadastro:active{
-    color: rgb(16, 84, 80)
-}
-
-#erro{
-    margin: 0;
-    padding: 0;
-    color: red;
-    font-size: 12pt;
-}
-
-/* Cabeçalho e Rodapé*/
-
-.cabecalho{
-    background-color: lightgreen;
-    border-bottom: 2px solid black;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    height: 8vh;
-    width: 100%;
-}
-
-#voltar{
-    text-decoration: none;
-    margin-left: 40pt;
-    display: block;
-    background-color: rgba(202, 231, 202, 0.503);
-    padding: 5pt;
-    border: 2px rgb(167, 236, 167) solid;
-    border-radius: 5px;
-    color: black;
-    font-size: 15pt;
-}
-
-#voltar:hover{
-    opacity: 0.5;
-}
-
-#logo{
-    margin: 0 auto;
-}
-
-#logo img{
-    width: 150px;
-    margin-right: 75pt;
-}
-
-#logout{
-    text-decoration: none;
-    margin-right: 40pt;
-    display: block;
-    background-color: rgba(202, 231, 202, 0.503);
-    padding: 5pt;
-    border: 2px rgb(167, 236, 167) solid;
-    border-radius: 5px;
-    color: black;
-    font-size: 15pt;
-}
-
-#logout:hover{
-    opacity: 0.5;
-}
-
-.rodape{
-    background-color: lightgreen;
-    border-top: 2px solid black;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    height: 5vh;
-    width: 100%;
-}
-
-.rodape-movel{
-    background-color: lightgreen;
-    border-top: 2px solid black;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    height: 5vh;
-    width: 100%;
-}
-
-/* Menu */
-
-.menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 6px;
-    padding: 20pt 35pt;
-}
-
-.menu .botao-menu{
-    width: 200pt;
-    margin-top: 10pt;
-    margin-bottom: 10pt;
-    padding: 5px 5px;
-    text-align: center;
-    border-color: black;  
-    border-style: outset;
-    text-decoration: none;
-    color: #FFFFFF;
-    background: #333333;
-    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00; 
-}
-
-/* Tela de Perfil */
-
-.perfil{
-    display: flex;
-    flex-direction: column;
-    background-color: lightgray;
-    border-radius: 6px;
-    align-items: center;
-    height: 90vh;
-    width: 75vh;
-}
-
-.perfil label{
-    font-size: 12pt;
-    height: 20pt;
+.botao-restaurante {
     width: 200px;
-}
-
-.perfil input{
-    margin-bottom: 8pt;
-    font-size: 12pt;
-    height: 20pt;
-    width: 200px;
-}
-
-.perfil .botao{
-    height: 28pt;
-    margin-top: 10pt;
-    color: white;
-    background-color: black;
-    border-radius: 10px;
-}
-
-.botao-excluir{
-    width: 200px;
+    margin: 5px;
     border-top: darkgray solid 2px;
     border-left: darkgray solid 2px;
     vertical-align: middle;
@@ -525,74 +333,31 @@ body{
     cursor: default;
 }
 
-/* Ver Restaurantes */
-
-.restaurantes{
+.produtos {
+    margin: auto;
+    width: 400px;
     margin-top: 5vh;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    border: solid gray 4px;
+    box-shadow: black 3px 3px 3px;
 }
 
-#m{
-    width: 70vh;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-    flex-direction: column;
-}
-
-.titulo{
-    color: goldenrod;
-    font-size: 20px;
-    text-align: justify;
-}
-
-.titulo:active{
-    color: white;
-}
-
-.restaurante{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow-wrap: break-word;
-    height: 100%;
-    border: gray 1px dotted;
-    border-radius: 20px;
-    background-color: rgba(211, 211, 211, 0.2);
-}
-
-.demo{
-    border: 1px double black;
-    float: left;
-    height: 200px;
-    width: 25%;
-    margin: 2em 2em;
-    border-radius: 10%;
-}
-
-#m p{
-    font-size: 18px;
-    margin-bottom: 0;
-    margin-top: 0;
-    width: 95%;
-}
-
-#m img{
-    height: 43px;
-    width: 45px;
-    margin: 1em 1em;
-}
-
-#m a{
-    text-decoration: none;
-}
-
-#m h1{
+.produtos .produto{
+    margin: 15px;
+    border: solid black 2px;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
     font-size: 30px;
-    background-image: linear-gradient(to right,orange, rgb(34, 22, 0) );
-    color: transparent;
-    background-clip: text;
+    background-color: #64646483;
 }
->>>>>>> fe67595e58f9c3a5074b6e977aca94660c855f87:Ifood/Menu Cliente/style.css
+
+.produtos .produto a{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}

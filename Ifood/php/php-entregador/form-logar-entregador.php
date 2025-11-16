@@ -19,7 +19,7 @@ if ($_SESSION['emailEntregador'] != null) {
 <body>
 
   <div class="cabecalho">
-    <a id="voltar" href="../../html/menu-cliente.html">Voltar</a>
+    <a id="voltar" href="../../html/menu-entregador.html">Voltar</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
   </div>
 
