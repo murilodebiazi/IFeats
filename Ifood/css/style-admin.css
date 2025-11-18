@@ -13,24 +13,25 @@ html, body {
 body {
   background: #f5f7fb;
   color: #333;
-  line-height: 1.6;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 /* CONTAINER PRINCIPAL */
-#container {
+.container {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto; /* ocupa todo o espaço vertical restante */
+  flex: 1;
   width: 100%;
-  max-width: 1000px;
-  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   overflow: hidden;
   margin: 0 auto;
+}
+
+.card {
+  flex-grow: 1;
 }
 
 /*
@@ -270,14 +271,14 @@ body {
 #container {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto; /* container ocupa todo espaço disponível */
+  flex-grow: 1 0 auto; /* container ocupa todo espaço disponível */
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 #container main {
-  flex: 1 0 auto; /* main cresce para empurrar o footer */
+  flex-grow: 1; /* main cresce para empurrar o footer */
 }
 
 /* garante que o footer fique no fim */

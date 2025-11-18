@@ -43,7 +43,7 @@ require_once('verificar-sessao-entregador.php');
       <input type="email" name="email" value='<?php echo $linha['emailEntregador'] ?>' required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" value='<?php echo $linha['senhaEntregador'] ?>' required>
+      <input type="password" name="senha" required>
 
       <label>Veículo:</label>
 

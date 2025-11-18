@@ -48,7 +48,7 @@ require_once('verificar-sessao-restaurante.php');
       <input type="text" name="telefone" value='<?php echo $linha['telefoneRestaurante'] ?>' required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" value='<?php echo $linha['senhaRestaurante'] ?>' required>
+      <input type="password" name="senha" required>
 
       <input class="botao" type="submit" value="Editar">
 

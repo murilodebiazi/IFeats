@@ -41,7 +41,7 @@
         <input type="text" name="nome" required>
 
         <label>Preço:</label>
-        <input type="number" name="preco" required>
+        <input type="number" name="preco" step="0.01" min="0" max="100" inputmode="decimal">
 
         <label>Descrição:</label>
         <input type="text" name="descricao" required>

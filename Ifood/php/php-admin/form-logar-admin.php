@@ -11,12 +11,12 @@
 
   <div class="container">
 
-    <div class="card" style="max-width: 400px; margin: 80px auto;">
-      <h1 class="h1 text-center">Acesso à Área Restrita</h1>
-      <p class="lead text-center">Informe seu usuário e senha para continuar.</p>
+    <div class="card">
+      <h1 class="h1 text-center" style="text-align: center">Acesso à Área Restrita</h1>
+      <p class="lead text-center" style="text-align: center">Informe seu usuário e senha para continuar.</p>
       <hr style="margin: 16px 0; border: none; border-top: 1px dashed rgba(0,0,0,0.1);">
 
-      <form action="logar-admin.php" method="post" class="form">
+      <form action="logar-admin.php" method="post" class="form" style="width: 400px">
 
         <div class="form-group">
           <label for="use">Usuário</label>

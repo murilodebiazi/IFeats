@@ -17,7 +17,8 @@ if ($resultado->num_rows > 0) {
     header("Location: form-cadastrar-cliente.php?status=email");
 } else {
     if ($confirmar == $senha) {
-        $sql = "INSERT INTO Cliente (nomeCliente, CPFCliente,telefoneCliente, emailCliente, senhaCliente) VALUES ('$nome','$cpf','$telefone','$email','$senha')";
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO Cliente (nomeCliente, CPFCliente,telefoneCliente, emailCliente, senhaCliente) VALUES ('$nome','$cpf','$telefone','$email','$senha_hash')";
         mysqli_query($conexao, $sql);
         $ultimocod = mysqli_insert_id($conexao);
         mysqli_close($conexao); //fechar a conexão com BD

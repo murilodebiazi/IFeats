@@ -15,7 +15,8 @@ if ($resultado->num_rows > 0) {
     header("Location: form-cadastrar-restaurante.php?status=email");
 } else {
     if ($confirmar == $senha) {
-        $sql = "INSERT INTO Restaurante (nomeRestaurante, cnpj, emailRestaurante, senhaRestaurante) VALUES ('$nome','$cnpj','$email','$senha')";
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO Restaurante (nomeRestaurante, cnpj, emailRestaurante, senhaRestaurante) VALUES ('$nome','$cnpj','$email','$senha_hash')";
         mysqli_query($conexao, $sql);
         $ultimocod = mysqli_insert_id($conexao);
         mysqli_close($conexao); //fechar a conexão com BD

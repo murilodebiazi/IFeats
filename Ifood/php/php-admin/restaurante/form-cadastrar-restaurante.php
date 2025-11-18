@@ -51,7 +51,7 @@ require_once("../verificar-sessao-admin.php");
       <input type="text" name="telefone" value='<?php echo $linha['telefoneRestaurante']?>' required>
 
       <label>Avaliação:</label>
-      <input type="text" name="avaliacao" value='<?php echo $linha['avaliacao']?>' required>
+      <input type="number" name="avaliacao" step="0.01" min="0" max="5" inputmode="decimal" value='<?php echo $linha['avaliacao']?>' required>
 
       <label>Categoria:</label>
       <input type="text" name="categoria" value='<?php echo $linha['categoria']?>' required>

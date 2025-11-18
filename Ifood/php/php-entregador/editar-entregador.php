@@ -12,7 +12,8 @@ $transporte = $_POST['veiculo'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email', senhaEntregador='$senha' WHERE emailEntregador='$emailAntigo'";
+$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+$sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email', senhaEntregador='$senha_hash' WHERE emailEntregador='$emailAntigo'";
 mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);
 mysqli_close($conexao);

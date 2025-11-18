@@ -28,6 +28,10 @@ require_once('verificar-sessao-entregador.php');
     <a id="logout" href="deslogar-entregador.php">Logout</a>
   </div>
 
+  <div class="corpo">
+    <p>sessao entregador :)</p>
+  </div>
+
   <div class="rodape">
     <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
   </div>

@@ -7,14 +7,16 @@ $senha = $_POST['senha'] ?? "";
 $confirmar = $_POST['confirmar'] ?? "";
 
 if ($confirmar == $senha) {
-    $sql = "SELECT * FROM Restaurante WHERE emailRestaurante='$email' AND senhaRestaurante='$senha'";
+    $sql = "SELECT * FROM Restaurante WHERE emailRestaurante='$email'";
     $resultado = $conexao->query($sql);
     if ($resultado->num_rows > 0) {
-        session_start();
         $linha = $resultado->fetch_assoc();
+        if(password_verify($senha, $linha['senhaRestaurante'])) {
+        session_start();
         $_SESSION['emailRestaurante'] = $linha["emailRestaurante"];
         header("Location: sessao-restaurante.php");
         exit();
+        }
     }
     //else{
     //header("Location: LogarRestaurante.php?status=nao");

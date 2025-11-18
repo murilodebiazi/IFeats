@@ -1,4 +1,4 @@
-DROP DATABASE IFeats;
+DROP DATABASE IF EXISTS IFeats;
 CREATE DATABASE IFeats;
 USE IFeats;
 
@@ -41,12 +41,12 @@ CREATE TABLE Restaurante
 
 CREATE TABLE Produto 
 ( 
- idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, 
- emEstoque BOOLEAN NOT NULL,   
+ idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
+ nomeProduto VARCHAR(100) NOT NULL,
  preco DOUBLE NOT NULL,
- nomeProduto VARCHAR(100) NOT NULL,  
  descricao TEXT NOT NULL,  
- categoria VARCHAR(25) NOT NULL,  
+ categoria VARCHAR(25) NOT NULL,
+ emEstoque BOOLEAN NOT NULL,   
  id_Restaurante INT,  
  FOREIGN KEY(id_Restaurante) REFERENCES Restaurante (idRestaurante)
 ); 

@@ -7,14 +7,16 @@ $senha = $_POST['senha'] ?? "";
 $confirmar = $_POST['confirmar'] ?? "";
 
 if ($confirmar == $senha) {
-    $sql = "SELECT * FROM Cliente WHERE emailCliente='$email' AND senhaCliente='$senha'";
+    $sql = "SELECT * FROM Cliente WHERE emailCliente='$email'";
     $resultado = $conexao->query($sql);
     if ($resultado->num_rows > 0) {
-        session_start();
         $linha = $resultado->fetch_assoc();
+        if(password_verify($senha, $linha['senhaCliente'])) {
+        session_start();
         $_SESSION['emailCliente'] = $linha["emailCliente"];
         header("Location: sessao-cliente.php");
         exit();
+        }
     }
     //else{
     //    header("Location: LogarCliente.php?status=nao");

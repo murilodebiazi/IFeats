@@ -16,8 +16,9 @@ $resultado = $conexao->query($checarEmail);
 if ($resultado->num_rows > 0) {
     header("Location: form-cadastrar-entregador.php?status=email");
 } else {
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
     if ($confirmar == $senha) {
-        $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte) VALUES ('$nome','$cpf','$email','$senha','$veiculo')";
+        $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte) VALUES ('$nome','$cpf','$email','$senha_hash','$veiculo')";
         mysqli_query($conexao, $sql);
         $ultimocod = mysqli_insert_id($conexao);
         mysqli_close($conexao); //fechar a conexão com BD

@@ -20,8 +20,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
-    margin: 20px;
+    flex: 1;
 }
 
 /* Formulário */
@@ -197,7 +196,7 @@ body {
     background-color: lightgray;
     border-radius: 6px;
     align-items: center;
-    height: 90vh;
+    height: 100%;
     width: 75vh;
 }
 
@@ -242,9 +241,10 @@ body {
 
 .restaurantes {
     margin-top: 5vh;
-    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: baseline;
+    flex: 1;
 }
 
 #m {
