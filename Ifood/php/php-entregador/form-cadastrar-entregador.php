@@ -11,23 +11,20 @@
 <body>
 
   <div class="cabecalho">
-    <a id="voltar" href="../../html/menu-cliente.html">Voltar</a>
+    <a id="voltar" href="../../html/menu-entregador.html">Voltar</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
   </div>
 
   <div class="corpo">
-    <form class="form" action="cadastrar-cliente.php" method="POST">
+    <form class="form" action="cadastrar-entregador.php" method="POST">
       <label>Nome:</label>
-      <input type="text" name="cliente" size="10" required>
+      <input type="text" name="entregador" required>
 
       <label>CPF:</label>
       <input type="text" name="cpf" required>
 
-      <label>Telefone:</label>
-      <input type="number" name="telefone" required>
-
       <label>Email:</label>
-      <input type="text" name="email" required>
+      <input type="email" name="email" required>
 
       <label>Senha:</label>
       <input type="password" name="senha" required>
@@ -35,18 +32,31 @@
       <label>Confirmar Senha:</label>
       <input type="password" name="confirmar" required>
 
+      <label>Veículo:</label>
+
+      <div class="escolha">
+        <input type="radio" name="veiculo" value="bicicleta" required>
+        <label>Bicicleta</label>
+
+        <input type="radio" name="veiculo" value="moto" required>
+        <label>Moto</label>
+
+        <input type="radio" name="veiculo" value="carro" required>
+        <label>Carro</label>
+      </div>
+
       <p id="erro"> </p>
 
       <input class="botao" type="submit" value="Cadastrar">
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
         <script type="text/javascript">
-          alert("Cliente cadastrado com sucesso!");
-          window.location.href = "../../html/menu-cliente.html";
+          alert("Entregador cadastrado com sucesso!");
+          window.location.href = "../../html/menu-entregador.html";
         </script>
       <?php endif; ?>
 
-      <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
+      <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
         <script type="text/javascript">
           document.getElementById("erro").textContent = "Senha diferente";
         </script>
