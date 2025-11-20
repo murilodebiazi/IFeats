@@ -43,7 +43,7 @@ require_once("../verificar-sessao-admin.php");
 
       <label>Telefone:</label>
       <input type="number" name="telefone" required> 
-
+      <br>
       <label>Email:</label>
       <input type="text" name="email" required>
 

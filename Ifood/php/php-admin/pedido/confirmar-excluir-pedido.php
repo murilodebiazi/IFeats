@@ -13,13 +13,13 @@ $id = $_GET['id'];
 <body>
     <div class="container" style="text-align:center; margin-top:50px;">
         <main>
-            <h2>Tem certeza que deseja excluir este produto?</h2>
+            <h2>Tem certeza que deseja excluir este pedido?</h2>
 
-            <form action="exec-excluir-produto.php" method="post" style="display:inline-block; margin:10px;">
+            <form action="exec-excluir-pedido.php" method="post" style="display: inline-block; margin: 10px;">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <button type="submit" name="confirmar" value="sim" class="btn">Sim, excluir</button>
                 <button type="button" name="cancelar"
-                    onclick="window.location.href='listar-produto.php?retorno=Exclusão%20cancelada!'">
+                    onclick="window.location.href='listar-pedido.php?retorno=Exclusão%20cancelada!'">
                     Cancelar
                 </button>
 

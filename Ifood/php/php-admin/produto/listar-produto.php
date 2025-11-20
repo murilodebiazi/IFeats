@@ -72,7 +72,7 @@ $resultado = mysqli_query($conexao, "SELECT * FROM Produto");
               <td><?php echo htmlspecialchars($linha['descricao']); ?></td>
               <td><?php echo htmlspecialchars($linha['categoria']); ?></td>
               <td><?php echo htmlspecialchars($linha['emEstoque']); ?></td>
-              <td><?php echo htmlspecialchars($linha['id_Restaurante']); ?></td>
+              <td><?php echo htmlspecialchars($linha['idRestaurante']); ?></td>
               <td class="actions">
                 <a href="form-editar-produto.php?id=<?php echo $linha['idProduto']; ?>" class="btn small">Atualizar</a>
                 <a href="confirmar-excluir-produto.php?id=<?php echo $linha['idProduto']; ?>" class="btn small danger">Excluir</a>

@@ -1,15 +1,14 @@
 <?php
 require_once "../../conectar.php";
 //pegar nome do produto - ESTE IF É IMPORTANTÍSSIMO: EVITAR INJEÇÃO DE SQL, GRAVAR REGISTRO VAZIO
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome']))
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['idCliente']))
  { 
-      $nome = $_POST['nome'];
-      $preco = $_POST['preco'];
-      $descricao = $_POST['descricao'];
-      $categoria = $_POST['categoria'];
-      $estoque = $_POST['estoque'];
-      $idRestaurante = $_POST['idRestaurante'];
-      
+     $status = $_POST['status'];
+     $horarioPedido = $_POST['horarioPedido'];
+     $horarioEntrega = $_POST['horarioEntrega'];
+     $idRestaurante = $_POST['idRestaurante'];
+     $idCliente = $_POST['idCliente'];
+     $idEntregador = $_POST['idEntregador'];   
  } 
  else 
  { 
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome']))
  exit; 
 }
 
-$sql = "INSERT INTO Produto (nomeProduto, preco, descricao, categoria, emEstoque, idRestaurante) VALUES ('$nome','$preco','$descricao','$categoria', '$estoque', '$idRestaurante')";
+$sql = "INSERT INTO Pedido (status, horarioPedido, horarioEntregue, idRestaurante, idCliente, idEntregador) VALUES ('$status', '$horarioPedido', '$horarioEntrega', '$idRestaurante' , '$idCliente', '$idEntregador')";
 mysqli_query($conexao, $sql);
 //rotina php para UPLOAD da foto do produto
 //pegar o ultimo código gerado pelo mySQL
@@ -28,5 +27,5 @@ move_uploaded_file($imagem,$arquivo);
 mysqli_close($conexao); //fechar a conexão com BD
 //voltar para form-cadastrar e passsar parâmetro por GET com mensagem de: OK
        $msg= urlencode('ok');
-       header("location: form-cadastrar-produto.php?retorno=$msg");
+       header("location: form-cadastrar-pedido-produto.php?idPedido=$ultimocod&idRestaurante=$idRestaurante");
 ?>
