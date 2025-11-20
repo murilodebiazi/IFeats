@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../php-restaurante/logar-restaurante.php");
-require_once('../php-restaurante/verificar-sessao-restaurante.php');
+include("logar-cliente.php");
+require_once('verificar-sessao-cliente.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,12 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
 
 <body>
     <?php
-    $sqlProdutos = "SELECT * FROM Produto";
+    $idRestaurante= $_GET['id'];
+    $sqlRestaurante= "SELECT * FROM Restaurante WHERE idRestaurante = '$idRestaurante'";
+    $restaurante= $conexao->query($sqlRestaurante);
+    $linhaR = mysqli_fetch_assoc($restaurante); 
+
+    $sqlProdutos = "SELECT * FROM Produto WHERE idRestaurante = '$idRestaurante'";
     $produtosListados = $conexao->query($sqlProdutos);
     ?>
     <div class="cabecalho">
@@ -25,27 +30,34 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
         <a id="logout" href="../php-restaurante/deslogar-restaurante.php">Logout</a>
     </div>
     <div class="corpo">
-        <h1>Produtos:</h1>
-        <div class="produtos">
+
+        <div class="">
+            <h1><?php echo $linhaR['nomeRestaurante'] ?></h1>
+            <p>Categoria: <?php echo $linhaR['categoria'] ?> </p>
+            <p> <?php echo $linhaR['avaliacao'] ?> </p>
+            <p>Endereço: <?php echo $linhaR['enderecoRestaurante'] ?> </p>
+            <p>Telefone: <?php echo $linhaR['telefoneRestaurante'] ?></p>
+        </div>
+
+        <a href="../php-pedido/criar-pedido.php?id=<?php echo $idRestaurante?>"> + Fazer Pedido</a>
+        
+        <h1>Cardapio:</h1>
+        <div class="cardapio">
             <?php while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
                 <div class="produto">
                     <p> <?php echo $linhaP['nomeProduto'];?> </p>
                     <p> R$<?php echo $linhaP['preco'];?> </p>
                     <p> <?php echo $linhaP['categoria'];?> </p>
-                    <a href="form-editar-produto.php?id=<?php echo $linhaP['idProduto']?>">Editar</a> 
-                    <a href="excluir-produto.php?id=<?php echo $linhaP['idProduto']?>">Excluir</a> 
+                    <?php if($linhaP['emEstoque'] == 0){?> <p>Indisponível</p> <?php } ?>
                 </div>
             <?php } ?>
         </div>
+
     </div>
+
     <div class="rodape">
         <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
     </div>
-    <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-            <script type="text/javascript">
-                alert("Produto editado com sucesso!");
-            </script>
-    <?php endif; ?>
 </body>
 
 </html>

@@ -21,10 +21,10 @@
             <input type="text" name="produto" required>
 
             <label>Preço do Produto:</label>
-            <input type="number" name="preco" min="0" step="0.01" value="0.00" required>
+            <input type="number" name="preco" min="0" step="0.01" placeholder="0.00" required>
 
             <label>Descrição do Produto:</label>
-            <input type="text" name="descricao" required>
+            <textarea name="descricao" rows="5" col="30" required> </textarea>
 
             <label>Categoria do Produto:</label>
             <input type="text" name="categoria" required>

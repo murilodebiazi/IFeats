@@ -17,7 +17,7 @@ $linha = $resultado->fetch_assoc();
 
 $idRestaurante = $linha['idRestaurante'];
 
-$sql = "INSERT INTO Produto (nomeProduto, preco, descricao, categoria, emEstoque, id_Restaurante)
+$sql = "INSERT INTO Produto (nomeProduto, preco, descricao, categoria, emEstoque, idRestaurante)
 VALUES ('$nome','$preco','$descricao','$categoria', '$estoque', '$idRestaurante')";
 
 mysqli_query($conexao, $sql);
