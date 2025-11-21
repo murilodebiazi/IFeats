@@ -16,6 +16,11 @@ require_once('verificar-sessao-cliente.php');
 
 <body>
     <?php
+    $email = $_SESSION['emailCliente'];
+    $sql = "SELECT * FROM Cliente WHERE emailCliente = '$email'";
+    $resultado = $conexao->query($sql);
+     $linha = $resultado->fetch_assoc();
+
     $idRestaurante= $_GET['id'];
     $sqlRestaurante= "SELECT * FROM Restaurante WHERE idRestaurante = '$idRestaurante'";
     $restaurante= $conexao->query($sqlRestaurante);
@@ -25,9 +30,11 @@ require_once('verificar-sessao-cliente.php');
     $produtosListados = $conexao->query($sqlProdutos);
     ?>
     <div class="cabecalho">
-        <a id="voltar" href="../php-restaurante/sessao-restaurante.php">Voltar</a>
+        <a id="voltar" href="perfil-cliente.php"><?php echo $linha['nomeCliente'] ?></a>
+        <a id="verpedidos" href="menu-pedidos-cliente.php">Pedidos</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
-        <a id="logout" href="../php-restaurante/deslogar-restaurante.php">Logout</a>
+        <a id="verrestaurantes" href="sessao-cliente.php">Restaurantes</a>
+        <a id="logout" href="deslogar-cliente.php">Logout</a>
     </div>
     <div class="corpo">
 

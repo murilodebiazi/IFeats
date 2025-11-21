@@ -28,7 +28,7 @@ $quantidade = $_POST['quantidade'];
         if(isset($_POST['finalizar'])){
             //voltar para form-cadastrar e passsar parâmetro por GET com mensagem de: OK
             $horarioAtual = date("H:i:s");
-            $sqlP = "UPDATE Pedido SET status='enviado', horarioEntregue='$horarioAtual' WHERE idPedido='$idPedido'";
+            $sqlP = "UPDATE Pedido SET status='Enviado', horarioPedido='$horarioAtual' WHERE idPedido='$idPedido'";
             mysqli_query($conexao, $sqlP);
             mysqli_close($conexao); //fechar a conexão com BD
             header("Location: ../php-cliente/ver-cardapio.php?id=$idRestaurante");

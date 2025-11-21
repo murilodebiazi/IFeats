@@ -14,4 +14,9 @@ mysqli_close($conexao);
 if($_GET['acao'] == "cancelarCliente"){
     header("Location: ../php-cliente/ver-cardapio.php?id=$idRestaurante");
 }
+else{
+    if($_GET['acao'] == "cancelarPedidoCliente"){
+        header("Location: ../php-cliente/ver-pedidos-cliente.php");
+    }
+}
 ?>

@@ -10,7 +10,7 @@ $resultadoCliente = $conexao->query($sqlCliente);
 $cliente = $resultadoCliente->fetch_assoc();
 $idCliente = $cliente['idCliente'];
 
-$sql = "INSERT INTO Pedido (status, idRestaurante, idCliente) VALUES ('Pedindo', '$idRestaurante','$idCliente')";
+$sql = "INSERT INTO Pedido (status, idCliente) VALUES ('Pedindo','$idCliente')";
 mysqli_query($conexao, $sql);
 
 //rotina php para UPLOAD da foto do produto

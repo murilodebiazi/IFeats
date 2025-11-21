@@ -11,4 +11,4 @@ $ultimocod = mysqli_insert_id($conexao);
 mysqli_close($conexao);
 
 header("Location: listar-produtos.php")
-    ?>
+?>

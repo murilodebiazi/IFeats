@@ -24,7 +24,6 @@ require_once('../php-cliente/verificar-sessao-cliente.php');
     ?>
 
     <div class="cabecalho">
-        <a id="voltar" href="../php-restaurante/sessao-restaurante.php">Voltar</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     </div>
 

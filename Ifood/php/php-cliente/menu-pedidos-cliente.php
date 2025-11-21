@@ -27,28 +27,15 @@ require_once('verificar-sessao-cliente.php');
   ?>
   <div class="cabecalho">
     <a id="voltar" href="perfil-cliente.php"><?php echo $linha['nomeCliente'] ?></a>
-    <a id="verpedidos" href="menu-pedidos-cliente.php">Pedidos</a>
+    <a id="verpedidos" href="ver-pedidos-cliente.php">Pedidos</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
-    <a id="verRestaurantes" href="sessao-cliente.php">Restaurantes</a>
+    <a id="verrestaurantes" href="sessao-cliente.php">Restaurantes</a>
     <a id="logout" href="deslogar-cliente.php">Logout</a>
   </div>
 
-  <div class="restaurantes">
-    <div id="m">
-      <?php while ($linhaR = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-        <div class='restaurante'>
-          <br>
-          <a href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><img class='demo' src=' '
-              alt='<?php echo $linhaR['nomeRestaurante'] ?>'></a>
-          <a class='titulo'
-            href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><b><?php echo $linhaR['nomeRestaurante'] ?></b></a>
-          <br> <br>
-          <p><?php echo $linhaR['avaliacao'] ?></p>
-          <br>
-        </div>
-        <br>
-      <?php } ?>
-    </div>
+  <div class="corpo">
+    <a class="botao-cliente" href="ver-pedidos-cliente.php">Pedidos Em Espera:</a>
+    <a class="botao-cliente" href="historico-pedidos-cliente.php">Histórico de Pedidos</a>
   </div>
 
   <div class="rodape-movel">
