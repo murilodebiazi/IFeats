@@ -26,6 +26,18 @@
             <label>Email:</label>
             <input type="email" name="email" required>
 
+            <label>Endereço:</label>
+            <input type="text" name="endereco" required>
+
+            <label>Telefone:</label>
+            <input type="text" name="telefone" required>
+
+            <label>Categoria:</label>
+            <input type="text" name="categoria" required>
+
+            <label>Descrição:</label>
+            <textarea name="descricao" rows="5" col="30" required> </textarea>
+
             <label>Senha:</label>
             <input type="password" name="senha" required>
 

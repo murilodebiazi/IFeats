@@ -48,11 +48,11 @@ require_once('verificar-sessao-entregador.php');
       <label>Veículo:</label>
 
       <div class="escolha">
-        <input type="radio" name="veiculo" value="bicicleta" required>
+        <input type="radio" name="veiculo" value="bicicleta" <?php if($linha['transporte'] == "bicicleta"){?> checked <?php } ?>required>
         <label>Bicicleta</label>
-        <input type="radio" name="veiculo" value="moto" required>
+        <input type="radio" name="veiculo" value="moto" <?php if($linha['transporte'] == "moto"){?> checked <?php } ?>required>
         <label>Moto</label>
-        <input type="radio" name="veiculo" value="carro" required>
+        <input type="radio" name="veiculo" value="carro" <?php if($linha['transporte'] == "carro"){?> checked <?php } ?>required>
         <label>Carro</label>
       </div>
 

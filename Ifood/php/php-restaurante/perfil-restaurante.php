@@ -47,6 +47,12 @@ require_once('verificar-sessao-restaurante.php');
       <label>Telefone:</label>
       <input type="text" name="telefone" value='<?php echo $linha['telefoneRestaurante'] ?>' required>
 
+      <label>Categoria:</label>
+      <input type="text" name="categoria" value='<?php echo $linha['categoria'] ?>' required>
+
+      <label>Descrição:</label>
+      <textarea name="descricao" rows="5" col="30" required><?php echo $linha['descricao'] ?></textarea>
+
       <label>Senha:</label>
       <input type="password" name="senha" required>
 

@@ -29,6 +29,9 @@
       <label>Email:</label>
       <input type="text" name="email" required>
 
+      <label>Endereço:</label>
+      <input type="text" name="endereco" required>
+
       <label>Senha:</label>
       <input type="password" name="senha" required>
 

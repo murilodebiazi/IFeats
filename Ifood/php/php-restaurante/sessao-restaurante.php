@@ -25,11 +25,13 @@ require_once('verificar-sessao-restaurante.php');
   $sqlRestaurante = "SELECT * FROM Restaurante";
   $resultadoRestaurante = $conexao->query($sqlRestaurante);
   ?>
-  <div class="cabecalho">
-    <a id="voltar" href="perfil-restaurante.php"><?php echo $linha['nomeRestaurante'] ?></a>
-    <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
-    <a id="logout" href="deslogar-restaurante.php">Logout</a>
-  </div>
+    <div class="cabecalho">
+        <a id="voltar" href="perfil-Restaurante.php"><?php echo $linha['nomeRestaurante'] ?></a>
+        <a id="verpedidos" href="menu-pedidos-Restaurante.php">Pedidos</a>
+        <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
+        <a id="verrestaurantes" href="sessao-Restaurante.php">Produtos</a>
+        <a id="logout" href="deslogar-Restaurante.php">Logout</a>
+    </div>
 
   <div class="corpo">
     <a class="botao-restaurante" href="../php-produto/form-cadastrar-produto.php">Cadastrar um Produto</a>

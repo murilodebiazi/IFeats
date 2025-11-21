@@ -44,6 +44,9 @@ require_once('verificar-sessao-cliente.php');
       <label>Email:</label>
       <input type="text" name="email" value='<?php echo $linha['emailCliente'] ?>' required>
 
+      <label>Endereço:</label>
+      <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente'] ?>' required>
+
       <label>Senha:</label>
       <input type="password" name="senha" value='<?php echo $linha['senhaCliente'] ?>' required>
 

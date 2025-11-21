@@ -11,10 +11,12 @@ $cnpj = $_POST['cnpj'];
 $email = $_POST['email'];
 $endereco = $_POST['endereço'];
 $telefone = $_POST['telefone'];
+$categoria = $_POST['categoria'];
+$descricao = $_POST['descricao'];
 $senha = $_POST['senha'];
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-$sql = "UPDATE Restaurante SET nomeRestaurante='$nome', cnpj = '$cnpj' , emailRestaurante='$email', enderecoRestaurante= '$endereco' , telefoneRestaurante='$telefone', senhaRestaurante='$senha_hash' WHERE emailRestaurante='$emailAntigo'";
+$sql = "UPDATE Restaurante SET nomeRestaurante='$nome', cnpj = '$cnpj' , emailRestaurante='$email', enderecoRestaurante= '$endereco' , telefoneRestaurante='$telefone', categoria='$categoria', descricao='$descricao', senhaRestaurante='$senha_hash' WHERE emailRestaurante='$emailAntigo'";
 mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);
 mysqli_close($conexao);

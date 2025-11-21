@@ -55,6 +55,7 @@ require_once('verificar-sessao-cliente.php');
                     <p> <?php echo $linhaP['nomeProduto'];?> </p>
                     <p> R$<?php echo $linhaP['preco'];?> </p>
                     <p> <?php echo $linhaP['categoria'];?> </p>
+                    <p> <?php echo $linhaP['descricao'];?> </p>
                     <?php if($linhaP['emEstoque'] == 0){?> <p>Indisponível</p> <?php } ?>
                 </div>
             <?php } ?>

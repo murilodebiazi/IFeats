@@ -11,9 +11,10 @@ $nome = $_POST['cliente'];
 $cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
+$endereco = $_POST['endereco'];
 $senha = $_POST['senha'];
 
-$sql = "UPDATE Cliente SET nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', senhaCliente='$senha' WHERE emailCliente='$emailAntigo'";
+$sql = "UPDATE Cliente SET nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', enderecoCliente='$endereco', senhaCliente='$senha' WHERE emailCliente='$emailAntigo'";
 mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);
 mysqli_close($conexao);
