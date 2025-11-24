@@ -112,7 +112,7 @@ SELECT p.idPedido AS idPedido,
  ON r.idRestaurante = p.idRestaurante
  GROUP BY(idPedido);
 
-SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
+/* SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
 FROM Restaurante R
 JOIN Produto P
 ON P.id_Restaurante = R.idRestaurante

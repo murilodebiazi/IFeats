@@ -18,11 +18,13 @@ if ($resultado->num_rows > 0) {
 } else {
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
     if ($confirmar == $senha) {
-        $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte) VALUES ('$nome','$cpf','$email','$senha_hash','$veiculo')";
-        mysqli_query($conexao, $sql);
-        $ultimocod = mysqli_insert_id($conexao);
-        mysqli_close($conexao); //fechar a conexão com BD
-
+        $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conexao, $sql);
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "sssss", $nome,$cpf, $email, $senha_hash, $veiculo);
+            mysqli_stmt_execute($stmt);
+            mysqli_close($conexao); //fechar a conexão com BD
+        }
         //voltar para o formulario de cadastro e passar parametro ok por GET
 
         header("Location: form-cadastrar-entregador.php?status=ok");

@@ -1,5 +1,5 @@
 <?php
-require_once ("../../conectar.php");
+require_once("../../conectar.php");
 require_once("../verificar-sessao-admin.php");
 
 // Verifica se a requisição é POST
