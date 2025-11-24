@@ -50,10 +50,6 @@ body {
     white-space: nowrap;
 }
 
-.cabecalho a:hover {
-    background-color: #008f45;
-}
-
 #logo {
     padding: 0;
     margin-left: auto;

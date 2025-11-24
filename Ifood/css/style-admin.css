@@ -31,13 +31,15 @@ body {
 
 .card {
   flex-grow: 1;
-  color: #fff;
   font-weight: 700;
   font-size: 1.05rem;
   margin-top: 25px;
   margin-bottom: 25px;
   align-items: center;
+  color: white;
 }
+
+
 
 /*
 
@@ -131,6 +133,7 @@ form {
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  color: black;
 }
 
 label {
@@ -189,6 +192,7 @@ td {
   background-color: #f9f9fb;
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  color: black;
 }
 
 tr:hover td {

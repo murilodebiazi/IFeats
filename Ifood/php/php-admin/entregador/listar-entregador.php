@@ -59,7 +59,6 @@ $resultado = mysqli_query($conexao, "SELECT * FROM entregador");
             <th>Transporte</th>
             <th>Email</th>
             <th>avaliacao</th>
-            <th>disponivel</th>
             <th style="width:150px;">Ações</th>
           </tr>
         </thead>
@@ -72,7 +71,6 @@ $resultado = mysqli_query($conexao, "SELECT * FROM entregador");
               <td><?php echo htmlspecialchars($linha['transporte']); ?></td>
               <td><?php echo htmlspecialchars($linha['emailEntregador']); ?></td>
               <td><?php echo htmlspecialchars($linha['avaliacao']); ?></td>
-              <td><?php echo htmlspecialchars($linha['disponivel']); ?></td>
               <td class="actions">
                 <a href="form-editar-entregador.php?id=<?php echo $linha['idEntregador']; ?>" class="btn small">Atualizar</a>
                 <a href="confirmar-excluir-entregador.php?id=<?php echo $linha['idEntregador']; ?>" class="btn small danger">Excluir</a>
