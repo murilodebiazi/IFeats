@@ -85,7 +85,6 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
                   <?php } ?>
                 </td>
                 <td class="actions">
-                  <a href="form-editar-pedido.php?id=<?php echo $linha['idPedido']; ?>" class="btn small">Atualizar</a>
                   <a href="confirmar-excluir-pedido.php?id=<?php echo $linha['idPedido']; ?>"
                     class="btn small danger">Excluir</a>
                 </td>
