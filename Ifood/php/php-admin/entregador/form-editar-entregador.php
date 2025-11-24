@@ -60,6 +60,9 @@ if (!$linha) {
 
       <label>Email:</label>
       <input type="text" name="email" value='<?php echo $linha['emailEntregador']?>' required>
+
+      <label>Senha:</label>
+      <input type="text" name="senha" required>
       
       <label>Avaliacao:</label>
       <input type="text" name="avaliacao" value='<?php echo $linha['avaliacao']?>'required>

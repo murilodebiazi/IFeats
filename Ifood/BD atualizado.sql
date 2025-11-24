@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS IFeats;
+DROP DATABASE IFeats;
 CREATE DATABASE IFeats;
 USE IFeats;
 
@@ -41,14 +41,14 @@ CREATE TABLE Restaurante
 
 CREATE TABLE Produto 
 ( 
- idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
- nomeProduto VARCHAR(100) NOT NULL,
- preco DOUBLE NOT NULL,
- descricao TEXT NOT NULL,  
- categoria VARCHAR(25) NOT NULL,
+ idProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, 
  emEstoque BOOLEAN NOT NULL,   
- id_Restaurante INT,  
- FOREIGN KEY(id_Restaurante) REFERENCES Restaurante (idRestaurante)
+ preco DOUBLE NOT NULL,
+ nomeProduto VARCHAR(100) NOT NULL,  
+ descricao TEXT NOT NULL,  
+ categoria VARCHAR(25) NOT NULL,  
+ idRestaurante INT,  
+ FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante) ON DELETE CASCADE
 ); 
 
 CREATE TABLE Pedido 
@@ -57,11 +57,11 @@ CREATE TABLE Pedido
  status VARCHAR(20) NOT NULL,  
  horarioPedido TIME,  
  horarioEntregue TIME,  
- idRestaurante INT,  
- idCliente INT,  
+ idRestaurante INT NOT NULL,  
+ idCliente INT NOT NULL,  
  idEntregador INT,  
- FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante),
- FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente),
+ FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante) ON DELETE CASCADE,
+ FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente) ON DELETE CASCADE,
  FOREIGN KEY(idEntregador) REFERENCES Entregador (idEntregador)
 ); 
 
@@ -71,8 +71,8 @@ CREATE TABLE itemPedido
  idProduto INT,  
  pedidosProduto INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,  
  quantidade INT NOT NULL,  
- FOREIGN KEY(idPedido) REFERENCES Pedido (idPedido),
- FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
+ FOREIGN KEY(idPedido) REFERENCES Pedido (idPedido) ON DELETE CASCADE,
+ FOREIGN KEY(idProduto) REFERENCES Produto (idProduto) ON DELETE CASCADE
 ); 
 
 CREATE TABLE administrador 
@@ -81,15 +81,38 @@ CREATE TABLE administrador
  senha VARCHAR(200)
  );
 
-SELECT SUM(Pr.preco) AS PrecoDoPedido
+ CREATE VIEW infoIP AS
+ SELECT i.idPedido AS idPedido,
+ p.nomeProduto AS nomeProduto,
+ i.quantidade AS quantidade,
+ p.preco AS precoProduto,
+ (SELECT (quantidade * precoProduto) FROM produto GROUP BY(idPedido)) AS precoPorProduto
 FROM itemPedido i
-JOIN Pedido Pe
-ON i.idPedido = Pe.idPedido
-JOIN Produto Pr
-ON i.idProduto = Pr.idProduto
-WHERE i.idPedido = x;
+JOIN Produto p
+ON i.idProduto = p.idProduto;
 
-SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
+CREATE VIEW infoPedido AS
+SELECT p.idPedido AS idPedido,
+ c.nomeCliente AS nomeCliente,
+ c.enderecoCliente AS enderecoCliente,
+ p.status AS status,
+ p.horarioPedido AS horarioPedido,
+ p.horarioEntregue AS horarioEntregue,
+ p.idEntregador AS idEntregador,
+ p.idRestaurante AS idRestaurante,
+ r.nomeRestaurante AS nomeRestaurante,
+ r.enderecoRestaurante AS enderecoRestaurante,
+ (SELECT SUM(precoPorProduto) FROM infoIP GROUP BY(idPedido) HAVING idPedido = p.idPedido) AS precoPedido
+ FROM Pedido p
+ JOIN infoIP ip
+ ON p.idPedido = ip.idPedido
+ JOIN Cliente c
+ ON c.idCliente = p.idCliente
+ JOIN Restaurante r
+ ON r.idRestaurante = p.idRestaurante
+ GROUP BY(idPedido);
+
+/* SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
 FROM Restaurante R
 JOIN Produto P
 ON P.id_Restaurante = R.idRestaurante

@@ -1,7 +1,7 @@
 <?php
 $servidor = "localhost";
 $usuario = "root";
-$senha = "root";
+$senha = "";
 $banco = "IFeats";
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);

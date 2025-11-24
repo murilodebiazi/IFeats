@@ -5,12 +5,20 @@ session_start();
 
 $email = $_SESSION['emailCliente'];
 
-$sql = "DELETE FROM Cliente WHERE emailCliente = '$email'";
-mysqli_query($conexao, $sql);
-$ultimocod = mysqli_insert_id($conexao);
-mysqli_close($conexao);
+$sql = "DELETE FROM Cliente WHERE emailCliente = ?";
+$stmt = mysqli_prepare($conexao, $sql);
 
-session_destroy();
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_close($conexao);
+    session_destroy();
+    header("Location: ../../html/menu-cliente.html");
+    exit();
+} else {
+    header("Location: perfil-cliente.php?status=erro");
+}
 
-header("Location: ../../html/menu-cliente.html")
-    ?>
+
+
+?>

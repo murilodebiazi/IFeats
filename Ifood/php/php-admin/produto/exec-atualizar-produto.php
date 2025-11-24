@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     $sql = "UPDATE Produto SET nomeProduto='$nome', preco='$preco' , descricao='$descricao', categoria='$categoria', emEstoque='$estoque', id_Restaurante='$idRestaurante' WHERE idProduto = '$id'";
     if (mysqli_query($conexao, $sql)) {
-        // Redireciona para listar.php com mensagem de sucesso
         $msg = urlencode('Produto atualizado com sucesso!');
         header("Location: listar-produto.php?retorno=$msg");
         exit;

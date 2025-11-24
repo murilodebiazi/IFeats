@@ -48,11 +48,18 @@ require_once('verificar-sessao-cliente.php');
       <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente'] ?>' required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" value='<?php echo $linha['senhaCliente'] ?>' required>
+      <input type="password" name="senha" required>
 
       <input class="botao" type="submit" value="Editar">
 
       <a class="botao-excluir" href="excluir-cliente.php">Excluir Perfil</a>
+
+      <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+        <script type="text/javascript">
+          alert("algo deu errado!");
+        </script>
+      <?php endif; ?>
+
     </form>
   </div>
 
