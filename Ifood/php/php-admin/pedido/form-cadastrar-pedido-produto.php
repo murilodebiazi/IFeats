@@ -52,18 +52,18 @@
         <label>Produto:</label>
         <input list="produto" name="produto">
         <datalist id="produto">
-            <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-                <option value='<?php echo $linha['nomeProduto'] ?>'>        
+          <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
+            <option value='<?php echo $linha['nomeProduto'] ?>'>
             <?php } ?>
         </datalist>
         <br>
         <br>
         <label>Quantidade:<label>
-        <input type="number" name="quantidade" value='1' required>
-        <br>
-        <br>
-        <input class="botao" type="submit" value="Adicionar Produto" name="adicionar">
-        <input class="botao" type="submit" value="Finalizar Pedido" name="finalizar">
+            <input type="number" name="quantidade" value='1' required>
+            <br>
+            <br>
+            <input class="botao" type="submit" value="Adicionar Produto" name="adicionar">
+            <input class="botao" type="submit" value="Finalizar Pedido" name="finalizar">
       </form>
       <?php
       //Exibir alerta de sucesso se houver retorno na URL

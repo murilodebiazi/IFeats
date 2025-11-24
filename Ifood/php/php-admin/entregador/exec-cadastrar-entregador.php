@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte, disponivel, avaliacao)
 VALUES ('$nome','$cpf','$email','$senha_hash','$veiculo','$disponivel','$avaliacao')";
-mysqli_query($conexao, $sql);
 
+mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);
 mysqli_close($conexao);
 

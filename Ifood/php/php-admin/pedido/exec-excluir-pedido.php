@@ -14,15 +14,6 @@ if ($id) {
         $sql = "DELETE FROM Pedido WHERE idPedido=$id";
 
         if (mysqli_query($conexao, $sql)) {
-
-            // Caminho da imagem a ser excluída
-            $caminhoImagem = "../fotos/" . $id . ".png";
-
-            // Verifica se o arquivo existe e tenta excluir
-            if (file_exists($caminhoImagem)) {
-                unlink($caminhoImagem);
-            }
-
             $msg = urlencode('Pedido excluído com sucesso!');
         } else {
             $msg = urlencode('Erro ao excluir o Pedido!');

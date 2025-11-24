@@ -13,11 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $transporte = $_POST['transporte'];
     $disponivel = $_POST['disponibilidade'];
     $avaliacao = $_POST['avaliacao'];
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    
-    $sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email', disponivel='$disponivel', avaliacao='$avaliacao' WHERE idEntregador='$id'";
+    $sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email',
+    disponivel='$disponivel', avaliacao='$avaliacao', senhaEntregador='$senha_hash' WHERE idEntregador='$id'";
+
     if (mysqli_query($conexao, $sql)) {
-        // Redireciona para listar.php com mensagem de sucesso
         $msg = urlencode('Entregador atualizado com sucesso!');
         header("Location: listar-Entregador.php?retorno=$msg");
         exit;

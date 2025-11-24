@@ -10,8 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $cpf = $_POST['cpf'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE Cliente SET idCliente='$id', nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email' WHERE idCliente='$id'";
+    $sql = "UPDATE Cliente SET idCliente='$id', nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', senhaCliente='$senha_hash' WHERE idCliente='$id'";
     if (mysqli_query($conexao, $sql)) {
         // Redireciona para listar.php com mensagem de sucesso
         $msg = urlencode('Cliente atualizado com sucesso!');
@@ -19,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         exit;
     } else {
         // Em caso de erro, exibe mensagem
-        echo "Erro ao atualizar produto: " . mysqli_error($conexao);
+        echo "Erro ao atualizar cliente: " . mysqli_error($conexao);
     }
 
 } else {
