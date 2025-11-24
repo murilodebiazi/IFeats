@@ -11,7 +11,7 @@ require_once('verificar-sessao-cliente.php');
     <meta charset="UTF-8">
     <link rel="icon" href="../../img/Icon.png" type="image/png">
     <title>Ifood</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/verpedidos.style.css">
 </head>
 
 <body>
@@ -50,7 +50,6 @@ require_once('verificar-sessao-cliente.php');
                     <?php } ?>
                     <a href="../php-pedido/mudar-status-pedido.php?id=<?php echo$idPedido?>&acao=entregue">Marcar Como Entregue</a>
                     <a href="../php-pedido/excluir-pedido.php?id=<?php echo$idPedido?>&idR=0&acao=cancelarPedidoCliente">Cancelar Pedido</a>
-                    <br>
                 </div>
             <?php } ?>
         </div>

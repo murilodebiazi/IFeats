@@ -11,7 +11,7 @@ require_once('verificar-sessao-Restaurante.php');
     <meta charset="UTF-8">
     <link rel="icon" href="../../img/Icon.png" type="image/png">
     <title>Ifood</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/verpedidos.style.css">
 </head>
 
 <body>

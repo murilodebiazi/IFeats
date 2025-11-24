@@ -11,7 +11,7 @@ require_once('verificar-sessao-Entregador.php');
     <meta charset="UTF-8">
     <link rel="icon" href="../../img/Icon.png" type="image/png">
     <title>Ifood</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/verpedidos.style.css">
 </head>
 
 <body>
@@ -27,7 +27,6 @@ require_once('verificar-sessao-Entregador.php');
 
     ?>
     <div class="cabecalho">
-        <a id="voltar" href="perfil-entregador.php"><?php echo $linha['nomeEntregador'] ?></a>
         <a id="verpedidos" href="sessao-entregador.php">Pedidos</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
         <a id="logout" href="deslogar-entregador.php">Logout</a>

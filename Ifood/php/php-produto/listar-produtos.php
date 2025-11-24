@@ -30,7 +30,7 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
             <?php while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
                 <div class="produto">
                     <p> <?php echo $linhaP['nomeProduto'];?> </p>
-                    <p> R$<?php echo $linhaP['preco'];?> </p>
+                    <p>R$<?php echo $linhaP['preco'];?> </p>
                     <p> <?php echo $linhaP['categoria'];?> </p>
                     <a href="form-editar-produto.php?id=<?php echo $linhaP['idProduto']?>">Editar</a> 
                     <a href="excluir-produto.php?id=<?php echo $linhaP['idProduto']?>">Excluir</a> 

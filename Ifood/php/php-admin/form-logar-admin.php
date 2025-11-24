@@ -30,7 +30,7 @@
 
         <div class="form-group text-center mt-6">
           <input type="submit" name="sub" value="Entrar" class="btn">
-          <a href="../../html/menu-principal.html">Voltar à tela principal</a>
+          <a class="voltar" href="../../html/menu-principal.html">Voltar</a>
         </div>
       </form>
 

@@ -11,7 +11,7 @@ require_once('verificar-sessao-cliente.php');
   <meta charset="UTF-8">
   <link rel="icon" href="../../img/Icon.png" type="image/png">
   <title>Ifood</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/sessaocliente.style.css">
 </head>
 
 <body>
@@ -38,8 +38,6 @@ require_once('verificar-sessao-cliente.php');
       <?php while ($linhaR = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
         <div class='restaurante'>
           <br>
-          <a href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><img class='demo' src=' '
-              alt='<?php echo $linhaR['nomeRestaurante'] ?>'></a>
           <a class='titulo'
             href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><b><?php echo $linhaR['nomeRestaurante'] ?></b></a>
           <br> <br>

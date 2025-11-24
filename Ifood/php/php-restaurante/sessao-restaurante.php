@@ -11,7 +11,7 @@ require_once('verificar-sessao-restaurante.php');
   <meta charset="UTF-8">
   <link rel="icon" href="../../img/Icon.png" type="image/png">
   <title>Ifood</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/menupedidos.style.css">
 </head>
 
 <body>
@@ -34,8 +34,8 @@ require_once('verificar-sessao-restaurante.php');
     </div>
 
   <div class="corpo">
-    <a class="botao-restaurante" href="../php-produto/form-cadastrar-produto.php">Cadastrar um Produto</a>
-    <a class="botao-restaurante" href="../php-produto/listar-produtos.php">Ver os Produtos</a>
+    <a class="botao" href="../php-produto/form-cadastrar-produto.php">Cadastrar um Produto</a>
+    <a class="botao" href="../php-produto/listar-produtos.php">Ver os Produtos</a>
   </div>
 
   <div class="rodape">

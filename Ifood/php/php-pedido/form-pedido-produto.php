@@ -11,7 +11,7 @@ require_once('../php-cliente/verificar-sessao-cliente.php');
     <meta charset="UTF-8">
     <link rel="icon" href="../../img/Icon.png" type="image/png">
     <title>Ifood</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/form.style.css">
 </head>
 
 <body>
@@ -32,7 +32,8 @@ require_once('../php-cliente/verificar-sessao-cliente.php');
         <input type="hidden" name="idPedido" value='<?php echo $idPedido?>'>
         <input type="hidden" name="idRestaurante" value='<?php echo $idRestaurante ?>'>
 
-        <input list="produto" name="produto" required>
+        <label>Produto: </label>
+        <input list="produto" name="produto" placeholder="Selecione Produto" required>
         <datalist id="produto">
             <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
                 <option value='<?php echo $linha['nomeProduto'] ?>'>        

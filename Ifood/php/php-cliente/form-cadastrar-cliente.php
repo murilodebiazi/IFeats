@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" href="../../img/Icon.png" type="image/png">
   <title>Ifood</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/form.style.css">
 </head>
 
 <body>
@@ -13,6 +13,7 @@
   <div class="cabecalho">
     <a id="voltar" href="../../html/menu-cliente.html">Voltar</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
+    <a>
   </div>
 
   <div class="corpo">

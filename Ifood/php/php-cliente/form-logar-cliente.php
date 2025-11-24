@@ -13,7 +13,7 @@ if ($_SESSION['emailCliente'] != null) {
   <meta charset="UTF-8">
   <link rel="icon" href="../../img/Icon.png" type="image/png">
   <title>Ifood</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/form.style.css">
 </head>
 
 <body>
