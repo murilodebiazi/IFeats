@@ -36,14 +36,8 @@ body {
     background-color: #008f45;
 }
 
-#logo {
-    padding: 0;
-    margin: 0 15px;
-}
-
 #logo img {
     max-height: 35px;
-    height: auto;
     vertical-align: middle;
 }
 

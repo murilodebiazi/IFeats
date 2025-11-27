@@ -11,7 +11,7 @@ CREATE TABLE Cliente
  CPFCliente CHAR(14) NOT NULL UNIQUE,  
  emailCliente VARCHAR(75) NOT NULL UNIQUE,
  senhaCliente VARCHAR(200) NOT NULL
-); 
+);
 
 CREATE TABLE Entregador 
 ( 
@@ -21,8 +21,7 @@ CREATE TABLE Entregador
  CPFEntregador CHAR(14) NOT NULL UNIQUE,  
  emailEntregador VARCHAR(200) NOT NULL UNIQUE,  
  senhaEntregador VARCHAR(200) NOT NULL ,
- avaliacao DOUBLE,
- disponivel BOOLEAN
+ avaliacao DOUBLE DEFAULT 0.00
 ); 
 
 CREATE TABLE Restaurante
@@ -31,7 +30,7 @@ CREATE TABLE Restaurante
  cnpj CHAR(14) NOT NULL UNIQUE,
  nomeRestaurante VARCHAR(200) NOT NULL, 
  emailRestaurante VARCHAR(200) NOT NULL UNIQUE,  
- avaliacao DOUBLE,  
+ avaliacao DOUBLE DEFAULT 0.00,  
  categoria VARCHAR(100),
  descricao TEXT,
  enderecoRestaurante VARCHAR(255),  

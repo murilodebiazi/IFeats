@@ -12,8 +12,8 @@ body {
 
 .cabecalho {
     background-color: #01be5c;
+    padding: 10px 10px;
     color: #ffffff;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,6 +28,8 @@ body {
     padding: 8px 10px;
     border-radius: 4px;
     transition: background-color 0.2s;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 
 .cabecalho a:hover {
@@ -36,6 +38,7 @@ body {
 
 #logo img {
     max-height: 35px;
+    vertical-align: middle;
 }
 
 .restaurantes {
@@ -106,6 +109,7 @@ body {
     .cabecalho {
         justify-content: center;
     }
+
     .cabecalho a {
         margin: 5px 8px;
         font-size: 0.9em;
@@ -116,10 +120,14 @@ body {
         text-align: center;
         margin-bottom: 10px;
     }
+    #logo img {
+        max-height: 30px;
+    }
     .restaurantes {
         padding: 20px 10px;
     }
+
     #m {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 }
