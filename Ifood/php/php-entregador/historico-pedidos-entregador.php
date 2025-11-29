@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("logar-Entregador.php");
+include("../conectar.php");
 require_once('verificar-sessao-Entregador.php');
 ?>
 

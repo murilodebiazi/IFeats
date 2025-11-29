@@ -19,7 +19,8 @@ if ($resultado->num_rows > 0) {
 } else {
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
     if ($confirmar == $senha) {
-        $sql = "INSERT INTO Cliente (nomeCliente, enderecoCliente, telefoneCliente, CPFCliente, emailCliente, senhaCliente) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Cliente (nomeCliente, enderecoCliente, telefoneCliente, CPFCliente, emailCliente, senhaCliente) 
+        VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conexao, $sql);
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "ssssss", $nome,$endereco, $telefone, $cpf, $email, $senha_hash);

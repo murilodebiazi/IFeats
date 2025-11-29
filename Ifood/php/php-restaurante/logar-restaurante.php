@@ -23,6 +23,9 @@ if ($confirmar == $senha) {
                 exit();
             }
         }
+        else{
+            header("Location: form-logar-restaurante.php?status=nao");
+        }
     }
 } else {
     header("Location: form-logar-restaurante.php?status=senha");

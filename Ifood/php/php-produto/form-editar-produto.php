@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-include("../php-restaurante/logar-restaurante.php");
+include("../conectar.php");
 require_once('../php-restaurante/verificar-sessao-restaurante.php');
 ?>
 

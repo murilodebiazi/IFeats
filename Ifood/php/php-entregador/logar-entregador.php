@@ -23,6 +23,9 @@ if ($confirmar == $senha) {
                 exit();
             }
         }
+        else{
+            header("Location: form-logar-entregador.php?status=nao");
+        }
     }
 } else {
     header("Location: form-logar-entregador.php?status=senha");

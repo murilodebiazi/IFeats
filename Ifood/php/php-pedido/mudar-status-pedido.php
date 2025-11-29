@@ -13,6 +13,7 @@ if($_GET['acao'] == "entregue"){
     mysqli_close($conexao); 
     header("location: ../php-cliente/ver-pedidos-cliente.php");
 }
+
 if($_GET['acao'] == "pronto"){
     $sql = "UPDATE Pedido SET status='Pronto' WHERE idPedido='$idPedido'";
     mysqli_query($conexao, $sql);
@@ -20,6 +21,7 @@ if($_GET['acao'] == "pronto"){
     mysqli_close($conexao); 
     header("location: ../php-restaurante/pedidos-fila-restaurante.php");
 }
+
 if($_GET['acao'] == "aceito"){
     $sql = "UPDATE Pedido SET status='Em Rota', idEntregador='$idEntregador' WHERE idPedido='$idPedido'";
     mysqli_query($conexao, $sql);

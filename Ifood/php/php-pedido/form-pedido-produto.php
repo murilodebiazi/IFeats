@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../php-cliente/logar-cliente.php");
+include("../conectar.php");
 require_once('../php-cliente/verificar-sessao-cliente.php');
 ?>
 

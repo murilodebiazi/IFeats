@@ -49,7 +49,7 @@ if ($_SESSION['emailEntregador'] != null) {
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'nao'): ?>
         <script type="text/javascript">
-          document.getElementById("erro").textContent = "Entregador não encontrado";
+          document.getElementById("erro").textContent = "Verifique Email e Senha";
         </script>
       <?php endif; ?>
     </form>

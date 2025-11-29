@@ -23,10 +23,10 @@ if ($confirmar == $senha) {
                 exit();
             }
         }
+        else{
+                header("Location: form-logar-cliente.php?status=nao");
+        }
     }
-    //else{
-    //    header("Location: LogarCliente.php?status=nao");
-    //}
 } else {
     header("Location: form-logar-cliente.php?status=senha");
 }

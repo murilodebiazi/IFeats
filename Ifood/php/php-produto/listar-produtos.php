@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../php-restaurante/logar-restaurante.php");
+include("../conectar.php");
 require_once('../php-restaurante/verificar-sessao-restaurante.php');
 ?>
 
@@ -11,7 +11,7 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
     <meta charset="UTF-8">
     <link rel="icon" href="../../img/Icon.png" type="image/png">
     <title>Ifood</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/vercardapio.style.css">
 </head>
 
 <body>

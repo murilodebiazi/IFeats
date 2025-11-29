@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("logar-restaurante.php");
+include("../conectar.php");
 require_once('verificar-sessao-restaurante.php');
 ?>
 
