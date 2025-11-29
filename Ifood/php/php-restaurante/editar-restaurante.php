@@ -25,9 +25,4 @@ $_SESSION['emailRestaurante'] = $email;
 
 header("Location: sessao-restaurante.php");
 exit;
-
-
-
-
-
 ?>

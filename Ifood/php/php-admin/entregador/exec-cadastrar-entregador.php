@@ -1,6 +1,6 @@
 <?php
 require_once "../../conectar.php";
-//pegar nome do produto - ESTE IF É IMPORTANTÍSSIMO: EVITAR INJEÇÃO DE SQL, GRAVAR REGISTRO VAZIO
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
       $nome = $_POST['nome'];
       $cpf = $_POST['cpf'];

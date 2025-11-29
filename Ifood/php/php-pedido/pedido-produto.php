@@ -17,26 +17,23 @@ $quantidade = $_POST['quantidade'];
 
     $sql = "INSERT INTO itemPedido (idPedido, idProduto, quantidade) VALUES ('$idPedido', '$idProduto', '$quantidade')";
     mysqli_query($conexao, $sql);
-    //rotina php para UPLOAD da foto do produto
-    //pegar o ultimo código gerado pelo mySQL
     $ultimocod=mysqli_insert_id($conexao);
 
     if(isset($_POST['adicionar'])){
         header("location: form-pedido-produto.php?id=$idPedido&idR=$idRestaurante");
-        mysqli_close($conexao); //fechar a conexão com BD
+        mysqli_close($conexao);
     }else{
         if(isset($_POST['finalizar'])){
-            //voltar para form-cadastrar e passsar parâmetro por GET com mensagem de: OK
             $horarioAtual = date("H:i:s");
             $sqlP = "UPDATE Pedido SET status='Enviado', horarioPedido='$horarioAtual' WHERE idPedido='$idPedido'";
             mysqli_query($conexao, $sqlP);
-            mysqli_close($conexao); //fechar a conexão com BD
+            mysqli_close($conexao);
             header("Location: ../php-cliente/ver-cardapio.php?id=$idRestaurante");
         }
         else{
             if(isset($_POST['cancelar'])){
                 header("location: excluir-pedido.php?id=$idPedido&idR=$idRestaurante&acao=cancelarCliente");
-                mysqli_close($conexao); //fechar a conexão com BD
+                mysqli_close($conexao);
             }
         }
     }

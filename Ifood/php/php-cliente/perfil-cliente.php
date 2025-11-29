@@ -24,7 +24,9 @@ require_once('verificar-sessao-cliente.php');
   ?>
 
   <div class="cabecalho">
-    <a id="voltar" href="perfil-cliente.php"><?php echo $linha['nomeCliente'] ?></a>
+    <a id="voltar" href="perfil-cliente.php">
+      <?php echo $linha['nomeCliente'] ?>
+    </a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     <a id="logout" href="deslogar-cliente.php">Logout</a>
   </div>
@@ -33,19 +35,19 @@ require_once('verificar-sessao-cliente.php');
     <form class="perfil" action="editar-cliente.php" method="POST">
       <h1> Perfil </h1>
       <label>Nome:</label>
-      <input type="text" name="cliente" size="10" value='<?php echo $linha['nomeCliente'] ?>' required>
+      <input type="text" name="cliente" size="10" value='<?php echo $linha[' nomeCliente'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha['CPFCliente'] ?>' required>
+      <input type="text" name="cpf" value='<?php echo $linha[' CPFCliente'] ?>' required>
 
       <label>Telefone:</label>
-      <input type="number" name="telefone" value='<?php echo $linha['telefoneCliente'] ?>' required>
+      <input type="number" name="telefone" value='<?php echo $linha[' telefoneCliente'] ?>' required>
 
       <label>Email:</label>
-      <input type="text" name="email" value='<?php echo $linha['emailCliente'] ?>' required>
+      <input type="text" name="email" value='<?php echo $linha[' emailCliente'] ?>' required>
 
       <label>Endereço:</label>
-      <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente'] ?>' required>
+      <input type="text" name="endereco" value='<?php echo $linha[' enderecoCliente'] ?>' required>
 
       <label>Senha:</label>
       <input type="password" name="senha" required>
@@ -55,9 +57,9 @@ require_once('verificar-sessao-cliente.php');
       <a class="botao-excluir" href="excluir-cliente.php">Excluir Perfil</a>
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
-        <script type="text/javascript">
-          alert("algo deu errado!");
-        </script>
+      <script type="text/javascript">
+        alert("algo deu errado!");
+      </script>
       <?php endif; ?>
 
     </form>

@@ -35,11 +35,8 @@
       </form>
 
       <?php
-      // se falhar a validação do login na página validar_login.php, volta para esta
-      // página entrar.php e mostra uma mensagem de erro ("nome ou senha inválidos")
       if (isset($_GET['retorno']) && !empty($_GET['retorno'])) {
         echo '<div class="mensagem-erro">' . htmlspecialchars($_GET['retorno']) . '</div>';
-
       }
       ?>
 

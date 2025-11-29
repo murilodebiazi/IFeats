@@ -14,8 +14,7 @@ $sql = "UPDATE Produto SET nomeProduto='$nome', preco='$preco', descricao='$desc
 
 mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);
-mysqli_close($conexao); //fechar a conexão com BD
-//voltar para o formulario de cadastro e passar parametro ok por GET
+mysqli_close($conexao);
 
 header("Location: listar-produtos.php?status=ok");
 exit;

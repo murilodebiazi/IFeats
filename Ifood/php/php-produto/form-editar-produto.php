@@ -29,27 +29,29 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
 
     <div class="corpo">
         <form class="form" action="editar-produto.php" method="POST">
-            <input type="hidden" name="idProduto" value='<?php echo $idProduto;?>'> 
+            <input type="hidden" name="idProduto" value='<?php echo $idProduto;?>'>
 
             <label>Nome do Produto:</label>
-            <input type="text" name="produto" value='<?php echo $linhaP['nomeProduto'] ?>' required>
+            <input type="text" name="produto" value='<?php echo $linhaP[' nomeProduto'] ?>' required>
 
             <label>Preço do Produto:</label>
-            <input type="number" name="preco" min="0" step="0.01" value='<?php echo $linhaP['preco'] ?>' required>
+            <input type="number" name="preco" min="0" step="0.01" value='<?php echo $linhaP[' preco'] ?>' required>
 
             <label>Descrição do Produto:</label>
             <textarea name="descricao" rows="5" col="30" required><?php echo $linhaP['descricao'] ?></textarea>
 
             <label>Categoria do Produto:</label>
-            <input type="text" name="categoria" value='<?php echo $linhaP['categoria'] ?>' required>
+            <input type="text" name="categoria" value='<?php echo $linhaP[' categoria'] ?>' required>
 
             <label>Em Estoque?:</label>
 
             <div class="escolha">
-                <input type="radio" name="estoque" value="1" <?php if($linhaP['emEstoque'] == 1){?> checked <?php } ?> required>
+                <input type="radio" name="estoque" value="1" <?php if($linhaP['emEstoque']==1){?> checked
+                <?php } ?> required>
                 <label>Sim</label>
 
-                <input type="radio" name="estoque" value="0" <?php if($linhaP['emEstoque'] == 0){?> checked <?php } ?> vrequired>
+                <input type="radio" name="estoque" value="0" <?php if($linhaP['emEstoque']==0){?> checked
+                <?php } ?> vrequired>
                 <label>Não</label>
             </div>
 
@@ -63,4 +65,5 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
         <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
     </div>
 </body>
+
 </html>

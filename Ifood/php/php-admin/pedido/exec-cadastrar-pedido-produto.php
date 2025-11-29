@@ -1,7 +1,6 @@
 <?php
 require_once "../../conectar.php";
 if (isset($_POST['adicionar'])) {
-    //pegar nome do produto - ESTE IF É IMPORTANTÍSSIMO: EVITAR INJEÇÃO DE SQL, GRAVAR REGISTRO VAZIO
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['idPedido'])) {
         $idPedido = $_POST['idPedido'];
         $idRestaurante = $_POST['idRestaurante'];
@@ -23,12 +22,11 @@ if (isset($_POST['adicionar'])) {
 
     mysqli_query($conexao, $sql);
     $ultimocod = mysqli_insert_id($conexao);
-    mysqli_close($conexao); //fechar a conexão com BD
+    mysqli_close($conexao);
 
     header("location: form-cadastrar-pedido-produto.php?idPedido=$idPedido&idRestaurante=$idRestaurante");
 } else {
     if (isset($_POST['finalizar'])) {
-        //voltar para form-cadastrar e passsar parâmetro por GET com mensagem de: OK
         $msg = urlencode('ok');
         header("location: form-cadastrar-pedido.php?retorno=$msg");
     }

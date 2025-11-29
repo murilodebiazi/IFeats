@@ -24,7 +24,9 @@ require_once('verificar-sessao-entregador.php');
   ?>
 
   <div class="cabecalho">
-    <a id="voltar" href="perfil-entregador.php"><?php echo $linha['nomeEntregador'] ?></a>
+    <a id="voltar" href="perfil-entregador.php">
+      <?php echo $linha['nomeEntregador'] ?>
+    </a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     <a id="logout" href="deslogar-entregador.php">Logout</a>
   </div>
@@ -34,13 +36,13 @@ require_once('verificar-sessao-entregador.php');
       <h1> Perfil </h1>
 
       <label>Nome:</label>
-      <input type="text" name="entregador" value='<?php echo $linha['nomeEntregador'] ?>' required>
+      <input type="text" name="entregador" value='<?php echo $linha[' nomeEntregador'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha['CPFEntregador'] ?>' required>
+      <input type="text" name="cpf" value='<?php echo $linha[' CPFEntregador'] ?>' required>
 
       <label>Email:</label>
-      <input type="email" name="email" value='<?php echo $linha['emailEntregador'] ?>' required>
+      <input type="email" name="email" value='<?php echo $linha[' emailEntregador'] ?>' required>
 
       <label>Senha:</label>
       <input type="password" name="senha" required>
@@ -48,11 +50,14 @@ require_once('verificar-sessao-entregador.php');
       <label>Veículo:</label>
 
       <div class="escolha">
-        <input type="radio" name="veiculo" value="bicicleta" <?php if($linha['transporte'] == "bicicleta"){?> checked <?php } ?>required>
+        <input type="radio" name="veiculo" value="bicicleta" <?php if($linha['transporte']=="bicicleta" ){?> checked
+        <?php } ?>required>
         <label>Bicicleta</label>
-        <input type="radio" name="veiculo" value="moto" <?php if($linha['transporte'] == "moto"){?> checked <?php } ?>required>
+        <input type="radio" name="veiculo" value="moto" <?php if($linha['transporte']=="moto" ){?> checked
+        <?php } ?>required>
         <label>Moto</label>
-        <input type="radio" name="veiculo" value="carro" <?php if($linha['transporte'] == "carro"){?> checked <?php } ?>required>
+        <input type="radio" name="veiculo" value="carro" <?php if($linha['transporte']=="carro" ){?> checked
+        <?php } ?>required>
         <label>Carro</label>
       </div>
 

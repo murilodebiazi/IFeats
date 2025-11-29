@@ -2,7 +2,6 @@
 
 require_once "../conectar.php";
 
-//pegar o nome do produto
 $nome = $_POST['cliente'];
 $cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];
@@ -25,9 +24,8 @@ if ($resultado->num_rows > 0) {
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "ssssss", $nome,$endereco, $telefone, $cpf, $email, $senha_hash);
             mysqli_stmt_execute($stmt);
-            mysqli_close($conexao); //fechar a conexão com BD
+            mysqli_close($conexao);
         }
-        //voltar para o formulario de cadastro e passar parametro ok por GET
 
         header("Location: form-cadastrar-cliente.php?status=ok");
         exit;

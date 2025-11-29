@@ -26,7 +26,9 @@ require_once('verificar-sessao-cliente.php');
   $resultadoRestaurante = $conexao->query($sqlRestaurante);
   ?>
   <div class="cabecalho">
-    <a id="voltar" href="perfil-cliente.php"><?php echo $linha['nomeCliente'] ?></a>
+    <a id="voltar" href="perfil-cliente.php">
+      <?php echo $linha['nomeCliente'] ?>
+    </a>
     <a id="verpedidos" href="menu-pedidos-cliente.php">Pedidos</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     <a id="verrestaurantes" href="sessao-cliente.php">Restaurantes</a>
@@ -36,15 +38,18 @@ require_once('verificar-sessao-cliente.php');
   <div class="restaurantes">
     <div id="m">
       <?php while ($linhaR = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-        <div class='restaurante'>
-          <br>
-          <a class='titulo'
-            href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><b><?php echo $linhaR['nomeRestaurante'] ?></b></a>
-          <br> <br>
-          <p>Nota: <?php echo $linhaR['avaliacao'] ?></p>
-          <br>
-        </div>
+      <div class='restaurante'>
         <br>
+        <a class='titulo' href='ver-cardapio.php?id=<?php echo $linhaR[' idRestaurante'] ?>'><b>
+            <?php echo $linhaR['nomeRestaurante'] ?>
+          </b></a>
+        <br> <br>
+        <p>Nota:
+          <?php echo $linhaR['avaliacao'] ?>
+        </p>
+        <br>
+      </div>
+      <br>
       <?php } ?>
     </div>
   </div>

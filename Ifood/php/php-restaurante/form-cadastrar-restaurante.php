@@ -49,22 +49,22 @@
             <input class="botao" type="submit" value="Cadastrar">
 
             <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-                <script type="text/javascript">
-                    alert("Restaurante cadastrado com sucesso!");
-                    window.location.href = "../../html/menu-restaurante.html";
-                </script>
+            <script type="text/javascript">
+                alert("Restaurante cadastrado com sucesso!");
+                window.location.href = "../../html/menu-restaurante.html";
+            </script>
             <?php endif; ?>
 
             <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
-                <script type="text/javascript">
-                    document.getElementById("erro").textContent = "Senha diferente";
-                </script>
+            <script type="text/javascript">
+                document.getElementById("erro").textContent = "Senha diferente";
+            </script>
             <?php endif; ?>
 
             <?php if (isset($_GET['status']) && $_GET['status'] === 'email'): ?>
-                <script type="text/javascript">
-                    document.getElementById("erro").textContent = "Email já existe";
-                </script>
+            <script type="text/javascript">
+                document.getElementById("erro").textContent = "Email já existe";
+            </script>
             <?php endif; ?>
         </form>
     </div>

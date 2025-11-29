@@ -9,7 +9,6 @@
 
 <body>
   <?php
-  // Exibir erros apenas em ambiente de desenvolvimento
   ini_set('display_errors', 0);
   error_reporting(E_ALL);
 
@@ -18,7 +17,6 @@
   ?>
   <div class="container">
 
-    <!-- Cabeçalho -->
     <header class="header">
       <a href="#" class="brand">
         <img src="../../../img/restrito.png" alt="Logo do sistema">
@@ -31,7 +29,6 @@
       </nav>
     </header>
 
-    <!-- Conteúdo -->
     <main class="card" style="max-width: 500px; margin: 50px auto; padding: 30px;">
       <h1 class="h1 text-center">Cadastro de Entregadores</h1>
       <p class="lead text-center">Preencha os dados abaixo para incluir um novo produto.</p>
@@ -51,7 +48,7 @@
 
         <label>Senha:</label>
         <input type="password" name="senha" required>
-        
+
         <label>Disponivel?:</label>
         <div class="escolha">
           <input type="radio" name="disponibilidade" value="1" required>
@@ -60,7 +57,9 @@
           <input type="radio" name="disponibilidade" value="0" required>
           <label>Não</label>
         </div>
+
         <br>
+
         <label>Veículo:</label>
 
         <div class="escolha">
@@ -76,14 +75,13 @@
         <br>
         <input class="botao" type="submit" value="Cadastrar">
       </form>
+
       <?php
-      //Exibir alerta de sucesso se houver retorno na URL
       if (isset($_GET['retorno']) && $_GET['retorno'] === 'ok') {
         echo '<div class="mensagem-sucesso text-center mt-6">Entregador cadastrado com sucesso!</div>';
       }
       ?>
     </main>
-    <!-- Rodapé -->
     <footer class="footer text-center">
       <p>Sistema de Cadastro de Produtos 2025 &copy; </p>
     </footer>

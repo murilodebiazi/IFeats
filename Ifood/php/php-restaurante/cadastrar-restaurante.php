@@ -23,9 +23,7 @@ if ($resultado->num_rows > 0) {
         $sql = "INSERT INTO Restaurante (nomeRestaurante, cnpj, emailRestaurante, enderecoRestaurante, telefoneRestaurante, descricao, categoria, senhaRestaurante) VALUES ('$nome','$cnpj','$email','$endereço','$telefone','$descricao','$categoria','$senha_hash')";
         mysqli_query($conexao, $sql);
         $ultimocod = mysqli_insert_id($conexao);
-        mysqli_close($conexao); //fechar a conexão com BD
-
-        //voltar para o formulario de cadastro e passar parametro ok por GET
+        mysqli_close($conexao);
 
         header("Location: form-cadastrar-restaurante.php?status=ok");
         exit;

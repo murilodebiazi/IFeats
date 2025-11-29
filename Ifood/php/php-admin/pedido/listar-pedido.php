@@ -20,7 +20,6 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
 
   <div class="container">
 
-    <!-- Cabeçalho -->
     <header class="header">
       <a href="#" class="brand">
         <img src="../../../img/restrito.png" alt="Logo do sistema">
@@ -34,12 +33,10 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
       </nav>
     </header>
 
-    <!-- Conteúdo principal -->
     <main class="card" style="padding: 30px;">
       <h1 class="h1 text-center">Lista de Pedidos</h1>
       <p class="lead text-center">Gerencie os pedidos cadastrados no sistema.</p>
 
-      <!-- Mensagem de retorno -->
       <?php
       if (isset($_GET['retorno'])) {
         $retorno = $_GET['retorno'];
@@ -69,26 +66,40 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
           </thead>
           <tbody>
             <?php while ($linha = mysqli_fetch_assoc($resultado)) { ?>
-              <tr>
-                <td><?php echo htmlspecialchars($linha['idPedido']); ?></td>
-                <td><?php echo htmlspecialchars($linha['horarioPedido']); ?></td>
-                <td><?php echo htmlspecialchars($linha['horarioEntregue']); ?></td>
-                <td><?php echo htmlspecialchars($linha['idRestaurante']); ?></td>
-                <td><?php echo htmlspecialchars($linha['idCliente']); ?></td>
-                <td><?php echo htmlspecialchars($linha['idEntregador']); ?></td>
-                <td>
-                  <?php
+            <tr>
+              <td>
+                <?php echo htmlspecialchars($linha['idPedido']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['horarioPedido']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['horarioEntregue']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['idRestaurante']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['idCliente']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['idEntregador']); ?>
+              </td>
+              <td>
+                <?php
                   $idPedido = $linha['idPedido'];
                   $resultadoP = mysqli_query($conexao, "SELECT * FROM itemPedido WHERE idPedido='$idPedido'");
                   while ($linhaP = mysqli_fetch_assoc($resultadoP)) { ?>
-                    IdProduto: <?php echo $linhaP['idProduto']; ?> Quantidade: <?php echo $linhaP['quantidade']; ?>
-                  <?php } ?>
-                </td>
-                <td class="actions">
-                  <a href="confirmar-excluir-pedido.php?id=<?php echo $linha['idPedido']; ?>"
-                    class="btn small danger">Excluir</a>
-                </td>
-              </tr>
+                IdProduto:
+                <?php echo $linhaP['idProduto']; ?> Quantidade:
+                <?php echo $linhaP['quantidade']; ?>
+                <?php } ?>
+              </td>
+              <td class="actions">
+                <a href="confirmar-excluir-pedido.php?id=<?php echo $linha['idPedido']; ?>"
+                  class="btn small danger">Excluir</a>
+              </td>
+            </tr>
             <?php } ?>
           </tbody>
         </table>
@@ -100,7 +111,6 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
 
     </main>
 
-    <!-- Rodapé -->
     <footer class="footer text-center">
       <p>Sistema de Cadastro de pedidos 2025&copy;</p>
     </footer>

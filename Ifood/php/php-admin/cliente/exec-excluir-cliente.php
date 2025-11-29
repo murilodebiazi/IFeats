@@ -10,7 +10,6 @@ $confirmar = $_POST['confirmar'] ?? null;
 
 if ($id) {
     if ($confirmar === 'sim') {
-        // Usuário confirmou a exclusão
         $sql = "DELETE FROM Cliente WHERE idCliente=$id";
 
         if (mysqli_query($conexao, $sql)) {
@@ -25,7 +24,6 @@ if ($id) {
     header("Location: listar-cliente.php?retorno=$msg");
     exit;
 } else {
-    // Acesso indevido ou ID não enviado
     $msg = urlencode('Acesso negado!');
     header("Location: listar-cliente.php?retorno=$msg");
     exit;

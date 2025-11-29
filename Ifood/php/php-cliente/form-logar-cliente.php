@@ -40,15 +40,15 @@ if ($_SESSION['emailCliente'] != null) {
       <input class="botao" type="submit" name="LogIn" value="Login">
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'senha'): ?>
-        <script type="text/javascript">
-          document.getElementById("erro").textContent = "Senha diferente";
-        </script>
+      <script type="text/javascript">
+        document.getElementById("erro").textContent = "Senha diferente";
+      </script>
       <?php endif; ?>
 
       <?php if (isset($_GET['status']) && $_GET['status'] === 'nao'): ?>
-        <script type="text/javascript">
-          document.getElementById("erro").textContent = "Verifique Email e Senha";
-        </script>
+      <script type="text/javascript">
+        document.getElementById("erro").textContent = "Verifique Email e Senha";
+      </script>
       <?php endif; ?>
     </form>
   </div>

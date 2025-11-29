@@ -31,7 +31,7 @@ require_once('verificar-sessao-Entregador.php');
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
         <a id="logout" href="deslogar-entregador.php">Logout</a>
     </div>
-    <div class="corpo">  
+    <div class="corpo">
         <h1>Pedidos Pendentes:</h1>
         <div class="cardapio">
             <?php while ($infoPedido= mysqli_fetch_assoc($resultadoPedido)) {
@@ -39,17 +39,29 @@ require_once('verificar-sessao-Entregador.php');
                 $sqlIP = "SELECT * FROM infoIP WHERE idPedido = '$idPedido'";
                 $resultadoIP = $conexao->query($sqlIP);
             ?>
-                <div class="pedido">
-                    <p>Status: <?php echo $infoPedido['status']?></p>
-                    <p>Horario Pedido: <?php echo $infoPedido['horarioPedido']?></p>
-                    <p>Endereço Cliente: <?php echo $infoPedido['enderecoCliente']?></p>
-                    <p>Endereço Restaurante: <?php echo $infoPedido['enderecoRestaurante']?></p>
-                    
-                    <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
-                        <p><?php echo $infoIP['quantidade'] ?>x <?php echo $infoIP['nomeProduto'] ?> R$<?php echo $infoIP['precoPorProduto'] ?></p>
-                    <?php } ?>
-                    <br>
-                </div>
+            <div class="pedido">
+                <p>Status:
+                    <?php echo $infoPedido['status']?>
+                </p>
+                <p>Horario Pedido:
+                    <?php echo $infoPedido['horarioPedido']?>
+                </p>
+                <p>Endereço Cliente:
+                    <?php echo $infoPedido['enderecoCliente']?>
+                </p>
+                <p>Endereço Restaurante:
+                    <?php echo $infoPedido['enderecoRestaurante']?>
+                </p>
+
+                <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
+                <p>
+                    <?php echo $infoIP['quantidade'] ?>x
+                    <?php echo $infoIP['nomeProduto'] ?> R$
+                    <?php echo $infoIP['precoPorProduto'] ?>
+                </p>
+                <?php } ?>
+                <br>
+            </div>
             <?php } ?>
         </div>
 

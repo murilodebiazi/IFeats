@@ -1,17 +1,13 @@
 <?php
-// Habilita a exibição de erros na página
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-require_once '../conectar.php'; // deve definir $conn (mysqli_connect)
+require_once '../conectar.php'; 
 
-// Dados do novo usuário
 $nome = 'admin';
 $senha_plana = '123';
 
-// Gerar hash seguro da senha
 $senha_hash = password_hash($senha_plana, PASSWORD_DEFAULT);
 
-// Verificar se o usuário já existe
 $sql_verifica = "SELECT * FROM administrador WHERE nome = ?";
 $stmt_verifica = mysqli_prepare($conexao, $sql_verifica);
 mysqli_stmt_bind_param($stmt_verifica, "s", $nome);
@@ -21,7 +17,6 @@ mysqli_stmt_store_result($stmt_verifica);
 if (mysqli_stmt_num_rows($stmt_verifica) > 0) {
     echo "O usuário já existe.";
 } else {
-    // Inserir novo usuário
     $sql = "INSERT INTO administrador (nome, senha) VALUES (?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
     

@@ -10,7 +10,6 @@ $confirmar = $_POST['confirmar'] ?? null;
 
 if ($id) {
     if ($confirmar === 'sim') {
-        // Usuário confirmou a exclusão
         $sql = "DELETE FROM Produto WHERE idProduto=$id";
 
         if (mysqli_query($conexao, $sql)) {
@@ -19,7 +18,6 @@ if ($id) {
             $msg = urlencode('Erro ao excluir o produto!');
         }
     } else {
-        // Usuário cancelou a exclusão
         $msg = urlencode('Exclusão cancelada!');
     }
 
@@ -27,7 +25,6 @@ if ($id) {
     header("Location: listar-produto.php?retorno=$msg");
     exit;
 } else {
-    // Acesso indevido ou ID não enviado
     $msg = urlencode('Acesso negado!');
     header("Location: listar-produto.php?retorno=$msg");
     exit;

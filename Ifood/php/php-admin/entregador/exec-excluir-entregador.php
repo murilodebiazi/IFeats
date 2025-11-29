@@ -10,25 +10,14 @@ $confirmar = $_POST['confirmar'] ?? null;
 
 if ($id) {
     if ($confirmar === 'sim') {
-        // Usuário confirmou a exclusão
         $sql = "DELETE FROM Entregador WHERE idEntregador=$id";
 
         if (mysqli_query($conexao, $sql)) {
-
-            // Caminho da imagem a ser excluída
-            $caminhoImagem = "../fotos/" . $id . ".png";
-
-            // Verifica se o arquivo existe e tenta excluir
-            if (file_exists($caminhoImagem)) {
-                unlink($caminhoImagem);
-            }
-
             $msg = urlencode('Entregador excluído com sucesso!');
         } else {
             $msg = urlencode('Erro ao excluir o produto!');
         }
     } else {
-        // Usuário cancelou a exclusão
         $msg = urlencode('Exclusão cancelada!');
     }
 
@@ -36,7 +25,6 @@ if ($id) {
     header("Location: listar-entregador.php?retorno=$msg");
     exit;
 } else {
-    // Acesso indevido ou ID não enviado
     $msg = urlencode('Acesso negado!');
     header("Location: listar-entregador.php?retorno=$msg");
     exit;

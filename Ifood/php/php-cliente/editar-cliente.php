@@ -6,7 +6,6 @@ session_start();
 
 $emailAntigo = $_SESSION['emailCliente'];
 
-//pegar o nome do produto
 $nome = $_POST['cliente'];
 $cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];

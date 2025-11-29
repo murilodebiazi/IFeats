@@ -13,4 +13,4 @@ mysqli_close($conexao);
 session_destroy();
 
 header("Location: ../../html/menu-restaurante.html")
-    ?>
+?>

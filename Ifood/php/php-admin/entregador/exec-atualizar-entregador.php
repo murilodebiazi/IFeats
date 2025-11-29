@@ -2,10 +2,9 @@
 require_once ("../../conectar.php");
 require_once("../verificar-sessao-admin.php");
 
-// Verifica se a requisição é POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
-    $id = intval($_POST['id']); // Protege contra injeção
+    $id = intval($_POST['id']);
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
@@ -23,12 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         header("Location: listar-Entregador.php?retorno=$msg");
         exit;
     } else {
-        // Em caso de erro, exibe mensagem
         echo "Erro ao atualizar produto: " . mysqli_error($conexao);
     }
 
 } else {
-    // Acesso direto ou dados inválidos
     $msg = urlencode('Acesso negado!');
     header("Location: ../listar-Entregador.php?retorno=$msg");
     exit;

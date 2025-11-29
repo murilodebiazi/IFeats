@@ -2,7 +2,6 @@
 
 require_once "../conectar.php";
 
-//pegar o nome do produto
 $nome = $_POST['entregador'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
@@ -23,10 +22,8 @@ if ($resultado->num_rows > 0) {
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "sssss", $nome,$cpf, $email, $senha_hash, $veiculo);
             mysqli_stmt_execute($stmt);
-            mysqli_close($conexao); //fechar a conexão com BD
+            mysqli_close($conexao);
         }
-        //voltar para o formulario de cadastro e passar parametro ok por GET
-
         header("Location: form-cadastrar-entregador.php?status=ok");
         exit;
     } else

@@ -44,10 +44,10 @@
             <input class="botao" type="submit" value="Cadastrar Produto">
 
             <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-                <script type="text/javascript">
-                    alert("Produto cadastrado com sucesso!");
-                    window.location.href = "../php-restaurante/sessao-restaurante.php";
-                </script>
+            <script type="text/javascript">
+                alert("Produto cadastrado com sucesso!");
+                window.location.href = "../php-restaurante/sessao-restaurante.php";
+            </script>
             <?php endif; ?>
         </form>
     </div>

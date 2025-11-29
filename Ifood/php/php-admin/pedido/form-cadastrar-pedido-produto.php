@@ -9,7 +9,7 @@
 
 <body>
   <?php
-  // Exibir erros apenas em ambiente de desenvolvimento
+
   ini_set('display_errors', 0);
   error_reporting(E_ALL);
 
@@ -25,7 +25,6 @@
   ?>
   <div class="container">
 
-    <!-- Cabeçalho -->
     <header class="header">
       <a href="#" class="brand">
         <img src="../../../img/restrito.png" alt="Logo do sistema">
@@ -39,7 +38,6 @@
       </nav>
     </header>
 
-    <!-- Conteúdo -->
     <main class="card" style="max-width: 500px; margin: 50px auto; padding: 30px;">
 
       <h1 class="h1 text-center">Cadastro de Pedidos</h1>
@@ -53,7 +51,7 @@
         <input list="produto" name="produto">
         <datalist id="produto">
           <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-            <option value='<?php echo $linha['nomeProduto'] ?>'>
+          <option value='<?php echo $linha[' nomeProduto'] ?>'>
             <?php } ?>
         </datalist>
         <br>
@@ -66,13 +64,13 @@
             <input class="botao" type="submit" value="Finalizar Pedido" name="finalizar">
       </form>
       <?php
-      //Exibir alerta de sucesso se houver retorno na URL
+
       if (isset($_GET['retorno']) && $_GET['retorno'] === 'ok') {
         echo '<div class="mensagem-sucesso text-center mt-6">Pedido cadastrado com sucesso!</div>';
       }
       ?>
     </main>
-    <!-- Rodapé -->
+
     <footer class="footer text-center">
       <p>Sistema de Cadastro de pedidos 2025 &copy; </p>
     </footer>
