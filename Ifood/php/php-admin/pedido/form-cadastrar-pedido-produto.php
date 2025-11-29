@@ -51,7 +51,7 @@
         <input list="produto" name="produto">
         <datalist id="produto">
           <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-          <option value='<?php echo $linha[' nomeProduto'] ?>'>
+          <option value='<?php echo $linha['nomeProduto'] ?>'>
             <?php } ?>
         </datalist>
         <br>

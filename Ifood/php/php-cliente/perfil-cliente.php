@@ -35,19 +35,19 @@ require_once('verificar-sessao-cliente.php');
     <form class="perfil" action="editar-cliente.php" method="POST">
       <h1> Perfil </h1>
       <label>Nome:</label>
-      <input type="text" name="cliente" size="10" value='<?php echo $linha[' nomeCliente'] ?>' required>
+      <input type="text" name="cliente" size="10" value='<?php echo $linha['nomeCliente'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha[' CPFCliente'] ?>' required>
+      <input type="text" name="cpf" value='<?php echo $linha['CPFCliente'] ?>' required>
 
       <label>Telefone:</label>
-      <input type="number" name="telefone" value='<?php echo $linha[' telefoneCliente'] ?>' required>
+      <input type="number" name="telefone" value='<?php echo $linha['telefoneCliente'] ?>' required>
 
       <label>Email:</label>
-      <input type="text" name="email" value='<?php echo $linha[' emailCliente'] ?>' required>
+      <input type="text" name="email" value='<?php echo $linha['emailCliente'] ?>' required>
 
       <label>Endereço:</label>
-      <input type="text" name="endereco" value='<?php echo $linha[' enderecoCliente'] ?>' required>
+      <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente'] ?>' required>
 
       <label>Senha:</label>
       <input type="password" name="senha" required>

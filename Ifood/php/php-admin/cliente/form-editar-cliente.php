@@ -50,16 +50,16 @@ if (!$linha) {
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($linha['idCliente']); ?>">
 
         <label>Nome:</label>
-        <input type="text" name="cliente" size="10" value='<?php echo $linha[' nomeCliente']?>' required>
+        <input type="text" name="cliente" size="10" value='<?php echo $linha['nomeCliente']?>' required>
 
         <label>CPF:</label>
-        <input type="text" name="cpf" value='<?php echo $linha[' CPFCliente']?>' required>
+        <input type="text" name="cpf" value='<?php echo $linha['CPFCliente']?>' required>
 
         <label>Telefone:</label>
-        <input type="number" name="telefone" value='<?php echo $linha[' telefoneCliente']?>' required>
+        <input type="number" name="telefone" value='<?php echo $linha['telefoneCliente']?>' required>
 
         <label>Email:</label>
-        <input type="text" name="email" value='<?php echo $linha[' emailCliente']?>' required>
+        <input type="text" name="email" value='<?php echo $linha['emailCliente']?>' required>
 
         <label>Senha:</label>
         <input type="password" name="senha" required>

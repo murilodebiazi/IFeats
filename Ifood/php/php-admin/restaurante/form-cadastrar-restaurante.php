@@ -35,29 +35,29 @@ require_once("../verificar-sessao-admin.php");
 
       <form action="exec-cadastrar-restaurante.php" method="post" enctype="multipart/form-data" class="form mt-6">
         <label>Nome:</label>
-        <input type="text" name="nome" size="10" value='<?php echo $linha[' nomeRestaurante']?>' required>
+        <input type="text" name="nome" size="10" value='<?php echo $linha['nomeRestaurante']?>' required>
 
         <label>CNPJ:</label>
-        <input type="text" name="cnpj" value='<?php echo $linha[' cnpj']?>' required>
+        <input type="text" name="cnpj" value='<?php echo $linha['cnpj']?>' required>
 
         <label>Email:</label>
-        <input type="text" name="email" value='<?php echo $linha[' emailRestaurante']?>' required>
+        <input type="text" name="email" value='<?php echo $linha['emailRestaurante']?>' required>
 
         <label>Endereço:</label>
-        <input type="text" name="endereço" value='<?php echo $linha[' enderecoRestaurante']?>' required>
+        <input type="text" name="endereço" value='<?php echo $linha['enderecoRestaurante']?>' required>
 
         <label>Telefone:</label>
-        <input type="text" name="telefone" value='<?php echo $linha[' telefoneRestaurante']?>' required>
+        <input type="text" name="telefone" value='<?php echo $linha['telefoneRestaurante']?>' required>
 
         <label>Avaliação:</label>
         <input type="number" name="avaliacao" step="0.01" min="0" max="5" inputmode="decimal" value='<?php echo $linha['
           avaliacao']?>' required>
         <br>
         <label>Categoria:</label>
-        <input type="text" name="categoria" value='<?php echo $linha[' categoria']?>' required>
+        <input type="text" name="categoria" value='<?php echo $linha['categoria']?>' required>
 
         <label>Descrição:</label>
-        <input type="text" name="descricao" value='<?php echo $linha[' descricao']?>' required>
+        <input type="text" name="descricao" value='<?php echo $linha['descricao']?>' required>
 
         <label>Senha:</label>
         <input type="password" name="senha" required>

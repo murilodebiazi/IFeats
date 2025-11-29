@@ -36,13 +36,13 @@ require_once('verificar-sessao-entregador.php');
       <h1> Perfil </h1>
 
       <label>Nome:</label>
-      <input type="text" name="entregador" value='<?php echo $linha[' nomeEntregador'] ?>' required>
+      <input type="text" name="entregador" value='<?php echo $linha['nomeEntregador'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha[' CPFEntregador'] ?>' required>
+      <input type="text" name="cpf" value='<?php echo $linha['CPFEntregador'] ?>' required>
 
       <label>Email:</label>
-      <input type="email" name="email" value='<?php echo $linha[' emailEntregador'] ?>' required>
+      <input type="email" name="email" value='<?php echo $linha['emailEntregador'] ?>' required>
 
       <label>Senha:</label>
       <input type="password" name="senha" required>

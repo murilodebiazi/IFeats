@@ -35,7 +35,7 @@ require_once('../php-cliente/verificar-sessao-cliente.php');
             <input list="produto" name="produto" placeholder="Selecione Produto" required>
             <datalist id="produto">
                 <?php while ($linha = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-                <option value='<?php echo $linha[' nomeProduto'] ?>'>
+                <option value='<?php echo $linha['nomeProduto'] ?>'>
                     <?php } ?>
             </datalist>
 

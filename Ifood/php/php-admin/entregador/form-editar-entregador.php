@@ -49,19 +49,19 @@ if (!$linha) {
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($linha['idEntregador']); ?>">
 
         <label>Nome:</label>
-        <input type="text" name="nome" value='<?php echo $linha[' nomeEntregador']?>'required>
+        <input type="text" name="nome" value='<?php echo $linha['nomeEntregador']?>'required>
 
         <label>CPF:</label>
-        <input type="text" name="cpf" value='<?php echo $linha[' CPFEntregador']?>' required>
+        <input type="text" name="cpf" value='<?php echo $linha['CPFEntregador']?>' required>
 
         <label>Email:</label>
-        <input type="text" name="email" value='<?php echo $linha[' emailEntregador']?>' required>
+        <input type="text" name="email" value='<?php echo $linha['emailEntregador']?>' required>
 
         <label>Senha:</label>
         <input type="text" name="senha" required>
 
         <label>Avaliacao:</label>
-        <input type="text" name="avaliacao" value='<?php echo $linha[' avaliacao']?>'required>
+        <input type="text" name="avaliacao" value='<?php echo $linha['avaliacao']?>'required>
 
         <label>Veículo:</label>
 
