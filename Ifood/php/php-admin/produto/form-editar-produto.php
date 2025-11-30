@@ -53,7 +53,7 @@ if (!$linha) {
         <input type="text" name="nome" size="10" value='<?php echo $linha['nomeProduto']?>' required>
 
         <label>Preço:</label>
-        <input type="number" name="preco" step="0.01" min="0" max="100" inputmode="decimal" value='<?php echo $linha['
+        <input type="number" name="preco" step="0.01" min="0" inputmode="decimal" value='<?php echo $linha['
           preco']?>' required>
 
         <label>Descrição:</label>
@@ -71,7 +71,7 @@ if (!$linha) {
         <label>Não</label>
 
         <label>Id do Restaurante:</label>
-        <input type="text" name="idRestaurante" value='<?php echo $linha['id_Restaurante']?>' required>
+        <input type="text" name="idRestaurante" value='<?php echo $linha['idRestaurante']?>' required>
 
         <div class="text-center mt-6">
           <button type="submit" class="btn">Atualizar</button>

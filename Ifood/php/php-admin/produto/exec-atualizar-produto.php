@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $estoque = $_POST['estoque'];
     $idRestaurante = $_POST['idRestaurante'];
 
-    $sql = "UPDATE Produto SET nomeProduto='$nome', preco='$preco' , descricao='$descricao', categoria='$categoria', emEstoque='$estoque', id_Restaurante='$idRestaurante' WHERE idProduto = '$id'";
+    $sql = "UPDATE Produto SET nomeProduto='$nome', preco='$preco' , descricao='$descricao', categoria='$categoria', emEstoque='$estoque', idRestaurante='$idRestaurante' WHERE idProduto = '$id'";
     if (mysqli_query($conexao, $sql)) {
         $msg = urlencode('Produto atualizado com sucesso!');
         header("Location: listar-produto.php?retorno=$msg");
