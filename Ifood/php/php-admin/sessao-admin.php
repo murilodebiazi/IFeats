@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-require_once 'verificar-sessao-admin.php'; 
+require_once 'verificar-sessao-admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,6 +9,7 @@ require_once 'verificar-sessao-admin.php';
   <meta charset="UTF-8">
   <title>Administração - Sistema de Cadastro de Produtos 2025</title>
   <link rel="stylesheet" href="../../css/style-admin.css">
+  <link rel="icon" href="../../img/Icon_restrito.png" type="image/png">
 </head>
 
 <body>

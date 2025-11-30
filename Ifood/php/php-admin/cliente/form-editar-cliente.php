@@ -24,6 +24,7 @@ if (!$linha) {
   <meta charset="UTF-8">
   <title>Editar Cliente</title>
   <link rel="stylesheet" href="../../../css/style-admin.css">
+  <link rel="icon" href="../../../img/Icon_restrito.png" type="image/png">
 </head>
 
 <body>

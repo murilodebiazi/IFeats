@@ -1,5 +1,5 @@
 <?php
-require_once "../../conectar.php"/
+require_once "../../conectar.php";
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
      $nome = $_POST['nome'];
      $preco = $_POST['preco'];

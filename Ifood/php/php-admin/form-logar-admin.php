@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Login - Área Restrita</title>
   <link rel="stylesheet" href="../../css/style-admin.css">
+  <link rel="icon" href="../../img/Icon_restrito.png" type="image/png">
 </head>
 
 <body>

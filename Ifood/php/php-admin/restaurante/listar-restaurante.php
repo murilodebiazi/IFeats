@@ -11,6 +11,7 @@ $resultado = mysqli_query($conexao, "SELECT * FROM Restaurante");
   <meta charset="UTF-8">
   <title>Lista de Produtos</title>
   <link rel="stylesheet" href="../../../css/style-admin.css">
+  <link rel="icon" href="../../../img/Icon_restrito.png" type="image/png">
 </head>
 
 <body>

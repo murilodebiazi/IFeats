@@ -14,6 +14,7 @@ $resultado = mysqli_query($conexao, "SELECT * FROM pedido");
   <meta charset="UTF-8">
   <title>Lista de Pedidos</title>
   <link rel="stylesheet" href="../../../css/style-admin.css">
+  <link rel="icon" href="../../../img/Icon_restrito.png" type="image/png">
 </head>
 
 <body>
