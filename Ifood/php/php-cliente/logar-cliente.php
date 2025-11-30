@@ -19,15 +19,15 @@ if ($confirmar == $senha) {
             if (password_verify($senha, $linha['senhaCliente'])) {
                 session_start();
                 $_SESSION['emailCliente'] = $linha["emailCliente"];
+                mysqli_stmt_close($stmt);
+                mysqli_close($conexao);
                 header("Location: sessao-cliente.php");
                 exit();
-            }
-            else{
-                header("Location: form-logar-restaurante.php?status=nao");
-            }
-        }
-        else{
+            } else {
                 header("Location: form-logar-cliente.php?status=nao");
+            }
+        } else {
+            header("Location: form-logar-cliente.php?status=nao");
         }
     }
 } else {

@@ -5,12 +5,18 @@ session_start();
 
 $email = $_SESSION['emailRestaurante'];
 
-$sql = "DELETE FROM Restaurante WHERE emailRestaurante = '$email'";
-mysqli_query($conexao, $sql);
-$ultimocod = mysqli_insert_id($conexao);
-mysqli_close($conexao);
+$sql = "DELETE FROM Restaurante WHERE emailRestaurante = ?";
+$stmt = mysqli_prepare($conexao, $sql);
 
-session_destroy();
-
-header("Location: ../../html/menu-restaurante.html")
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_close($conexao);
+    $_SESSION['emailRestaurante'] = null;
+    session_destroy();
+    header("Location: ../../html/menu-restaurante.html");
+    exit();
+} else {
+    header("Location: perfil-restaurante.php?status=erro");
+}
 ?>

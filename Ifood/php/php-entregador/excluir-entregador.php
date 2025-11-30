@@ -5,14 +5,21 @@ session_start();
 
 $email = $_SESSION['emailEntregador'];
 
-$sql = "DELETE FROM Entregador WHERE emailEntregador = '$email'";
-mysqli_query($conexao, $sql);
-$ultimocod = mysqli_insert_id($conexao);
-mysqli_close($conexao);
+$sql = "DELETE FROM Entregador WHERE emailEntregador = ?";
+$stmt = mysqli_prepare($conexao, $sql);
 
-$_SESSION['emailEntregador'] = null;
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_close($conexao);
+    $_SESSION['emailEntregador'] = null;
+    session_destroy();
+    header("Location: ../../html/menu-entregador.html");
+    exit();
+} else {
+    header("Location: perfil-entregador.php?status=erro");
+}
 
-session_destroy();
 
 header("Location: ../../html/menu-entregador.html")
     ?>

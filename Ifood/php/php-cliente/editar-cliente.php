@@ -14,14 +14,20 @@ $endereco = $_POST['endereco'];
 $senha = $_POST['senha'];
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-$sql = "UPDATE Cliente SET nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', enderecoCliente='$endereco', senhaCliente='$senha_hash' WHERE emailCliente='$emailAntigo'";
-mysqli_query($conexao, $sql);
-$ultimocod = mysqli_insert_id($conexao);
-mysqli_close($conexao);
+$sql = "UPDATE Cliente SET nomeCliente=?, CPFCliente=?, telefoneCliente=?, emailCliente=?, enderecoCliente=?, senhaCliente=? WHERE emailCliente=?";
+$stmt = mysqli_prepare($conexao, $sql);
 
-$_SESSION['emailCliente'] = $email;
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "sssssss", $nome, $cpf, $telefone, $email, $endereco, $senha_hash, $emailAntigo);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($conexao);
+    $_SESSION['emailCliente'] = $email;
+    header("Location: sessao-cliente.php");
+    exit;
+} else {
+    echo "Erro na preparação da query: " . mysqli_error($conexao);
+}
 
-header("Location: sessao-cliente.php");
-exit;
 
 ?>

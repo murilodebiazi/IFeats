@@ -16,20 +16,21 @@ $resultado = $conexao->query($checarEmail);
 if ($resultado->num_rows > 0) {
     header("Location: form-cadastrar-cliente.php?status=email");
 } else {
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
     if ($confirmar == $senha) {
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         $sql = "INSERT INTO Cliente (nomeCliente, enderecoCliente, telefoneCliente, CPFCliente, emailCliente, senhaCliente) 
         VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conexao, $sql);
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ssssss", $nome,$endereco, $telefone, $cpf, $email, $senha_hash);
+            mysqli_stmt_bind_param($stmt, "ssssss", $nome, $endereco, $telefone, $cpf, $email, $senha_hash);
             mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
             mysqli_close($conexao);
+            header("Location: form-cadastrar-cliente.php?status=ok");
+        } else {
+            echo "Erro na preparação da query: " . mysqli_error($conexao);
         }
-
-        header("Location: form-cadastrar-cliente.php?status=ok");
-        exit;
     } else
-        header("Location: form-cadastrar-cliente.php?status=erro");
+        header("Location: form-cadastrar-cliente.php?status=senha");
 }
 ?>

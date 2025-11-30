@@ -3,8 +3,7 @@ error_reporting(E_ALL);
 
 require_once('../conectar.php');
 
-if (isset($_POST['sub']) && !empty($_POST['sub'])) 
-{
+if (isset($_POST['sub']) && !empty($_POST['sub'])) {
     $use = $_POST['nome'];
     $pas = $_POST['senha'];
 
@@ -32,11 +31,11 @@ if (isset($_POST['sub']) && !empty($_POST['sub']))
     } else {
         die("Erro no SQL: " . mysqli_error($conexao));
     }
-} 
-else 
-{
+} else {
     $msg = 'Acesso negado - Efetue o login';
     header("Location: form-logar-admin.php?retorno=$msg");
     exit;
 }
+
+
 ?>

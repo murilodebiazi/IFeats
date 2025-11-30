@@ -65,6 +65,11 @@ require_once('verificar-sessao-entregador.php');
 
       <a class="botao-excluir" href="excluir-entregador.php">Excluir Perfil</a>
 
+      <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+      <script type="text/javascript">
+        alert("algo deu errado!");
+      </script>
+      <?php endif; ?>
     </form>
   </div>
 

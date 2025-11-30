@@ -19,14 +19,14 @@ if ($confirmar == $senha) {
             if (password_verify($senha, $linha['senhaRestaurante'])) {
                 session_start();
                 $_SESSION['emailRestaurante'] = $linha["emailRestaurante"];
+                mysqli_stmt_close($stmt);
+                mysqli_close($conexao);
                 header("Location: sessao-restaurante.php");
                 exit();
-            }
-            else{
+            } else {
                 header("Location: form-logar-restaurante.php?status=nao");
             }
-        }
-        else{
+        } else {
             header("Location: form-logar-restaurante.php?status=nao");
         }
     }

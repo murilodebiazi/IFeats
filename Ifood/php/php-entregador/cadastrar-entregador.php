@@ -20,12 +20,15 @@ if ($resultado->num_rows > 0) {
         $sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conexao, $sql);
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "sssss", $nome,$cpf, $email, $senha_hash, $veiculo);
+            mysqli_stmt_bind_param($stmt, "sssss", $nome, $cpf, $email, $senha_hash, $veiculo);
             mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
             mysqli_close($conexao);
+            header("Location: form-cadastrar-entregador.php?status=ok");
+            exit;
+        } else {
+            echo "Erro na preparação da query: " . mysqli_error($conexao);
         }
-        header("Location: form-cadastrar-entregador.php?status=ok");
-        exit;
     } else
         header("Location: form-cadastrar-entregador.php?status=erro");
 }

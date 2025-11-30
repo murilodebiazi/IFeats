@@ -19,11 +19,13 @@ if ($confirmar == $senha) {
             if (password_verify($senha, $linha['senhaEntregador'])) {
                 session_start();
                 $_SESSION['emailEntregador'] = $linha["emailEntregador"];
+                mysqli_stmt_close($stmt);
+                mysqli_close($conexao);
                 header("Location: sessao-entregador.php");
                 exit();
             }
             else{
-                header("Location: form-logar-restaurante.php?status=nao");
+                header("Location: form-logar-entregador.php?status=nao");
             }
         }
         else{

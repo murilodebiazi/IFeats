@@ -61,6 +61,12 @@ require_once('verificar-sessao-restaurante.php');
       <input class="botao" type="submit" value="Editar">
 
       <a class="botao-excluir" href="excluir-restaurante.php">Excluir Perfil</a>
+
+      <?php if (isset($_GET['status']) && $_GET['status'] === 'erro'): ?>
+        <script type="text/javascript">
+          alert("algo deu errado!");
+        </script>
+      <?php endif; ?>
     </form>
   </div>
 
