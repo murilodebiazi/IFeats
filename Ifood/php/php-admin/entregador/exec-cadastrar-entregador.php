@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
       $email = $_POST['email'];
       $senha = $_POST['senha'];
       $veiculo = $_POST['veiculo'];
-      $disponivel = $_POST['disponibilidade'];
       $avaliacao = $_POST['avaliacao'];
 } else {
       $msg = urlencode('Acesso negado!');
@@ -16,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nome'])) {
 }
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-$sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte, disponivel, avaliacao)
-VALUES ('$nome','$cpf','$email','$senha_hash','$veiculo','$disponivel','$avaliacao')";
+$sql = "INSERT INTO Entregador (nomeEntregador, CPFEntregador, emailEntregador, senhaEntregador, transporte, avaliacao)
+VALUES ('$nome','$cpf','$email','$senha_hash','$veiculo','$avaliacao')";
 
 mysqli_query($conexao, $sql);
 $ultimocod = mysqli_insert_id($conexao);

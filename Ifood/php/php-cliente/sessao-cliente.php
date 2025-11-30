@@ -42,14 +42,8 @@ require_once('verificar-sessao-cliente.php');
         <br>
         <a class='titulo' href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><b>
             <?php echo $linhaR['nomeRestaurante'] ?>
-          </b></a>
-        <br> <br>
-        <p>Nota:
-          <?php echo $linhaR['avaliacao'] ?>
-        </p>
-        <br>
+        </b></a>
       </div>
-      <br>
       <?php } ?>
     </div>
   </div>

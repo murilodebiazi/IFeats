@@ -50,15 +50,6 @@
         <label>Senha:</label>
         <input type="password" name="senha" required>
 
-        <label>Disponivel?:</label>
-        <div class="escolha">
-          <input type="radio" name="disponibilidade" value="1" required>
-          <label>Sim</label>
-
-          <input type="radio" name="disponibilidade" value="0" required>
-          <label>Não</label>
-        </div>
-
         <br>
 
         <label>Veículo:</label>

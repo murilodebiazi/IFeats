@@ -56,6 +56,7 @@ $resultado = mysqli_query($conexao, "SELECT * FROM Cliente");
               <th>ID</th>
               <th>Nome</th>
               <th>Telefone</th>
+              <th>Endereço</th>
               <th>CPF</th>
               <th>Email</th>
               <th style="width:150px;">Ações</th>
@@ -72,6 +73,9 @@ $resultado = mysqli_query($conexao, "SELECT * FROM Cliente");
               </td>
               <td>
                 <?php echo htmlspecialchars($linha['telefoneCliente']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['enderecoCliente']); ?>
               </td>
               <td>
                 <?php echo htmlspecialchars($linha['CPFCliente']); ?>

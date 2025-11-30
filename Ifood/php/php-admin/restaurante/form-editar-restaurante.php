@@ -71,7 +71,7 @@ if (!$linha) {
         <input type="text" name="categoria" value='<?php echo $linha['categoria']?>' required>
 
         <label>Descrição:</label>
-        <input type="text" name="telefone" value='<?php echo $linha['descricao']?>' required>
+        <input type="text" name="descricao" value='<?php echo $linha['descricao']?>' required>
 
         <label>Senha:</label>
         <input type="password" name="senha" required>
