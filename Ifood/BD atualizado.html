@@ -111,11 +111,12 @@ JOIN Restaurante r
 ON r.idRestaurante = p.idRestaurante
 GROUP BY(idPedido);
 
-/* SELECT R.nomeRestaurante, COUNT(P.idProduto) AS NumeroDeProdutosPorRestaurante
-FROM Restaurante R
-JOIN Produto P
-ON P.id_Restaurante = R.idRestaurante
-GROUP BY R.nomeRestaurante;
+/* "SELECT * FROM Restaurante R 
+WHERE (SELECT COUNT(idProduto) 
+FROM Produto 
+WHERE emEstoque = 1 
+GROUP BY(idRestaurante) 
+HAVING idRestaurante = R.idRestaurante) > 0"
 
 SELECT *
 FROM Restaurante r
