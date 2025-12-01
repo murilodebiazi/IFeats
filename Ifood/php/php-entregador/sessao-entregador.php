@@ -36,7 +36,7 @@ require_once('verificar-sessao-entregador.php');
     <a class="botao" href="historico-pedidos-entregador.php">Histórico de Pedidos</a>
   </div>
 
-  <div class="rodape">
+  <div class="rodape-movel">
     <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
   </div>
 </body>

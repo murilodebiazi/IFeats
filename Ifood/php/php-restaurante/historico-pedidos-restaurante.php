@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("logar-Restaurante.php");
-require_once('verificar-sessao-Restaurante.php');
+include "../conectar.php";
+require_once "verificar-sessao-restaurante.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +27,13 @@ require_once('verificar-sessao-Restaurante.php');
 
     ?>
     <div class="cabecalho">
-        <a id="voltar" href="perfil-Restaurante.php">
+        <a id="voltar" href="perfil-restaurante.php">
             <?php echo $linha['nomeRestaurante'] ?>
         </a>
-        <a id="verpedidos" href="menu-pedidos-Restaurante.php">Pedidos</a>
+        <a id="verpedidos" href="menu-pedidos-restaurante.php">Pedidos</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
-        <a id="verrestaurantes" href="sessao-Restaurante.php">Restaurantes</a>
-        <a id="logout" href="deslogar-Restaurante.php">Logout</a>
+        <a id="verrestaurantes" href="sessao-restaurante.php">Restaurantes</a>
+        <a id="logout" href="deslogar-restaurante.php">Logout</a>
     </div>
     <div class="corpo">
         <h1>Histórico de Pedidos:</h1>

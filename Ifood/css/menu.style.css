@@ -56,11 +56,15 @@ body {
     align-items: center; 
     gap: 30px;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.h1-menu {
+    font-size: 40px;
 }
 
 .botao {
-    width: 100%;
-    max-width: 300px;
+    width: 120px;
     background-color: #ffffff;
     color: #333333;
     text-decoration: none;
