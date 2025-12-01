@@ -22,7 +22,13 @@ require_once('verificar-sessao-cliente.php');
   $resultado = $conexao->query($sql);
   $linha = $resultado->fetch_assoc();
 
-  $sqlRestaurante = "SELECT * FROM Restaurante";
+  $sqlRestaurante = "SELECT * FROM Restaurante R 
+  WHERE (SELECT COUNT(idProduto) 
+  FROM Produto 
+  WHERE emEstoque = 1 
+  GROUP BY(idRestaurante) 
+  HAVING idRestaurante = R.idRestaurante) > 0";
+
   $resultadoRestaurante = $conexao->query($sqlRestaurante);
   ?>
   <div class="cabecalho">

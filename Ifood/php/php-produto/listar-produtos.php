@@ -16,7 +16,13 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
 
 <body>
     <?php
-    $sqlProdutos = "SELECT * FROM Produto";
+    $email = $_SESSION['emailRestaurante'];
+    $sql = "SELECT * FROM Restaurante WHERE emailRestaurante = '$email'";
+    $resultado = $conexao->query($sql);
+    $linha = $resultado->fetch_assoc();
+    $idRestaurante = $linha['idRestaurante'];
+
+    $sqlProdutos = "SELECT * FROM Produto WHERE idRestaurante = '$idRestaurante'";
     $produtosListados = $conexao->query($sqlProdutos);
     ?>
     <div class="cabecalho">
