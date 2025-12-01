@@ -47,6 +47,9 @@ require_once("../verificar-sessao-admin.php");
 
         <label>Telefone:</label>
         <input type="number" name="telefone" required>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco" required>
         
         <br>
 
@@ -62,7 +65,7 @@ require_once("../verificar-sessao-admin.php");
       <?php
       //Exibir alerta de sucesso se houver retorno na URL
       if (isset($_GET['retorno']) && $_GET['retorno'] === 'ok') {
-        echo '<div class="mensagem-sucesso text-center mt-6">Produto cadastrado com sucesso!</div>';
+        echo '<div class="mensagem-sucesso text-center mt-6">Cliente cadastrado com sucesso!</div>';
       }
       ?>
 

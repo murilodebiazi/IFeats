@@ -53,8 +53,7 @@ if (!$linha) {
         <input type="text" name="nome" size="10" value='<?php echo $linha['nomeProduto']?>' required>
 
         <label>Preço:</label>
-        <input type="number" name="preco" step="0.01" min="0" inputmode="decimal" value='<?php echo $linha['
-          preco']?>' required>
+        <input type="number" name="preco" step="0.01" min="0" inputmode="decimal" value='<?php echo $linha['preco']?>' required>
 
         <label>Descrição:</label>
         <input type="text" name="descricao" value='<?php echo $linha['descricao']?>' required>
@@ -75,7 +74,7 @@ if (!$linha) {
 
         <div class="text-center mt-6">
           <button type="submit" class="btn">Atualizar</button>
-          <a href="listar-restaurante.php" class="btn ghost">Voltar</a>
+          <a href="listar-produto.php" class="btn ghost">Voltar</a>
         </div>
       </form>
 

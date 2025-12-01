@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $avaliacao = $_POST['avaliacao'];
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email', avaliacao='$avaliacao', senhaEntregador='$senha_hash' WHERE idEntregador='$id'";
+    $sql = "UPDATE Entregador SET nomeEntregador='$nome', CPFEntregador='$cpf', transporte = '$transporte',emailEntregador='$email',
+    avaliacao='$avaliacao', senhaEntregador='$senha_hash' WHERE idEntregador='$id'";
 
     if (mysqli_query($conexao, $sql)) {
         $msg = urlencode('Entregador atualizado com sucesso!');

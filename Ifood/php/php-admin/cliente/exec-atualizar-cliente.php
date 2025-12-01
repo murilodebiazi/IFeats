@@ -8,11 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $nome = $_POST['cliente'];
     $cpf = $_POST['cpf'];
     $telefone = $_POST['telefone'];
+    $endereco = $_POST['endereco'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE Cliente SET idCliente='$id', nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', emailCliente='$email', senhaCliente='$senha_hash' WHERE idCliente='$id'";
+    $sql = "UPDATE Cliente SET idCliente='$id', nomeCliente='$nome', CPFCliente='$cpf', telefoneCliente='$telefone', enderecoCliente='$endereco', emailCliente='$email', senhaCliente='$senha_hash' WHERE idCliente='$id'";
     if (mysqli_query($conexao, $sql)) {
         $msg = urlencode('Cliente atualizado com sucesso!');
         header("Location: listar-cliente.php?retorno=$msg");

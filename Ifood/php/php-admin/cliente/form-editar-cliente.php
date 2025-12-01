@@ -59,6 +59,9 @@ if (!$linha) {
         <label>Telefone:</label>
         <input type="number" name="telefone" value='<?php echo $linha['telefoneCliente']?>' required>
 
+        <label>Endereço:</label>
+        <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente']?>' required>
+
         <label>Email:</label>
         <input type="text" name="email" value='<?php echo $linha['emailCliente']?>' required>
 
