@@ -39,13 +39,13 @@ require_once('verificar-sessao-entregador.php');
   <div class="corpo">
 
     <?php if ($linha['isDisponivel'] == 0) { ?>
-      <a class="botao"
+      <a class="botao-disponivel"
         href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador'] ?>&acao=marcar-disponivel">Marcar Como
         Disponível</a>
     <?php } ?>
 
     <?php if ($linha['isDisponivel'] == 1) { ?>
-      <a class="botao"
+      <a class="botao-indisponivel"
         href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador'] ?>&acao=marcar-indisponivel">Marcar Como
         Indisponível</a>
       <a class="botao" href="aceitar-pedidos-entregador.php">Aceitar Pedidos</a>

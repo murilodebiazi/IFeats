@@ -79,8 +79,41 @@ body {
     display: block;
 }
 
-.corpo .botao:first-child,
-.corpo .botao:nth-child(2) {
+.botao-disponivel{
+    width: 100%;
+    max-width: 300px;
+    background-color: #01be5c;
+    color: #333333;
+    text-decoration: none;
+    padding: 25px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+    color: #ffffff;
+}
+
+.botao-indisponivel{
+    width: 100%;
+    max-width: 300px;
+    background-color: #e74c3c;
+    color: #333333;
+    text-decoration: none;
+    padding: 25px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+    color: #ffffff;
+}
+
+.corpo .botao{
     color: #00a651;
     border: 2px solid #00a651;
 }
