@@ -29,21 +29,28 @@ require_once('verificar-sessao-entregador.php');
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     <a id="logout" href="deslogar-entregador.php">Logout</a>
   </div>
+
+  <?php if ($linha['isDisponivel'] == 1) { ?>
+    <h1 class="h1-disponivel">Disponível</h1>
+  <?php } else { ?>
+    <h1 class="h1-indisponivel">Indisponível</h1>
+  <?php } ?>
+  
   <div class="corpo">
-    
+
     <?php if ($linha['isDisponivel'] == 0) { ?>
-    <a class="botao"
-      href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador']?>&acao=marcar-disponivel">Marcar Como
-      Disponível</a>
+      <a class="botao"
+        href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador'] ?>&acao=marcar-disponivel">Marcar Como
+        Disponível</a>
     <?php } ?>
 
     <?php if ($linha['isDisponivel'] == 1) { ?>
-    <a class="botao"
-      href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador']?>&acao=marcar-indisponivel">Marcar Como
-      Indisponível</a>
-    <a class="botao" href="aceitar-pedidos-entregador.php">Aceitar Pedidos</a>
-    <a class="botao" href="pedidos-emrota-entregador.php">Pedido Para Entrega</a>
-    <?php }?>
+      <a class="botao"
+        href="mudar-disponibilidade.php?id=<?php echo $linha['idEntregador'] ?>&acao=marcar-indisponivel">Marcar Como
+        Indisponível</a>
+      <a class="botao" href="aceitar-pedidos-entregador.php">Aceitar Pedidos</a>
+      <a class="botao" href="pedidos-emrota-entregador.php">Pedido Para Entrega</a>
+    <?php } ?>
 
     <a class="botao" href="historico-pedidos-entregador.php">Histórico de Pedidos</a>
   </div>

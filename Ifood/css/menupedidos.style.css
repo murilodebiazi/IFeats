@@ -41,6 +41,18 @@ body {
     vertical-align: middle;
 }
 
+.h1-disponivel {
+    text-align: center;
+    color: green;
+    font-size: 50px;
+}
+
+.h1-indisponivel {
+    text-align: center;
+    color: red;
+    font-size: 50px;
+}
+
 .corpo {
     flex-grow: 1;
     padding: 40px 20px;
