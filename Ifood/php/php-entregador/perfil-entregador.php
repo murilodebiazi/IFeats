@@ -24,8 +24,8 @@ require_once('verificar-sessao-entregador.php');
   ?>
 
   <div class="cabecalho">
-    <a id="voltar" href="perfil-entregador.php">
-      <?php echo $linha['nomeEntregador'] ?>
+    <a id="voltar" href="sessao-entregador.php">
+      Voltar
     </a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
     <a id="logout" href="deslogar-entregador.php">Logout</a>

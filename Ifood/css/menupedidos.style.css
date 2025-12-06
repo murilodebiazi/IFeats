@@ -113,6 +113,12 @@ body {
     color: #ffffff;
 }
 
+.botao-indisponivel:hover,
+.botao-disponivel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
 .corpo .botao{
     color: #00a651;
     border: 2px solid #00a651;
