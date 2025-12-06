@@ -21,6 +21,7 @@ transporte VARCHAR(20),
 CPFEntregador CHAR(14) NOT NULL UNIQUE,
 emailEntregador VARCHAR(200) NOT NULL UNIQUE,
 senhaEntregador VARCHAR(200) NOT NULL ,
+isDisponivel BOOLEAN DEFAULT 0,
 avaliacao DOUBLE DEFAULT 0.00
 );
 
@@ -111,16 +112,13 @@ JOIN Restaurante r
 ON r.idRestaurante = p.idRestaurante
 GROUP BY(idPedido);
 
-/* "SELECT * FROM Restaurante R 
+SELECT *
+FROM Restaurante R
 WHERE (SELECT COUNT(idProduto) 
 FROM Produto 
 WHERE emEstoque = 1 
 GROUP BY(idRestaurante) 
-HAVING idRestaurante = R.idRestaurante) > 0"
-
-SELECT *
-FROM Restaurante r
-WHERE r.avaliacao >= x;
+HAVING idRestaurante = R.idRestaurante) > 0;
 
 SELECT *
 FROM Produto p
