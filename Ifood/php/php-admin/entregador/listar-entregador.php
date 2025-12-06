@@ -57,7 +57,8 @@ $resultado = mysqli_query($conexao, "SELECT * FROM entregador");
               <th>CPF</th>
               <th>Transporte</th>
               <th>Email</th>
-              <th>avaliacao</th>
+              <th>Disponível</th>
+              <th>Avaliacao</th>
               <th style="width:150px;">Ações</th>
             </tr>
           </thead>
@@ -78,6 +79,9 @@ $resultado = mysqli_query($conexao, "SELECT * FROM entregador");
               </td>
               <td>
                 <?php echo htmlspecialchars($linha['emailEntregador']); ?>
+              </td>
+              <td>
+                <?php echo htmlspecialchars($linha['isDisponivel']); ?>
               </td>
               <td>
                 <?php echo htmlspecialchars($linha['avaliacao']); ?>

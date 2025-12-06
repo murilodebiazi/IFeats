@@ -27,7 +27,9 @@ require_once('verificar-sessao-cliente.php');
     <a id="voltar" href="perfil-cliente.php">
       <?php echo $linha['nomeCliente'] ?>
     </a>
+    <a id="verpedidos" href="menu-pedidos-cliente.php">Pedidos</a>
     <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
+    <a id="verrestaurantes" href="sessao-cliente.php">Restaurantes</a>
     <a id="logout" href="deslogar-cliente.php">Logout</a>
   </div>
 

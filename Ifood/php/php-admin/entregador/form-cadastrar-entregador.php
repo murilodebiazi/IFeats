@@ -47,10 +47,18 @@
         <label>Avaliacao:</label>
         <input type="text" name="avaliacao" required>
 
-        <label>Senha:</label>
-        <input type="password" name="senha" required>
+        <div class="escolha">
+          <input type="radio" name="isDisponivel" value="1" required>
+          <label>Disponível</label>
+
+          <input type="radio" name="isDisponivel" value="0" required>
+          <label>Indisponível</label>
+        </div>
 
         <br>
+
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
 
         <label>Veículo:</label>
 

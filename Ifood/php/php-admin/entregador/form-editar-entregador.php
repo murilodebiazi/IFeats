@@ -64,6 +64,14 @@ if (!$linha) {
         <label>Avaliacao:</label>
         <input type="text" name="avaliacao" value='<?php echo $linha['avaliacao']?>'required>
 
+        <div class="escolha">
+          <input type="radio" name="isDisponivel" value="1" required>
+          <label>Disponível</label>
+
+          <input type="radio" name="isDisponivel" value="0" required>
+          <label>Indisponível</label>
+        </div>
+
         <label>Veículo:</label>
 
         <div class="escolha">
