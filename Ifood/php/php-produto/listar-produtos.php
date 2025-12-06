@@ -34,19 +34,13 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
         <h1>Produtos:</h1>
         <div class="produtos">
             <?php while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
-            <div class="produto">
-                <p>
-                    <?php echo $linhaP['nomeProduto'];?>
-                </p>
-                <p>R$
-                    <?php echo $linhaP['preco'];?>
-                </p>
-                <p>
-                    <?php echo $linhaP['categoria'];?>
-                </p>
-                <a href="form-editar-produto.php?id=<?php echo $linhaP['idProduto']?>">Editar</a>
-                <a href="excluir-produto.php?id=<?php echo $linhaP['idProduto']?>">Excluir</a>
-            </div>
+                <div class="produto">
+                    <p> <?php echo $linhaP['nomeProduto']; ?> </p>
+                    <p> R$ <?php echo $linhaP['preco']; ?> </p>
+                    <p> <?php echo $linhaP['categoria']; ?> </p>
+                    <a href="form-editar-produto.php?id=<?php echo $linhaP['idProduto'] ?>">Editar</a>
+                    <a href="excluir-produto.php?id=<?php echo $linhaP['idProduto'] ?>">Excluir</a>
+                </div>
             <?php } ?>
         </div>
     </div>
@@ -54,9 +48,9 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
         <p class="copyright">IFood @ 2025 - Murilo, Kesler, Maico, Richard</p>
     </div>
     <?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-    <script type="text/javascript">
-        alert("Produto editado com sucesso!");
-    </script>
+        <script type="text/javascript">
+            alert("Produto editado com sucesso!");
+        </script>
     <?php endif; ?>
 </body>
 

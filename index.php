@@ -1,3 +1,3 @@
 <?php
-header('location: Ifood/html/menu-principal.html');
+header('location: Ifood/php/php-admin/criar-admin.php');
 ?>
