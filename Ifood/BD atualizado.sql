@@ -129,6 +129,21 @@ SELECT *
 FROM Entregador
 WHERE disponivel = true;
 
+CREATE VIEW produtosMenorPreco AS
 SELECT *
 FROM Produto
 ORDER BY preco;
+
+CREATE VIEW produtosMaiorPreco AS
+SELECT *
+FROM Produto
+ORDER BY preco DESC;
+
+CREATE VIEW produtosAlfabetico AS
+SELECT *
+FROM Produto
+ORDER BY nomeProduto;
+
+
+
+

@@ -27,7 +27,7 @@ require_once('verificar-sessao-Entregador.php');
 
     ?>
     <div class="cabecalho">
-        <a id="verpedidos" href="sessao-entregador.php">Pedidos</a>
+        <a id="verpedidos" href="sessao-entregador.php">Voltar</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
         <a id="logout" href="deslogar-entregador.php">Logout</a>
     </div>

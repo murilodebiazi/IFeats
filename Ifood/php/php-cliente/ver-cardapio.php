@@ -41,13 +41,13 @@ require_once('verificar-sessao-cliente.php');
     <div class="corpo">
 
         <div class="">
-            <h1>
+            <h1 style="font-size: 40px">
                 <?php echo $linhaR['nomeRestaurante'] ?>
             </h1>
             <p>Categoria:
                 <?php echo $linhaR['categoria'] ?>
             </p>
-            <p>
+            <p>Avaliação:
                 <?php echo $linhaR['avaliacao'] ?>
             </p>
             <p>Endereço:

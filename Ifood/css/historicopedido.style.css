@@ -63,6 +63,7 @@ body {
     margin-bottom: 15px; 
     display: flex;
     flex-direction: column;
+    border: solid rgb(172, 172, 172) 2px;
 }
 
 .pedido p {

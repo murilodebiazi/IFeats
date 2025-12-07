@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../conectar.php";
+date_default_timezone_set('America/Sao_Paulo');
 
 $idPedido= $_GET['id']; 
 $idEntregador = $_GET['idE'] ?? "";

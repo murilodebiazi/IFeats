@@ -38,33 +38,34 @@ require_once('verificar-sessao-cliente.php');
     <div class="corpo">
         <h1>Pedidos Pendentes:</h1>
         <div class="cardapio">
-            <?php while ($infoPedido= mysqli_fetch_assoc($resultadoPedido)) {
+            <?php while ($infoPedido = mysqli_fetch_assoc($resultadoPedido)) {
                 $idPedido = $infoPedido['idPedido'];
                 $sqlIP = "SELECT * FROM infoIP WHERE idPedido = '$idPedido'";
                 $resultadoIP = $conexao->query($sqlIP);
-            ?>
-            <div class="pedido">
-                <p>Status:
-                    <?php echo $infoPedido['status']?>
-                </p>
-                <p>Horario Pedido:
-                    <?php echo $infoPedido['horarioPedido']?>
-                </p>
-                <p>Preço: R$
-                    <?php echo $infoPedido['precoPedido']?>
-                </p>
-                <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
-                <p>
-                    <?php echo $infoIP['quantidade'] ?>x
-                    <?php echo $infoIP['nomeProduto'] ?> R$
-                    <?php echo $infoIP['precoPorProduto'] ?>
-                </p>
-                <?php } ?>
-                <a href="../php-pedido/mudar-status-pedido.php?id=<?php echo$idPedido?>&acao=entregue">Marcar Como
-                    Entregue</a>
-                <a href="../php-pedido/excluir-pedido.php?id=<?php echo$idPedido?>&idR=0&acao=cancelarPedidoCliente">Cancelar
-                    Pedido</a>
-            </div>
+                ?>
+                <div class="pedido">
+                    <p>Status:
+                        <?php echo $infoPedido['status'] ?>
+                    </p>
+                    <p>Horario Pedido:
+                        <?php echo $infoPedido['horarioPedido'] ?>
+                    </p>
+                    <p>Preço: R$
+                        <?php echo $infoPedido['precoPedido'] ?>
+                    </p>
+                    <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
+                        <p>
+                            <?php echo $infoIP['quantidade'] ?>x
+                            <?php echo $infoIP['nomeProduto'] ?> R$
+                            <?php echo $infoIP['precoPorProduto'] ?>
+                        </p>
+                    <?php }
+                    if ($infoPedido['status'] == "Em Rota") { ?>
+                        <a href="../php-pedido/mudar-status-pedido.php?id=<?php echo $idPedido ?>&acao=entregue">Marcar Como
+                            Entregue</a>
+                    <?php } ?>
+                    <a href="../php-pedido/excluir-pedido.php?id=<?php echo $idPedido ?>&idR=0&acao=cancelarPedidoCliente">Cancelar Pedido</a>
+                </div>
             <?php } ?>
         </div>
 

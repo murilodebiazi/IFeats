@@ -27,40 +27,54 @@ require_once('verificar-sessao-Entregador.php');
 
     ?>
     <div class="cabecalho">
-        <a id="verpedidos" href="sessao-entregador.php">Pedidos</a>
+        <a id="verpedidos" href="sessao-entregador.php">Voltar</a>
         <a id="logo" href="../../html/menu-principal.html"><img src="../../img/Logo.png" alt="Logo"></a>
         <a id="logout" href="deslogar-entregador.php">Logout</a>
     </div>
     <div class="corpo">
         <h1>Histórico de Pedidos:</h1>
         <div class="cardapio">
-            <?php while ($infoPedido= mysqli_fetch_assoc($resultadoPedido)) {
+            <?php while ($infoPedido = mysqli_fetch_assoc($resultadoPedido)) {
                 $idPedido = $infoPedido['idPedido'];
                 $sqlIP = "SELECT * FROM infoIP WHERE idPedido = '$idPedido'";
                 $resultadoIP = $conexao->query($sqlIP);
-            ?>
-            <div class="pedido">
-                <p>Status:
-                    <?php echo $infoPedido['status']?>
-                </p>
-                <p>Horario Pedido:
-                    <?php echo $infoPedido['horarioPedido']?>
-                </p>
-                <p>Endereço Cliente:
-                    <?php echo $infoPedido['enderecoCliente']?>
-                </p>
-                <p>Endereço Restaurante:
-                    <?php echo $infoPedido['enderecoRestaurante']?>
-                </p>
-
-                <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
-                <p>
-                    <?php echo $infoIP['quantidade'] ?>x
-                    <?php echo $infoIP['nomeProduto'] ?> R$
-                    <?php echo $infoIP['precoPorProduto'] ?>
-                </p>
-                <?php } ?>
-            </div>
+                ?>
+                <div class="pedido">
+                    <p><b>N° do pedido:</b>
+                        <?php echo $infoPedido['idPedido'] ?>
+                    </p>
+                    <p><b>Status:</b>
+                        <?php echo $infoPedido['status'] ?>
+                    </p>
+                    <p><b>Horario Pedido:</b>
+                        <?php echo $infoPedido['horarioPedido'] ?>
+                    </p>
+                    <p><b>Horario Entregue:</b>
+                        <?php echo $infoPedido['horarioEntregue'] ?>
+                    </p>
+                    <p><b>Cliente:</b>
+                        <?php echo $infoPedido['nomeCliente'] ?>
+                    </p>
+                    <p><b>Endereço Cliente:</b>
+                        <?php echo $infoPedido['enderecoCliente'] ?>
+                    </p>
+                    <p><b>Restaurante:</b>
+                        <?php echo $infoPedido['nomeRestaurante'] ?>
+                    </p>
+                    <p><b>Endereço Restaurante:</b>
+                        <?php echo $infoPedido['enderecoRestaurante'] ?>
+                    </p>
+                    <p><b>Preço: </b>R$
+                        <?php echo $infoPedido['precoPedido'] ?>
+                    </p>
+                    <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
+                        <p>
+                            <?php echo $infoIP['quantidade'] ?>x
+                            <?php echo $infoIP['nomeProduto'] ?> R$
+                            <?php echo $infoIP['precoPorProduto'] ?>
+                        </p>
+                    <?php } ?>
+                </div>
             <?php } ?>
         </div>
 

@@ -1,6 +1,8 @@
 <?php
 require_once "../conectar.php";
 
+date_default_timezone_set('America/Sao_Paulo');
+
 session_start();
 $idPedido = $_POST['idPedido'];
 $idRestaurante = $_POST['idRestaurante'];
