@@ -39,13 +39,13 @@ require_once('verificar-sessao-entregador.php');
       <input type="text" name="entregador" value='<?php echo $linha['nomeEntregador'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha['CPFEntregador'] ?>' required>
+      <input type="text" name="cpf" minlength="14" maxlength="14" placeholder="999.999.999-99" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Digite no formato: 000.000.000-00" value='<?php echo $linha['CPFEntregador'] ?>' required>
 
       <label>Email:</label>
       <input type="email" name="email" value='<?php echo $linha['emailEntregador'] ?>' required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" minlength="6" required>
 
       <label>Veículo:</label>
 

@@ -18,16 +18,16 @@
     <div class="corpo">
         <form class="form" action="cadastrar-produto.php" method="POST">
             <label>Nome do Produto:</label>
-            <input type="text" name="produto" required>
+            <input type="text" name="produto" placeholder="Burguer de Frango" required>
 
             <label>Preço do Produto:</label>
             <input type="number" name="preco" min="0" step="0.01" placeholder="0.00" required>
 
             <label>Descrição do Produto:</label>
-            <textarea name="descricao" rows="5" col="30" required> </textarea>
+            <textarea name="descricao" rows="5" col="30" placeholder="descrição do produto" required></textarea>
 
             <label>Categoria do Produto:</label>
-            <input type="text" name="categoria" required>
+            <input type="text" name="categoria" placeholder="Burguer" required>
 
             <label>Em Estoque?:</label>
 

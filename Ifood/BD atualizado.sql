@@ -7,9 +7,9 @@ CREATE TABLE Cliente
 idCliente INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
 nomeCliente VARCHAR(200) NOT NULL,
 enderecoCliente VARCHAR(255),
-telefoneCliente VARCHAR(11),
-CPFCliente CHAR(14) NOT NULL UNIQUE,
-emailCliente VARCHAR(75) NOT NULL UNIQUE,
+telefoneCliente VARCHAR(13),
+CPFCliente VARCHAR(14) NOT NULL UNIQUE,
+emailCliente VARCHAR(200) NOT NULL UNIQUE,
 senhaCliente VARCHAR(200) NOT NULL
 );
 
@@ -18,9 +18,9 @@ CREATE TABLE Entregador
 idEntregador INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
 nomeEntregador VARCHAR(200) NOT NULL,
 transporte VARCHAR(20),
-CPFEntregador CHAR(14) NOT NULL UNIQUE,
+CPFEntregador VARCHAR(14) NOT NULL UNIQUE,
 emailEntregador VARCHAR(200) NOT NULL UNIQUE,
-senhaEntregador VARCHAR(200) NOT NULL ,
+senhaEntregador VARCHAR(200) NOT NULL,
 isDisponivel BOOLEAN DEFAULT 0,
 avaliacao DOUBLE DEFAULT 0.00
 );
@@ -28,14 +28,14 @@ avaliacao DOUBLE DEFAULT 0.00
 CREATE TABLE Restaurante
 (
 idRestaurante INT PRIMARY KEY AUTO_INCREMENT,
-cnpj CHAR(14) NOT NULL UNIQUE,
+cnpj VARCHAR(18) NOT NULL UNIQUE,
 nomeRestaurante VARCHAR(200) NOT NULL,
 emailRestaurante VARCHAR(200) NOT NULL UNIQUE,
 avaliacao DOUBLE DEFAULT 0.00,
 categoria VARCHAR(100),
 descricao TEXT,
 enderecoRestaurante VARCHAR(255),
-telefoneRestaurante VARCHAR(11),
+telefoneRestaurante VARCHAR(13),
 senhaRestaurante VARCHAR(200)
 );
 
@@ -62,7 +62,7 @@ idCliente INT NOT NULL,
 idEntregador INT,
 FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante) ON DELETE CASCADE,
 FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente) ON DELETE CASCADE,
-FOREIGN KEY(idEntregador) REFERENCES Entregador (idEntregador)
+FOREIGN KEY(idEntregador) REFERENCES Entregador (idEntregador) ON DELETE CASCADE
 );
 
 CREATE TABLE itemPedido

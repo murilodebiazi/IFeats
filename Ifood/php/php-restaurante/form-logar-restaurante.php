@@ -27,13 +27,13 @@ if ($_SESSION['emailRestaurante'] != null) {
     <form class="form" action="logar-restaurante.php" method="POST">
 
       <label>Email:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" placeholder="burguerking@email.com" required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" placeholder="bestburguer123" required>
 
       <label>Confirmar Senha:</label>
-      <input type="password" name="confirmar" required>
+      <input type="password" name="confirmar" placeholder="bestburguer123" required>
 
       <a id="link-cadastro" href="form-cadastrar-restaurante.php">Não Possui uma Conta?</a>
 

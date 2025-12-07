@@ -27,13 +27,13 @@ if ($_SESSION['emailEntregador'] != null) {
     <form class="form" action="logar-entregador.php" method="POST">
 
       <label>Email:</label>
-      <input type="text" name="email" required>
+      <input type="text" name="email" placeholder="ugabuga@email.com" required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" placeholder="ugabuga123" required>
 
       <label>Confirmar Senha:</label>
-      <input type="password" name="confirmar" required>
+      <input type="password" name="confirmar" placeholder="ugabuga123" required>
 
       <a id="link-cadastro" href="form-cadastrar-entregador.php">Não Possui uma Conta?</a>
 

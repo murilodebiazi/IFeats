@@ -18,19 +18,19 @@
   <div class="corpo">
     <form class="form" action="cadastrar-entregador.php" method="POST">
       <label>Nome:</label>
-      <input type="text" name="entregador" required>
+      <input type="text" name="entregador" placeholder="Raffa Moreira" required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" required>
+      <input type="text" name="cpf" minlength="14" maxlength="14" placeholder="999.999.999-99" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Digite no formato: 000.000.000-00" required>
 
       <label>Email:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" placeholder="raffamoreira67@email.com" required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" minlength="6" placeholder="raffa123" required>
 
       <label>Confirmar Senha:</label>
-      <input type="password" name="confirmar" required>
+      <input type="password" name="confirmar" minlength="6" placeholder="raffa123" required>
 
       <label>Veículo:</label>
 

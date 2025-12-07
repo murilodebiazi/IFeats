@@ -25,13 +25,13 @@ if ($_SESSION['emailCliente'] != null) {
   <div class="corpo">
     <form class="form" action="logar-cliente.php" method="POST">
       <label>Email:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" placeholder="maico@email.com" required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" placeholder="maico123" required>
 
       <label>Confirmar Senha:</label>
-      <input type="password" name="confirmar" required>
+      <input type="password" name="confirmar" placeholder="maico123" required>
 
       <a id="link-cadastro" href="form-cadastrar-cliente.php">Não Possui uma Conta?</a>
 

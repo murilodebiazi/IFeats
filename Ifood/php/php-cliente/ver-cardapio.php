@@ -21,10 +21,10 @@ require_once('verificar-sessao-cliente.php');
     $resultado = $conexao->query($sql);
     $linha = $resultado->fetch_assoc();
 
-    $idRestaurante= $_GET['id'];
-    $sqlRestaurante= "SELECT * FROM Restaurante WHERE idRestaurante = '$idRestaurante'";
-    $restaurante= $conexao->query($sqlRestaurante);
-    $linhaR = mysqli_fetch_assoc($restaurante); 
+    $idRestaurante = $_GET['id'];
+    $sqlRestaurante = "SELECT * FROM Restaurante WHERE idRestaurante = '$idRestaurante'";
+    $restaurante = $conexao->query($sqlRestaurante);
+    $linhaR = mysqli_fetch_assoc($restaurante);
 
     $sqlProdutos = "SELECT * FROM Produto WHERE idRestaurante = '$idRestaurante'";
     $produtosListados = $conexao->query($sqlProdutos);
@@ -58,28 +58,34 @@ require_once('verificar-sessao-cliente.php');
             </p>
         </div>
 
-        <a href="../php-pedido/criar-pedido.php?id=<?php echo $idRestaurante?>">Fazer Pedido</a>
+        <a href="../php-pedido/criar-pedido.php?id=<?php echo $idRestaurante ?>">Fazer Pedido</a>
 
         <h1>Cardapio:</h1>
         <div class="cardapio">
             <?php while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
-            <div class="produto">
-                <p>
-                    <?php echo $linhaP['nomeProduto'];?>
-                </p>
-                <p> R$
-                    <?php echo $linhaP['preco'];?>
-                </p>
-                <p>
-                    <?php echo $linhaP['categoria'];?>
-                </p>
-                <p>
-                    <?php echo $linhaP['descricao'];?>
-                </p>
-                <?php if($linhaP['emEstoque'] == 0){?>
-                <p>Indisponível</p>
-                <?php } ?>
-            </div>
+                <div class="produto">
+                    <p>
+                        <?php if ($linhaP['emEstoque'] == 1) {
+                            echo $linhaP['nomeProduto'];
+                        } else {
+                            echo "<s>";
+                            echo $linhaP['nomeProduto'];
+                            echo "</s>";
+                        } ?>
+                    </p>
+                    <p> R$
+                        <?php echo $linhaP['preco']; ?>
+                    </p>
+                    <p>
+                        <?php echo $linhaP['categoria']; ?>
+                    </p>
+                    <p>
+                        <?php echo $linhaP['descricao']; ?>
+                    </p>
+                    <?php if ($linhaP['emEstoque'] == 0) { ?>
+                        <p>FORA DE ESTOQUE</p>
+                    <?php } ?>
+                </div>
             <?php } ?>
         </div>
 

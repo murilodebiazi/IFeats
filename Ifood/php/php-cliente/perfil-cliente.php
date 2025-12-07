@@ -35,13 +35,13 @@ require_once('verificar-sessao-cliente.php');
     <form class="perfil" action="editar-cliente.php" method="POST">
       <h1> Perfil </h1>
       <label>Nome:</label>
-      <input type="text" name="cliente" size="10" value='<?php echo $linha['nomeCliente'] ?>' required>
+      <input type="text" name="cliente" value='<?php echo $linha['nomeCliente'] ?>' required>
 
       <label>CPF:</label>
-      <input type="text" name="cpf" value='<?php echo $linha['CPFCliente'] ?>' required>
+      <input type="text" name="cpf" minlength="14" maxlength="14" placeholder="999.999.999-99" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Digite no formato: 000.000.000-00" value='<?php echo $linha['CPFCliente'] ?>' required>
 
       <label>Telefone:</label>
-      <input type="number" name="telefone" value='<?php echo $linha['telefoneCliente'] ?>' required>
+      <input type="tel" name="telefone" minlength="13" maxlength="13" placeholder="99 99999-9999" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" title="Digite no formato: 99 99999-9999" value='<?php echo $linha['telefoneCliente'] ?>' required>
 
       <label>Email:</label>
       <input type="text" name="email" value='<?php echo $linha['emailCliente'] ?>' required>
@@ -50,7 +50,7 @@ require_once('verificar-sessao-cliente.php');
       <input type="text" name="endereco" value='<?php echo $linha['enderecoCliente'] ?>' required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" minlength="6" required>
 
       <input class="botao" type="submit" value="Editar">
 

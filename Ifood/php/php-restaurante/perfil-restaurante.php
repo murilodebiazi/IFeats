@@ -35,19 +35,19 @@ require_once('verificar-sessao-restaurante.php');
     <form class="perfil" action="editar-restaurante.php" method="POST">
       <h1> Perfil </h1>
       <label>Nome:</label>
-      <input type="text" name="Restaurante" size="10" value='<?php echo $linha['nomeRestaurante'] ?>' required>
+      <input type="text" name="Restaurante" value='<?php echo $linha['nomeRestaurante'] ?>' required>
 
       <label>CNPJ:</label>
-      <input type="text" name="cnpj" value='<?php echo $linha['cnpj'] ?>' required>
+      <input type="text" name="cnpj" placeholder="00.000.000/0000-00" pattern="[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}" maxlength="18" minlength="18" title="Digite no formato: 00.000.000/0000-00" value='<?php echo $linha['cnpj'] ?>' required>
 
       <label>Email:</label>
-      <input type="text" name="email" value='<?php echo $linha['emailRestaurante'] ?>' required>
+      <input type="email" name="email" value='<?php echo $linha['emailRestaurante'] ?>' required>
 
       <label>Endereço:</label>
       <input type="text" name="endereço" value='<?php echo $linha['enderecoRestaurante'] ?>' required>
 
       <label>Telefone:</label>
-      <input type="text" name="telefone" value='<?php echo $linha['telefoneRestaurante'] ?>' required>
+      <input type="tel" name="telefone" minlength="13" maxlength="13" placeholder="99 99999-9999" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" title="Digite no formato: 99 99999-9999" value='<?php echo $linha['telefoneRestaurante'] ?>' required>
 
       <label>Categoria:</label>
       <input type="text" name="categoria" value='<?php echo $linha['categoria'] ?>' required>
@@ -56,7 +56,7 @@ require_once('verificar-sessao-restaurante.php');
       <textarea name="descricao" rows="5" col="30" required><?php echo $linha['descricao'] ?></textarea>
 
       <label>Senha:</label>
-      <input type="password" name="senha" required>
+      <input type="password" name="senha" minlength="6" required>
 
       <input class="botao" type="submit" value="Editar">
 
