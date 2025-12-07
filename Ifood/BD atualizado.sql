@@ -81,6 +81,21 @@ nome VARCHAR(200),
 senha VARCHAR(200)
 );
 
+CREATE TABLE avaliacaoPedido 
+(
+idAvaliacao INT PRIMARY KEY AUTO_INCREMENT,
+notaRestaurante DOUBLE NOT NULL,
+notaEntregador DOUBLE NOT NULL,
+descricaoNotaRestaurante TEXT,
+descricaoNotaEntregador TEXT,
+idRestaurante INT,
+idEntregador INT,
+idPedido INT,
+FOREIGN KEY(idRestaurante) REFERENCES Restaurante (idRestaurante) ON DELETE CASCADE,
+FOREIGN KEY(idEntregador) REFERENCES Entregador (idEntregador) ON DELETE CASCADE,
+FOREIGN KEY(idPedido) REFERENCES Pedido (idPedido) ON DELETE CASCADE
+);
+
 CREATE VIEW infoIP AS
 SELECT i.idPedido AS idPedido,
 p.nomeProduto AS nomeProduto,
@@ -111,6 +126,28 @@ ON c.idCliente = p.idCliente
 JOIN Restaurante r
 ON r.idRestaurante = p.idRestaurante
 GROUP BY(idPedido);
+
+DELIMITER //
+CREATE FUNCTION calcular_avaliacao_entregador (idE INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE avaliacao DECIMAL(10,2);
+    SET avaliacao = (SELECT SUM(notaEntregador) FROM avaliacaoPedido WHERE idEntregador = idE) / (SELECT COUNT(*) FROM avaliacaoPedido WHERE idEntregador = idE);
+    RETURN avaliacao;
+END;
+// DELIMITER ;
+
+DELIMITER //
+CREATE FUNCTION calcular_avaliacao_restaurante (idR INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE avaliacao DECIMAL(10,2);
+    SET avaliacao = (SELECT SUM(notaRestaurante) FROM avaliacaoPedido WHERE idRestaurante = idR) / (SELECT COUNT(*) FROM avaliacaoPedido WHERE idRestaurante = idR);
+    RETURN avaliacao;
+END;
+// DELIMITER ;
 
 SELECT *
 FROM Restaurante R

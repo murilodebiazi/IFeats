@@ -44,38 +44,51 @@ require_once('verificar-sessao-cliente.php');
                 $resultadoIP = $conexao->query($sqlIP);
                 ?>
                 <div class="pedido">
-                    <p><b>N° do pedido:</b>
-                        <?php echo $infoPedido['idPedido'] ?>
-                    </p>
-                    <p><b>Status:</b>
-                        <?php echo $infoPedido['status'] ?>
-                    </p>
-                    <p><b>Horario Pedido:</b>
-                        <?php echo $infoPedido['horarioPedido'] ?>
-                    </p>
-                    <p><b>Horario Entregue:</b>
-                        <?php echo $infoPedido['horarioEntregue'] ?>
-                    </p>
-                    <p><b>Restaurante:</b>
-                        <?php echo $infoPedido['nomeRestaurante'] ?>
-                    </p>
-                    <p><b>Endereço Restaurante:</b>
-                        <?php echo $infoPedido['enderecoRestaurante'] ?>
-                    </p>
-                    <p><b>Preço: </b>R$
-                        <?php echo $infoPedido['precoPedido'] ?>
-                    </p>
-                    <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
-                        <p>
-                            <?php echo $infoIP['quantidade'] ?>x
-                            <?php echo $infoIP['nomeProduto'] ?> R$
-                            <?php echo $infoIP['precoPorProduto'] ?>
+                    <form action="../php-pedido/form-avaliar-pedido.php" method="POST">
+                        <input type="hidden" name="idPedido" value="<?php echo $infoPedido['idPedido'] ?>">
+                        <p><b>N° do pedido:</b>
+                            <?php echo $infoPedido['idPedido'] ?>
                         </p>
-                    <?php } ?>
+                        <p><b>Status:</b>
+                            <?php echo $infoPedido['status'] ?>
+                        </p>
+                        <p><b>Horario Pedido:</b>
+                            <?php echo $infoPedido['horarioPedido'] ?>
+                        </p>
+                        <p><b>Horario Entregue:</b>
+                            <?php echo $infoPedido['horarioEntregue'] ?>
+                        </p>
+                        <p><b>Restaurante:</b>
+                            <?php echo $infoPedido['nomeRestaurante'] ?>
+                        </p>
+                        <p><b>Endereço Restaurante:</b>
+                            <?php echo $infoPedido['enderecoRestaurante'] ?>
+                        </p>
+                        <p><b>Preço: </b>R$
+                            <?php echo $infoPedido['precoPedido'] ?>
+                        </p>
+                        <?php while ($infoIP = mysqli_fetch_assoc($resultadoIP)) { ?>
+                            <p>
+                                <?php echo $infoIP['quantidade'] ?>x
+                                <?php echo $infoIP['nomeProduto'] ?> R$
+                                <?php echo $infoIP['precoPorProduto'] ?>
+                            </p>
+                        <?php }
+                        $sqlAvaliacao = "SELECT * FROM avaliacaoPedido WHERE idPedido = '$idPedido'";
+                        $resultadoAvaliacao = $conexao->query($sqlAvaliacao);
+                        if ($resultadoAvaliacao->num_rows > 0) {?>
+                        <p style="color: blue">
+                            Pedido já avaliado!
+                        </p>
+                        <?php } else { ?>
+                        <button id="avaliar" type="submit">
+                            Avaliar Pedido
+                        </button>
+                        <?php } ?>
+                    </form>
                 </div>
             <?php } ?>
         </div>
-
     </div>
 
     <div class="rodape">

@@ -36,7 +36,7 @@ require_once('verificar-sessao-cliente.php');
   </div>
 
   <div class="corpo">
-    <a class="botao" href="ver-pedidos-cliente.php">Pedidos Em Espera:</a>
+    <a class="botao" href="ver-pedidos-cliente.php">Seus Pedidos</a>
     <a class="botao" href="historico-pedidos-cliente.php">Histórico de Pedidos</a>
   </div>
 

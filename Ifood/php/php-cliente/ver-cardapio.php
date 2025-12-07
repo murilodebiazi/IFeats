@@ -58,7 +58,7 @@ require_once('verificar-sessao-cliente.php');
             </p>
         </div>
 
-        <a href="../php-pedido/criar-pedido.php?id=<?php echo $idRestaurante?>"> + Fazer Pedido</a>
+        <a href="../php-pedido/criar-pedido.php?id=<?php echo $idRestaurante?>">Fazer Pedido</a>
 
         <h1>Cardapio:</h1>
         <div class="cardapio">

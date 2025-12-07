@@ -74,6 +74,25 @@ body {
     color: #008f45; 
 }
 
+#avaliar{
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    color: gold;
+    cursor: pointer;
+    background-color: #838383;
+    transition: all 0.3s;
+    border: 2px solid #000000;
+}
+
+#avaliar:hover {
+    background-color: #535353;
+}
+
 .itens-pedido ul {
     list-style: none; 
     padding: 0;
