@@ -149,23 +149,6 @@ BEGIN
 END;
 // DELIMITER ;
 
-SELECT *
-FROM Restaurante R
-WHERE (SELECT COUNT(idProduto) 
-FROM Produto 
-WHERE emEstoque = 1 
-GROUP BY(idRestaurante) 
-HAVING idRestaurante = R.idRestaurante) > 0;
-
-SELECT *
-FROM Produto p
-WHERE p.preco > x;
-
-CREATE VIEW EntregadoresDisponiveis AS
-SELECT *
-FROM Entregador
-WHERE disponivel = true;
-
 CREATE VIEW produtosMenorPreco AS
 SELECT *
 FROM Produto
@@ -181,6 +164,11 @@ SELECT *
 FROM Produto
 ORDER BY nomeProduto;
 
-
-
-
+CREATE VIEW restaurantesComEstoque AS
+SELECT *
+FROM Restaurante R
+WHERE (SELECT COUNT(idProduto) 
+FROM Produto 
+WHERE emEstoque = 1 
+GROUP BY(idRestaurante) 
+HAVING idRestaurante = R.idRestaurante) > 0;
