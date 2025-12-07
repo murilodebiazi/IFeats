@@ -21,11 +21,10 @@ body {
 }
 
 .corpo {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    flex: 1;
+    align-items: flex-start; 
 }
 
 .cabecalho {
@@ -62,16 +61,6 @@ body {
 #logo img {
     max-height: 35px;
     vertical-align: middle;
-}
-
-.corpo {
-    flex-grow: 1;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    gap: 30px;
-    flex-wrap: wrap;
 }
 
 .botao {
@@ -157,6 +146,7 @@ body {
     border-radius: 6px;
     justify-content: space-between;
     padding: 20pt 35pt;
+    margin-top: 200px;
 }
 
 .form label {
@@ -169,8 +159,6 @@ body {
     font-size: 12pt;
     height: 20pt;
 }
-
-.form 
 
 #link-cadastro {
     font-size: 10pt;

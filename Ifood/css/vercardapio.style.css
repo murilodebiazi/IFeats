@@ -100,12 +100,12 @@ body {
 /* Lista de Produtos */
 .cardapio {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
 }
 
 .produto {
     background-color: #ffffff;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 12px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
