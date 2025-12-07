@@ -21,9 +21,6 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
     $resultado = $conexao->query($sql);
     $linha = $resultado->fetch_assoc();
     $idRestaurante = $linha['idRestaurante'];
-
-    $sqlProdutos = "SELECT * FROM Produto WHERE idRestaurante = '$idRestaurante'";
-    $produtosListados = $conexao->query($sqlProdutos);
     ?>
     <div class="cabecalho">
         <a id="voltar" href="../php-restaurante/sessao-restaurante.php">Voltar</a>
@@ -32,8 +29,35 @@ require_once('../php-restaurante/verificar-sessao-restaurante.php');
     </div>
     <div class="corpo">
         <h1>Produtos:</h1>
+        <form method="POST" action="listar-produtos.php">
+            <select name="filtro" id="filtro">
+                <option value="" disabled selected>--Filtrar Produtos--</option>
+                <option value="maiorPreco">Maior Preço</option>
+                <option value="menorPreco">Menor Preço</option>
+                <option value="alfabetica">Alfabética</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+        <br>
         <div class="produtos">
-            <?php while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
+            <?php
+            $sql = "SELECT * FROM Produto WHERE idRestaurante = '$idRestaurante'";
+            if (isset($_POST['filtro'])) {
+                $filtro = $_POST['filtro'];
+                switch ($filtro) {
+                    case "maiorPreco":
+                        $sql = "SELECT * FROM produtosMaiorPreco WHERE idRestaurante = '$idRestaurante';";
+                        break;
+                    case "menorPreco":
+                        $sql = "SELECT * FROM produtosMenorPreco WHERE idRestaurante = '$idRestaurante';";
+                        break;
+                    default:
+                        $sql = "SELECT * FROM produtosAlfabetico WHERE idRestaurante = '$idRestaurante';";
+                        break;
+                }
+            } 
+            $produtosListados = $conexao->query($sql);
+            while ($linhaP = mysqli_fetch_assoc($produtosListados)) { ?>
                 <div class="produto">
                     <p> <?php echo $linhaP['nomeProduto']; ?> </p>
                     <p> R$ <?php echo $linhaP['preco']; ?> </p>

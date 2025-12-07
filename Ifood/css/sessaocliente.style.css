@@ -51,7 +51,7 @@ body {
 
 #m {
     width: 100%;
-    max-width: 900px;
+    max-width: 500px;
     display: grid;
     gap: 20px;
 }
@@ -66,6 +66,7 @@ body {
     height: 100%;
     display: flex;
     justify-content: center;
+    border: rgb(160, 160, 160) solid 2px;
 }
 
 .restaurante:hover {

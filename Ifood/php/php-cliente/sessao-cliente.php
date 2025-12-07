@@ -40,16 +40,15 @@ require_once('verificar-sessao-cliente.php');
     <a id="verrestaurantes" href="sessao-cliente.php">Restaurantes</a>
     <a id="logout" href="deslogar-cliente.php">Logout</a>
   </div>
-
   <div class="restaurantes">
     <div id="m">
       <?php while ($linhaR = mysqli_fetch_assoc($resultadoRestaurante)) { ?>
-      <div class='restaurante'>
-        <br>
+        <div class='restaurante'>
         <a class='titulo' href='ver-cardapio.php?id=<?php echo $linhaR['idRestaurante'] ?>'><b>
             <?php echo $linhaR['nomeRestaurante'] ?>
         </b></a>
-      </div>
+        </div>
+      <br>
       <?php } ?>
     </div>
   </div>
